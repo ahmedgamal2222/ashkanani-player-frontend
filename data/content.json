@@ -1,0 +1,402 @@
+{
+  "en": {
+    "siteInfo": {
+      "siteTitle": "Ahmed Khoursheed | Professional Footballer — Kuwait",
+      "siteDescription": "Official profile of Ahmed Khoursheed, Kuwaiti professional midfielder for Salmiya SC and the Kuwait Olympic Team. Represented by Ashkanani Players Agency.",
+      "agencyName": "Ashkanani Players Agency",
+      "agencyTagline": "Official Player Representation • Kuwait",
+      "agencyLogo": "https://ashkananitransfer.com/logo.png",
+      "agencyWebsite": "https://ashknanisport2025.vercel.app/",
+      "agencyInstagram": "https://www.instagram.com/ashkanani.sport/",
+      "playerPhoto": "/images/ahmedhussin4.jpg",
+      "heroImage": "/images/ahmedhussin6.jpg",
+      "contactOfficeImage": "/images/agency-office.svg"
+    },
+    "navigation": {
+      "home": "Home",
+      "profile": "Profile",
+      "attributes": "Attributes",
+      "stats": "Statistics",
+      "career": "Career",
+      "achievements": "Achievements",
+      "media": "Media",
+      "matches": "Matches",
+      "contact": "Contact",
+      "agentContact": "Contact Agency"
+    },
+    "hero": {
+      "eyebrow": "Kuwait Olympic Team • Salmiya SC",
+      "firstName": "Ahmed",
+      "lastName": "Khoursheed",
+      "titles": ["Center Midfielder", "Attacking Midfielder"],
+      "tagline": "Professional Kuwaiti midfielder wearing jersey number 8 — signed and officially represented by Ashkanani Players Agency.",
+      "ctaPrimary": "Contact the Agency",
+      "ctaSecondary": "Watch Highlights",
+      "scroll": "Scroll to explore",
+      "jerseyLabel": "Jersey"
+    },
+    "quickStats": {
+      "age": "Age",
+      "years": "years",
+      "height": "Height",
+      "weight": "Weight",
+      "foot": "Preferred Foot",
+      "marketValue": "Market Value",
+      "position": "Position",
+      "club": "Current Club",
+      "nationalTeam": "National Team",
+      "transfermarkt": "Transfermarkt"
+    },
+    "profile": {
+      "title": "Player Profile",
+      "subtitle": "Personal and professional information",
+      "bioTitle": "Biography",
+      "infoTitle": "Player Information",
+      "labels": {
+        "fullName": "Full Name",
+        "dateOfBirth": "Date of Birth",
+        "age": "Age",
+        "height": "Height",
+        "weight": "Weight",
+        "foot": "Preferred Foot",
+        "gender": "Gender",
+        "nationality": "Nationality",
+        "marketValue": "Market Value",
+        "address": "Address",
+        "status": "Status",
+        "position": "Position",
+        "secondaryPosition": "Secondary Position",
+        "jerseyNumber": "Jersey Number",
+        "federation": "Federation",
+        "club": "Current Club",
+        "nationalTeam": "National Team",
+        "previousClubs": "Previous Clubs"
+      },
+      "verifiedNote": "Data verified and updated by the agency.",
+      "updatedAt": "Last updated"
+    },
+    "attributes": {
+      "title": "Player Attributes",
+      "subtitle": "Technical, defensive, physical and mental profile",
+      "overall": "Overall",
+      "categories": {
+        "technical": "Technical",
+        "defensive": "Defensive",
+        "physical": "Physical",
+        "mental": "Mental"
+      }
+    },
+    "stats": {
+      "title": "Season Statistics",
+      "subtitle": "Performance across competitions",
+      "season": "Season",
+      "allSeasons": "All seasons",
+      "competition": "Competition",
+      "summary": {
+        "appearances": "Appearances",
+        "starts": "Starts",
+        "minutes": "Minutes Played",
+        "goals": "Goals",
+        "assists": "Assists",
+        "yellowCards": "Yellow Cards",
+        "redCards": "Red Cards",
+        "passAccuracy": "Pass Accuracy",
+        "duelsWon": "Duels Won",
+        "rating": "Average Rating"
+      },
+      "tableCaption": "Detailed breakdown by competition"
+    },
+    "career": {
+      "title": "Career Path",
+      "subtitle": "Clubs and national teams",
+      "present": "Present",
+      "current": "Current",
+      "appearances": "Appearances",
+      "goals": "Goals",
+      "assists": "Assists"
+    },
+    "achievements": {
+      "title": "Achievements",
+      "subtitle": "Titles, call-ups and milestones",
+      "categories": {
+        "league": "League",
+        "national": "National Team",
+        "professional": "Professional",
+        "individual": "Individual"
+      }
+    },
+    "media": {
+      "title": "Media Gallery",
+      "subtitle": "Official photos and videos",
+      "photos": "Photos",
+      "videos": "Videos",
+      "all": "All",
+      "watch": "Watch",
+      "close": "Close",
+      "previous": "Previous",
+      "next": "Next",
+      "noPhotos": "No photos available yet.",
+      "noVideos": "No videos available yet.",
+      "videoUnavailable": "Video not available — please upload the file to /public/videos."
+    },
+    "matches": {
+      "title": "Recent Matches",
+      "subtitle": "Latest appearances",
+      "date": "Date",
+      "competition": "Competition",
+      "opponent": "Opponent",
+      "result": "Result",
+      "minutes": "Minutes",
+      "goals": "Goals",
+      "assists": "Assists",
+      "rating": "Rating",
+      "home": "Home",
+      "away": "Away",
+      "neutral": "Neutral",
+      "empty": "No matches logged yet."
+    },
+    "contact": {
+      "title": "Contact the Agency",
+      "subtitle": "For transfers, trials and sponsorship enquiries",
+      "agentTitle": "Ashkanani Players Agency",
+      "agentNote": "Official representative of Ahmed Khoursheed for all professional negotiations.",
+      "directTitle": "Direct Contact",
+      "labels": {
+        "phone": "Phone / WhatsApp",
+        "email": "Email",
+        "address": "Address"
+      },
+      "form": {
+        "name": "Full name",
+        "namePlaceholder": "Your full name",
+        "email": "Email",
+        "emailPlaceholder": "you@example.com",
+        "phone": "Phone",
+        "phonePlaceholder": "+965 ...",
+        "organization": "Club / Organization",
+        "organizationPlaceholder": "Club or company (optional)",
+        "subject": "Subject",
+        "subjectPlaceholder": "Transfer enquiry, trial request, sponsorship...",
+        "message": "Message",
+        "messagePlaceholder": "Write your message here...",
+        "submit": "Send Message",
+        "submitting": "Sending...",
+        "success": "Your message has been received. The agency will contact you soon.",
+        "error": "Could not send the message. Please try WhatsApp instead."
+      }
+    },
+    "footer": {
+      "rights": "© {year} Ashkanani Players Agency. All rights reserved.",
+      "disclaimer": "Player data is provided by the agency and may be updated at any time.",
+      "quickLinks": "Quick Links",
+      "followUs": "Follow Us",
+      "officialProfile": "Official Player Profile"
+    },
+    "common": {
+      "loading": "Loading...",
+      "liveData": "Live data from the agency database",
+      "offlineData": "Offline data",
+      "scrollTop": "Back to top"
+    }
+  },
+  "ar": {
+    "siteInfo": {
+      "siteTitle": "أحمد خورشيد | لاعب كرة قدم محترف — الكويت",
+      "siteDescription": "الملف الرسمي للاعب أحمد خورشيد، لاعب وسط كويتي محترف في نادي السالمية ومنتخب الكويت الأولمبي. يمثّله وكالة أشكناني للاعبين.",
+      "agencyName": "وكالة أشكناني للاعبين",
+      "agencyTagline": "تمثيل رسمي للاعبين • الكويت",
+      "agencyLogo": "https://ashkananitransfer.com/logo.png",
+      "agencyWebsite": "https://ashknanisport2025.vercel.app/",
+      "agencyInstagram": "https://www.instagram.com/ashkanani.sport/",
+      "playerPhoto": "/images/ahmedhussin4.jpg",
+      "heroImage": "/images/ahmedhussin6.jpg",
+      "contactOfficeImage": "/images/agency-office.svg"
+    },
+    "navigation": {
+      "home": "الرئيسية",
+      "profile": "الملف الشخصي",
+      "attributes": "السمات",
+      "stats": "الإحصائيات",
+      "career": "المسيرة",
+      "achievements": "الإنجازات",
+      "media": "الوسائط",
+      "matches": "المباريات",
+      "contact": "التواصل",
+      "agentContact": "اتصل بالوكالة"
+    },
+    "hero": {
+      "eyebrow": "منتخب الكويت الأولمبي • نادي السالمية",
+      "firstName": "أحمد",
+      "lastName": "خورشيد",
+      "titles": ["لاعب وسط", "وسط هجومي"],
+      "tagline": "لاعب وسط كويتي محترف يحمل الرقم 8 — موقّع ومُمثَّل رسميًا من وكالة أشكناني للاعبين.",
+      "ctaPrimary": "تواصل مع الوكالة",
+      "ctaSecondary": "شاهد أبرز اللقطات",
+      "scroll": "اسحب للأسفل للاستكشاف",
+      "jerseyLabel": "الرقم"
+    },
+    "quickStats": {
+      "age": "العمر",
+      "years": "سنة",
+      "height": "الطول",
+      "weight": "الوزن",
+      "foot": "القدم المفضّلة",
+      "marketValue": "القيمة السوقية",
+      "position": "المركز",
+      "club": "النادي الحالي",
+      "nationalTeam": "المنتخب",
+      "transfermarkt": "ترانسفير ماركت"
+    },
+    "profile": {
+      "title": "الملف الشخصي",
+      "subtitle": "بيانات شخصية واحترافية",
+      "bioTitle": "نبذة عن اللاعب",
+      "infoTitle": "معلومات اللاعب",
+      "labels": {
+        "fullName": "الاسم الكامل",
+        "dateOfBirth": "تاريخ الميلاد",
+        "age": "العمر",
+        "height": "الطول",
+        "weight": "الوزن",
+        "foot": "القدم المفضّلة",
+        "gender": "الجنس",
+        "nationality": "الجنسية",
+        "marketValue": "القيمة السوقية",
+        "address": "العنوان",
+        "status": "الحالة",
+        "position": "المركز",
+        "secondaryPosition": "المركز الثاني",
+        "jerseyNumber": "رقم القميص",
+        "federation": "الاتحاد",
+        "club": "النادي الحالي",
+        "nationalTeam": "المنتخب الوطني",
+        "previousClubs": "الأندية السابقة"
+      },
+      "verifiedNote": "البيانات موثّقة ومحدَّثة من الوكالة.",
+      "updatedAt": "آخر تحديث"
+    },
+    "attributes": {
+      "title": "سمات اللاعب",
+      "subtitle": "التقييم الفني والدفاعي والبدني والذهني",
+      "overall": "التقييم العام",
+      "categories": {
+        "technical": "فني",
+        "defensive": "دفاعي",
+        "physical": "بدني",
+        "mental": "ذهني"
+      }
+    },
+    "stats": {
+      "title": "إحصائيات المواسم",
+      "subtitle": "الأداء في جميع المسابقات",
+      "season": "الموسم",
+      "allSeasons": "جميع المواسم",
+      "competition": "المسابقة",
+      "summary": {
+        "appearances": "المباريات",
+        "starts": "أساسي",
+        "minutes": "دقائق اللعب",
+        "goals": "الأهداف",
+        "assists": "التمريرات الحاسمة",
+        "yellowCards": "البطاقات الصفراء",
+        "redCards": "البطاقات الحمراء",
+        "passAccuracy": "دقة التمرير",
+        "duelsWon": "التحامات ناجحة",
+        "rating": "متوسط التقييم"
+      },
+      "tableCaption": "تفصيل الإحصائيات حسب المسابقة"
+    },
+    "career": {
+      "title": "المسيرة الكروية",
+      "subtitle": "الأندية والمنتخبات الوطنية",
+      "present": "حتى الآن",
+      "current": "الحالي",
+      "appearances": "المباريات",
+      "goals": "الأهداف",
+      "assists": "التمريرات الحاسمة"
+    },
+    "achievements": {
+      "title": "الإنجازات",
+      "subtitle": "الألقاب والاستدعاءات والمحطات المهمة",
+      "categories": {
+        "league": "الدوري",
+        "national": "المنتخب الوطني",
+        "professional": "احترافي",
+        "individual": "فردي"
+      }
+    },
+    "media": {
+      "title": "معرض الصور والفيديو",
+      "subtitle": "صور وفيديوهات رسمية",
+      "photos": "الصور",
+      "videos": "الفيديوهات",
+      "all": "الكل",
+      "watch": "مشاهدة",
+      "close": "إغلاق",
+      "previous": "السابق",
+      "next": "التالي",
+      "noPhotos": "لا توجد صور متاحة حتى الآن.",
+      "noVideos": "لا توجد فيديوهات متاحة حتى الآن.",
+      "videoUnavailable": "الفيديو غير متوفر — يرجى رفع الملف إلى مجلد /public/videos."
+    },
+    "matches": {
+      "title": "المباريات الأخيرة",
+      "subtitle": "أحدث المشاركات",
+      "date": "التاريخ",
+      "competition": "المسابقة",
+      "opponent": "الخصم",
+      "result": "النتيجة",
+      "minutes": "الدقائق",
+      "goals": "الأهداف",
+      "assists": "التمريرات الحاسمة",
+      "rating": "التقييم",
+      "home": "أرضنا",
+      "away": "خارج الأرض",
+      "neutral": "ملعب محايد",
+      "empty": "لا توجد مباريات مسجّلة حتى الآن."
+    },
+    "contact": {
+      "title": "تواصل مع الوكالة",
+      "subtitle": "للاستفسار عن الانتقالات والتجارب والرعاية",
+      "agentTitle": "وكالة أشكناني للاعبين",
+      "agentNote": "الممثل الرسمي للاعب أحمد خورشيد في جميع المفاوضات الاحترافية.",
+      "directTitle": "التواصل المباشر",
+      "labels": {
+        "phone": "الهاتف / واتساب",
+        "email": "البريد الإلكتروني",
+        "address": "العنوان"
+      },
+      "form": {
+        "name": "الاسم الكامل",
+        "namePlaceholder": "اكتب اسمك الكامل",
+        "email": "البريد الإلكتروني",
+        "emailPlaceholder": "you@example.com",
+        "phone": "رقم الهاتف",
+        "phonePlaceholder": "+965 ...",
+        "organization": "النادي / الجهة",
+        "organizationPlaceholder": "اسم النادي أو الشركة (اختياري)",
+        "subject": "الموضوع",
+        "subjectPlaceholder": "استفسار انتقال، طلب تجربة، رعاية...",
+        "message": "الرسالة",
+        "messagePlaceholder": "اكتب رسالتك هنا...",
+        "submit": "إرسال الرسالة",
+        "submitting": "جارٍ الإرسال...",
+        "success": "تم استلام رسالتك بنجاح، سيتواصل معك فريق الوكالة قريبًا.",
+        "error": "تعذّر إرسال الرسالة، يمكنك التواصل عبر واتساب."
+      }
+    },
+    "footer": {
+      "rights": "© {year} وكالة أشكناني للاعبين. جميع الحقوق محفوظة.",
+      "disclaimer": "بيانات اللاعب مقدمة من الوكالة وقد تُحدَّث في أي وقت.",
+      "quickLinks": "روابط سريعة",
+      "followUs": "تابعنا",
+      "officialProfile": "الملف الرسمي للاعب"
+    },
+    "common": {
+      "loading": "جارٍ التحميل...",
+      "liveData": "بيانات مباشرة من قاعدة بيانات الوكالة",
+      "offlineData": "بيانات محلية",
+      "scrollTop": "العودة للأعلى"
+    }
+  }
+}

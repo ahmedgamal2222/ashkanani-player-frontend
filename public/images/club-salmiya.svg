@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320">
+  <defs>
+    <linearGradient id="gy" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e6b8"/><stop offset="0.5" stop-color="#e3c264"/><stop offset="1" stop-color="#9c7223"/>
+    </linearGradient>
+  </defs>
+  <circle cx="160" cy="160" r="150" fill="#0d1020" stroke="url(#gy)" stroke-width="5"/>
+  <path d="M160 52l40 26 45-9 10 44 38 26-24 38 9 45-44 10-26 38-38-24-45 9-10-44-38-26 24-38-9-45 44-10z" fill="none" stroke="url(#gy)" stroke-width="2" opacity="0.6"/>
+  <text x="160" y="146" font-family="Georgia, serif" font-size="56" font-weight="700" text-anchor="middle" fill="url(#gy)">SC</text>
+  <text x="160" y="196" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3" text-anchor="middle" fill="url(#gy)">SALMIYA</text>
+  <text x="160" y="222" font-family="Arial, sans-serif" font-size="12" letter-spacing="4" text-anchor="middle" fill="#c9ccdd" opacity="0.8">KUWAIT</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a2140"/><stop offset="1" stop-color="#0d1020"/>
+    </linearGradient>
+    <linearGradient id="gold4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e6b8"/><stop offset="0.5" stop-color="#e3c264"/><stop offset="1" stop-color="#9c7223"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg4)"/>
+  <g stroke="#e3c264" stroke-opacity="0.12" stroke-width="2">
+    <line x1="80" y1="800" x2="720" y2="800"/><line x1="80" y1="840" x2="720" y2="840"/>
+  </g>
+  <circle cx="400" cy="400" r="90" fill="#3b2f5c"/>
+  <path d="M250 800c0-86 67-156 150-156s150 70 150 156z" fill="#3b2f5c"/>
+  <path d="M320 610h160v180H320z" fill="#241d3b" stroke="url(#gold4)" stroke-width="4"/>
+  <text x="400" y="706" font-family="Georgia, serif" font-size="76" font-weight="700" text-anchor="middle" fill="url(#gold4)">8</text>
+  <text x="400" y="96" font-family="Arial, sans-serif" font-size="24" letter-spacing="7" text-anchor="middle" fill="url(#gold4)">TRAINING SESSION</text>
+  <text x="400" y="930" font-family="Arial, sans-serif" font-size="20" letter-spacing="4" text-anchor="middle" fill="#c9ccdd" opacity="0.75">حصة تدريبية — استبدلها بـ gallery-4.jpg</text>
+</svg>

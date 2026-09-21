@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2a44"/><stop offset="1" stop-color="#0d1020"/>
+    </linearGradient>
+    <linearGradient id="gold2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e6b8"/><stop offset="0.5" stop-color="#e3c264"/><stop offset="1" stop-color="#9c7223"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg2)"/>
+  <g opacity="0.18" fill="#2f7fd6">
+    <path d="M0 620h800v18H0z"/><path d="M0 664h800v18H0z"/><path d="M0 708h800v18H0z"/>
+  </g>
+  <circle cx="400" cy="330" r="92" fill="#20406b"/>
+  <path d="M250 760c0-88 68-160 150-160s150 72 150 160z" fill="#20406b"/>
+  <path d="M320 570h160v180H320z" fill="#12294a" stroke="url(#gold2)" stroke-width="4"/>
+  <text x="400" y="666" font-family="Georgia, serif" font-size="80" font-weight="700" text-anchor="middle" fill="url(#gold2)">8</text>
+  <text x="400" y="96" font-family="Arial, sans-serif" font-size="24" letter-spacing="7" text-anchor="middle" fill="url(#gold2)">KUWAIT NATIONAL TEAM</text>
+  <text x="400" y="930" font-family="Arial, sans-serif" font-size="20" letter-spacing="4" text-anchor="middle" fill="#c9ccdd" opacity="0.75">بلبس المنتخب — استبدلها بـ gallery-2.jpg</text>
+</svg>

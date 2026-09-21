@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a2a12"/><stop offset="1" stop-color="#0d1020"/>
+    </linearGradient>
+    <linearGradient id="gold5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e6b8"/><stop offset="0.5" stop-color="#e3c264"/><stop offset="1" stop-color="#9c7223"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg5)"/>
+  <path d="M400 250c40 40 60 84 60 130h-120c0-46 20-90 60-130z" fill="url(#gold5)" opacity="0.9"/>
+  <rect x="330" y="382" width="140" height="26" rx="6" fill="url(#gold5)" opacity="0.75"/>
+  <rect x="368" y="408" width="64" height="90" rx="8" fill="url(#gold5)" opacity="0.65"/>
+  <rect x="322" y="470" width="156" height="22" rx="6" fill="url(#gold5)" opacity="0.55"/>
+  <text x="400" y="700" font-family="Georgia, serif" font-size="40" font-weight="700" letter-spacing="3" text-anchor="middle" fill="url(#gold5)">TROPHY &amp; AWARDS</text>
+  <text x="400" y="96" font-family="Arial, sans-serif" font-size="24" letter-spacing="7" text-anchor="middle" fill="url(#gold5)">CLUB CEREMONY</text>
+  <text x="400" y="930" font-family="Arial, sans-serif" font-size="20" letter-spacing="4" text-anchor="middle" fill="#c9ccdd" opacity="0.75">تتويج وجوائز — استبدلها بـ gallery-5.jpg</text>
+</svg>

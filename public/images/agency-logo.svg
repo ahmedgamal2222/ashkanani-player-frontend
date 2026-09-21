@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e6b8"/>
+      <stop offset="0.45" stop-color="#e3c264"/>
+      <stop offset="1" stop-color="#9c7223"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" rx="36" fill="#0d1020"/>
+  <path d="M160 34l96 32v86c0 64-40.6 114-96 138-55.4-24-96-74-96-138V66l96-32z" fill="#101530" stroke="url(#gold)" stroke-width="4"/>
+  <path d="M160 52l78 26v74c0 52-33 92.6-78 112-45-19.4-78-60-78-112V78l78-26z" fill="none" stroke="url(#gold)" stroke-width="1.6" opacity="0.65"/>
+  <text x="160" y="152" font-family="Georgia, serif" font-size="72" font-weight="700" text-anchor="middle" fill="url(#gold)">A</text>
+  <text x="160" y="196" font-family="Georgia, serif" font-size="22" font-weight="600" letter-spacing="3" text-anchor="middle" fill="url(#gold)">ASHKANANI</text>
+  <text x="160" y="222" font-family="Georgia, serif" font-size="13" letter-spacing="4" text-anchor="middle" fill="#e3c264" opacity="0.8">PLAYERS AGENCY</text>
+  <text x="160" y="252" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" text-anchor="middle" fill="#c9ccdd" opacity="0.75">KUWAIT</text>
+</svg>

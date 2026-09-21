@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11223d"/><stop offset="1" stop-color="#0d1020"/>
+    </linearGradient>
+    <linearGradient id="gold6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e6b8"/><stop offset="0.5" stop-color="#e3c264"/><stop offset="1" stop-color="#9c7223"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg6)"/>
+  <g opacity="0.85">
+    <rect x="120" y="300" width="560" height="360" rx="10" fill="#16294a"/>
+    <g fill="#0d1020" opacity="0.55">
+      <rect x="150" y="330" width="120" height="300"/><rect x="290" y="330" width="120" height="300"/>
+      <rect x="430" y="330" width="120" height="300"/><rect x="570" y="330" width="80" height="300"/>
+    </g>
+  </g>
+  <path d="M60 700h680v40H60z" fill="#0f1a30"/>
+  <text x="400" y="96" font-family="Arial, sans-serif" font-size="24" letter-spacing="7" text-anchor="middle" fill="url(#gold6)">MATCH DAY STADIUM</text>
+  <text x="400" y="930" font-family="Arial, sans-serif" font-size="20" letter-spacing="4" text-anchor="middle" fill="#c9ccdd" opacity="0.75">يوم المباراة — استبدلها بـ gallery-6.jpg</text>
+</svg>

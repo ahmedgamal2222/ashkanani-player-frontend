@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="v1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141a3a"/><stop offset="1" stop-color="#0d1020"/>
+    </linearGradient>
+    <linearGradient id="v1g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e6b8"/><stop offset="0.5" stop-color="#e3c264"/><stop offset="1" stop-color="#9c7223"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#v1)"/>
+  <g stroke="#e3c264" stroke-opacity="0.14" stroke-width="3" fill="none">
+    <rect x="80" y="100" width="1120" height="520"/><circle cx="640" cy="360" r="150"/><line x1="640" y1="100" x2="640" y2="620"/>
+  </g>
+  <circle cx="640" cy="310" r="120" fill="#e3c264" opacity="0.14"/>
+  <path d="M607 250l86 60-86 60z" fill="url(#v1g)"/>
+  <text x="640" y="600" font-family="Georgia, serif" font-size="42" font-weight="700" letter-spacing="4" text-anchor="middle" fill="url(#v1g)">SEASON HIGHLIGHTS</text>
+  <text x="640" y="650" font-family="Arial, sans-serif" font-size="20" letter-spacing="5" text-anchor="middle" fill="#c9ccdd" opacity="0.8">أبرز لقطات الموسم 2024 / 2025</text>
+</svg>

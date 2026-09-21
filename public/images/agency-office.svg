@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700">
+  <defs>
+    <linearGradient id="of" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141a3a"/><stop offset="1" stop-color="#0d1020"/>
+    </linearGradient>
+    <linearGradient id="ofg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6e6b8"/><stop offset="0.5" stop-color="#e3c264"/><stop offset="1" stop-color="#9c7223"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#of)"/>
+  <g opacity="0.9">
+    <rect x="140" y="220" width="920" height="360" rx="12" fill="#16294a"/>
+    <g fill="#0d1020" opacity="0.5">
+      <rect x="180" y="260" width="180" height="280"/><rect x="380" y="260" width="180" height="280"/>
+      <rect x="580" y="260" width="180" height="280"/><rect x="780" y="260" width="240" height="280"/>
+    </g>
+  </g>
+  <path d="M100 580h1000v30H100z" fill="#0f1a30"/>
+  <text x="600" y="120" font-family="Georgia, serif" font-size="46" font-weight="700" letter-spacing="4" text-anchor="middle" fill="url(#ofg)">ASHKANANI PLAYERS AGENCY</text>
+  <text x="600" y="166" font-family="Arial, sans-serif" font-size="20" letter-spacing="6" text-anchor="middle" fill="#c9ccdd" opacity="0.85">KUWAIT • OFFICIAL PLAYER REPRESENTATION</text>
+  <text x="600" y="660" font-family="Arial, sans-serif" font-size="18" letter-spacing="3" text-anchor="middle" fill="#c9ccdd" opacity="0.7">مقر الوكالة — power/agency-office.jpg</text>
+</svg>
