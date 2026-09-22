@@ -97,10 +97,11 @@ npm run dev                    # http://localhost:3000
 frontend/
 ├─ app/                     layout + page + seo (robots/sitemap) — تصدير ثابت
 ├─ components/
-│  ├─ sections/            أقسام الموقع: hero, profile, attributes, stats, career,
-│  │                       achievements, media, matches, contact, footer
+│  ├─ sections/            أقسام الموقع: hero, profile, tactical (خريطة الملعب), stats, career,
+│  │                       presence (الخريطة العالمية), achievements, media, matches, contact, footer
 │  ├─ ui/                  عناصر واجهة بنمط shadcn (button, card, badge, input...)
 │  ├─ player-provider.tsx  توزيع بيانات اللاعب على كل الأقسام
+│  ├─ player-links.tsx     بطاقات الملف الرسمي (ترانسفير ماركت + الوكالة + إنستغرام)
 │  └─ site-header.tsx      القائمة العلوية + شريط التقدم + مبدّل اللغة
 ├─ contexts/               إدارة اللغة (عربي/إنجليزي + RTL)
 ├─ data/content.json       كل النصوص المترجمة

@@ -36,8 +36,9 @@ export const metadata: Metadata = {
   },
   description: copy.siteInfo.siteDescription,
   keywords: [
-    'أحمد خورشيد',
+    'أحمد حسين خورشيد',
     'لاعب كرة قدم كويتي',
+    'النادي العربي الكويتي',
     'نادي السالمية',
     'منتخب الكويت الأولمبي',
     'وكالة أشكناني للاعبين',

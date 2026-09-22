@@ -1,8 +1,8 @@
 {
   "en": {
     "siteInfo": {
-      "siteTitle": "Ahmed Khoursheed | Professional Footballer — Kuwait",
-      "siteDescription": "Official profile of Ahmed Khoursheed, Kuwaiti professional midfielder for Salmiya SC and the Kuwait Olympic Team. Represented by Ashkanani Players Agency.",
+      "siteTitle": "Ahmed Hussein Khoursheed | Professional Footballer — Kuwait",
+      "siteDescription": "Official profile of Ahmed Hussein Khoursheed, Kuwaiti professional midfielder for Salmiya SC and the Kuwait Olympic Team. Al-Arabi SC academy graduate, represented by Ashkanani Players Agency.",
       "agencyName": "Ashkanani Players Agency",
       "agencyTagline": "Official Player Representation • Kuwait",
       "agencyLogo": "https://ashkananitransfer.com/logo.png",
@@ -22,14 +22,16 @@
       "media": "Media",
       "matches": "Matches",
       "contact": "Contact",
-      "agentContact": "Contact Agency"
+      "agentContact": "Contact Agency",
+      "tactical": "Tactical Map",
+      "presence": "Global Presence"
     },
     "hero": {
       "eyebrow": "Kuwait Olympic Team • Salmiya SC",
       "firstName": "Ahmed",
-      "lastName": "Khoursheed",
+      "lastName": "Hussein Khoursheed",
       "titles": ["Center Midfielder", "Attacking Midfielder"],
-      "tagline": "Professional Kuwaiti midfielder wearing jersey number 8 — signed and officially represented by Ashkanani Players Agency.",
+      "tagline": "Professional Kuwaiti midfielder wearing jersey number 8 — from the Al-Arabi academy to the Salmiya SC first team on a two-season contract, officially represented by Ashkanani Players Agency.",
       "ctaPrimary": "Contact the Agency",
       "ctaSecondary": "Watch Highlights",
       "scroll": "Scroll to explore",
@@ -46,6 +48,60 @@
       "club": "Current Club",
       "nationalTeam": "National Team",
       "transfermarkt": "Transfermarkt"
+    },
+    "links": {
+      "transfermarkt": "Ashkanani Transfermarkt",
+      "transfermarktNote": "Full CV, statistics and verified official data on the Ashkanani Transfermarkt platform.",
+      "verified": "Verified",
+      "agency": "Agency Website",
+      "agencyNote": "News, transfers and the agency's full player portfolio.",
+      "instagram": "Agency Instagram",
+      "instagramNote": "Latest updates and behind-the-scenes content."
+    },
+    "tactical": {
+      "title": "Position on the Pitch",
+      "subtitle": "Tactical map: where he plays, his number and his role",
+      "formation": "Team Shape",
+      "rolesTitle": "Key Roles on the Pitch",
+      "roles": [
+        "Building play from deep",
+        "Quick ball circulation and fast transitions",
+        "High pressing and ball recovery"
+      ],
+      "legendTitle": "Map Legend",
+      "legendPlayer": "Player",
+      "legendSquad": "Rest of the squad",
+      "legendMove": "Range of movement and secondary role",
+      "labels": {
+        "primary": "Primary Position",
+        "secondary": "Secondary Position",
+        "jersey": "Jersey Number",
+        "foot": "Preferred Foot",
+        "club": "Current Club",
+        "nationalTeam": "National Team"
+      }
+    },
+    "presence": {
+      "title": "Global Presence",
+      "subtitle": "Kuwait — the starting point towards Europe, Asia and the world",
+      "regionValue": "Arabian Gulf",
+      "hemisphereValue": "Northern · Eastern",
+      "mapTitle": "Player Location on the Map",
+      "mapNote": "The Kuwait marker shows where the player was born and started his journey on the world map.",
+      "legendPlayer": "Player location (Kuwait)",
+      "legendRoute": "Markets and interest routes",
+      "legendNote": "Dashed lines show the reach and interest from European, Gulf and Asian markets.",
+      "markets": "{count} markets on the map",
+      "cta": "Official file on Ashkanani Transfermarkt",
+      "labels": {
+        "playerPoint": "Player",
+        "country": "Country",
+        "region": "Region",
+        "coordinates": "Coordinates",
+        "timezone": "Timezone",
+        "dialCode": "Dial Code",
+        "hemisphere": "Hemisphere"
+      }
     },
     "profile": {
       "title": "Player Profile",
@@ -159,7 +215,7 @@
       "title": "Contact the Agency",
       "subtitle": "For transfers, trials and sponsorship enquiries",
       "agentTitle": "Ashkanani Players Agency",
-      "agentNote": "Official representative of Ahmed Khoursheed for all professional negotiations.",
+      "agentNote": "Official representative of Ahmed Hussein Khoursheed for all professional negotiations.",
       "directTitle": "Direct Contact",
       "labels": {
         "phone": "Phone / WhatsApp",
@@ -201,8 +257,8 @@
   },
   "ar": {
     "siteInfo": {
-      "siteTitle": "أحمد خورشيد | لاعب كرة قدم محترف — الكويت",
-      "siteDescription": "الملف الرسمي للاعب أحمد خورشيد، لاعب وسط كويتي محترف في نادي السالمية ومنتخب الكويت الأولمبي. يمثّله وكالة أشكناني للاعبين.",
+      "siteTitle": "أحمد حسين خورشيد | لاعب كرة قدم محترف — الكويت",
+      "siteDescription": "الملف الرسمي للاعب أحمد حسين خورشيد، لاعب وسط كويتي محترف في نادي السالمية ومنتخب الكويت الأولمبي. من مدرسة النادي العربي، ويمثّله وكالة أشكناني للاعبين.",
       "agencyName": "وكالة أشكناني للاعبين",
       "agencyTagline": "تمثيل رسمي للاعبين • الكويت",
       "agencyLogo": "https://ashkananitransfer.com/logo.png",
@@ -222,14 +278,16 @@
       "media": "الوسائط",
       "matches": "المباريات",
       "contact": "التواصل",
-      "agentContact": "اتصل بالوكالة"
+      "agentContact": "اتصل بالوكالة",
+      "tactical": "المركز في الملعب",
+      "presence": "الحضور عالميًا"
     },
     "hero": {
       "eyebrow": "منتخب الكويت الأولمبي • نادي السالمية",
       "firstName": "أحمد",
-      "lastName": "خورشيد",
+      "lastName": "حسين خورشيد",
       "titles": ["لاعب وسط", "وسط هجومي"],
-      "tagline": "لاعب وسط كويتي محترف يحمل الرقم 8 — موقّع ومُمثَّل رسميًا من وكالة أشكناني للاعبين.",
+      "tagline": "لاعب وسط كويتي محترف يحمل الرقم 8 — من مدرسة النادي العربي إلى الفريق الأول لنادي السالمية بعقد موسمين، ومُمثَّل رسميًا من وكالة أشكناني للاعبين.",
       "ctaPrimary": "تواصل مع الوكالة",
       "ctaSecondary": "شاهد أبرز اللقطات",
       "scroll": "اسحب للأسفل للاستكشاف",
@@ -246,6 +304,60 @@
       "club": "النادي الحالي",
       "nationalTeam": "المنتخب",
       "transfermarkt": "ترانسفير ماركت"
+    },
+    "links": {
+      "transfermarkt": "أشكناني ترانسفير ماركت",
+      "transfermarktNote": "السيرة الكاملة والإحصائيات والبيانات الرسمية الموثّقة على منصة أشكناني ترانسفير ماركت.",
+      "verified": "موثّق",
+      "agency": "موقع الوكالة",
+      "agencyNote": "الأخبار والانتقالات وقائمة لاعبي الوكالة كاملة.",
+      "instagram": "إنستغرام الوكالة",
+      "instagramNote": "أحدث التحديثات ولقطات من الكواليس."
+    },
+    "tactical": {
+      "title": "المركز داخل الملعب",
+      "subtitle": "الخريطة التكتيكية: أين يلعب، رقمه، ودوره داخل الملعب",
+      "formation": "الرسم التكتيكي للفريق",
+      "rolesTitle": "أبرز أدواره في الملعب",
+      "roles": [
+        "بناء اللعب من الخلف",
+        "تدوير الكرة والانتقال السريع",
+        "الضغط العالي واستعادة الكرة"
+      ],
+      "legendTitle": "دليل الخريطة",
+      "legendPlayer": "اللاعب",
+      "legendSquad": "بقية الفريق",
+      "legendMove": "نطاق التحرك والمركز الثاني",
+      "labels": {
+        "primary": "المركز الأساسي",
+        "secondary": "المركز الثاني",
+        "jersey": "رقم القميص",
+        "foot": "القدم المفضّلة",
+        "club": "النادي الحالي",
+        "nationalTeam": "المنتخب الوطني"
+      }
+    },
+    "presence": {
+      "title": "الحضور عالميًا",
+      "subtitle": "الكويت — نقطة الانطلاق نحو أوروبا وآسيا والعالم",
+      "regionValue": "الخليج العربي",
+      "hemisphereValue": "شمالي · شرقي",
+      "mapTitle": "موقع اللاعب على الخريطة",
+      "mapNote": "مؤشر الكويت يحدّد مكان ولادة اللاعب وبداية مسيرته على خريطة العالم.",
+      "legendPlayer": "موقع اللاعب (الكويت)",
+      "legendRoute": "أسواق ومسارات الاهتمام",
+      "legendNote": "الخطوط المتقطعة توضّح مسارات الاهتمام والوصول من الأسواق الأوروبية والخليجية والآسيوية.",
+      "markets": "{count} سوقًا على الخريطة",
+      "cta": "الملف الرسمي على أشكناني ترانسفير ماركت",
+      "labels": {
+        "playerPoint": "اللاعب",
+        "country": "الدولة",
+        "region": "المنطقة",
+        "coordinates": "الإحداثيات",
+        "timezone": "التوقيت",
+        "dialCode": "الرمز الدولي",
+        "hemisphere": "نصف الكرة"
+      }
     },
     "profile": {
       "title": "الملف الشخصي",
@@ -359,7 +471,7 @@
       "title": "تواصل مع الوكالة",
       "subtitle": "للاستفسار عن الانتقالات والتجارب والرعاية",
       "agentTitle": "وكالة أشكناني للاعبين",
-      "agentNote": "الممثل الرسمي للاعب أحمد خورشيد في جميع المفاوضات الاحترافية.",
+      "agentNote": "الممثل الرسمي للاعب أحمد حسين خورشيد في جميع المفاوضات الاحترافية.",
       "directTitle": "التواصل المباشر",
       "labels": {
         "phone": "الهاتف / واتساب",

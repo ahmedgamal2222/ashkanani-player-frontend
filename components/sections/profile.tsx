@@ -3,6 +3,7 @@
 import { BadgeCheck, Building2, Flag, Ruler, ShieldHalf, Weight } from 'lucide-react'
 
 import { usePlayer } from '@/components/player-provider'
+import OfficialProfileCards from '@/components/player-links'
 import SectionHeading from '@/components/section-heading'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
@@ -152,6 +153,9 @@ export default function ProfileSection() {
             )
           })}
         </div>
+
+        {/* الملف الرسمي: ترانسفير ماركت + الوكالة + إنستغرام */}
+        <OfficialProfileCards className="mt-6" />
 
         {/* الأندية السابقة */}
         {previousClubs.length > 0 ? (

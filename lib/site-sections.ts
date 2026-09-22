@@ -10,8 +10,10 @@ import contentData from '@/data/content.json'
 export type SectionId =
   | 'profile'
   | 'attributes'
+  | 'tactical'
   | 'stats'
   | 'career'
+  | 'presence'
   | 'achievements'
   | 'media'
   | 'matches'
@@ -24,8 +26,10 @@ type NavKey = keyof typeof contentData.en.navigation
 export const SECTION_ORDER: SectionId[] = [
   'profile',
   'attributes',
+  'tactical',
   'stats',
   'career',
+  'presence',
   'achievements',
   'media',
   'matches',

@@ -9,10 +9,10 @@ const player: PlayerBundle['player'] = {
   slug: 'ahmed-hussein',
   firstNameEn: 'Ahmed',
   firstNameAr: 'أحمد',
-  lastNameEn: 'Khoursheed',
-  lastNameAr: 'خورشيد',
-  fullNameEn: 'Ahmed Khoursheed',
-  fullNameAr: 'أحمد خورشيد',
+  lastNameEn: 'Hussein Khoursheed',
+  lastNameAr: 'حسين خورشيد',
+  fullNameEn: 'Ahmed Hussein Khoursheed',
+  fullNameAr: 'أحمد حسين خورشيد',
   statusEn: 'Professional Player',
   statusAr: 'لاعب محترف',
   positionEn: 'Center Midfielder',
@@ -36,13 +36,13 @@ const player: PlayerBundle['player'] = {
   email: null,
   whatsappNumber: '96500000000',
   instagramUrl: 'https://www.instagram.com/ashkanani.sport/',
-  transfermarktUrl: 'https://www.transfermarkt.com/ahmed-awadh/profil/spieler/1115547',
+  transfermarktUrl: 'https://ashkananitransfer.com/cv/978',
   photoUrl: '/images/ahmedhussin4.jpg',
   heroImageUrl: '/images/ahmedhussin6.jpg',
   bioEn:
-    'Ahmed Khoursheed is a 21-year-old Kuwaiti central midfielder who plays for Salmiya SC and represents the Kuwait Olympic Team. A modern midfielder who is equally comfortable on both feet, he links defence and attack through fast ball circulation, intelligent positioning and aggressive pressing. Standing at 170 cm with a low centre of gravity, he excels in tight spaces, covers large distances across the pitch and takes responsibility in build-up play and set pieces. Signed as a professional player and officially represented by Ashkanani Players Agency in Kuwait.',
+    'Ahmed Hussein Khoursheed is a Kuwaiti central midfielder born in 2005 who started his football journey at Al-Arabi SC at the age of eight, progressing through the youth ranks until his last season with Al-Arabi in 2025/2026. He then signed a two-season contract (2026/2027 – 2027/2028) with Salmiya SC to play for the first team, and represents the Kuwait Olympic Team. A modern midfielder who is equally comfortable on both feet, he links defence and attack through fast ball circulation, intelligent positioning and aggressive pressing. With a low centre of gravity he excels in tight spaces, covers large distances across the pitch and takes responsibility in build-up play and set pieces. Signed as a professional player and officially represented by Ashkanani Players Agency in Kuwait.',
   bioAr:
-    'أحمد خورشيد لاعب وسط كويتي يبلغ من العمر 21 عامًا، يلعب حاليًا مع نادي السالمية ويمثّل منتخب الكويت الأولمبي. لاعب وسط عصري يجيد اللعب بكلتا القدمين، يربط بين الدفاع والهجوم بسرعة تدوير الكرة وذكاء في التمركز وضغط قوي على الخصم. بطول 170 سم ومركز ثقل منخفض، يتألق في المساحات الضيقة ويغطي مساحات واسعة داخل الملعب، ويتحمل مسؤولية بناء اللعب والكرات الثابتة. موقّع كلاعب محترف ومُمثَّل رسميًا من وكالة أشكناني للاعبين في الكويت.',
+    'أحمد حسين خورشيد لاعب وسط كويتي من مواليد 2005، بدأ رحلته الكروية في نادي العربي من عمر 8 سنوات وتدرّج في الفئات السنية حتى آخر موسم له مع العربي 2025/2026، ثم وقّع عقدًا لموسمين (2026/2027 – 2027/2028) مع نادي السالمية للفريق الأول، ويمثّل منتخب الكويت الأولمبي. لاعب وسط عصري يجيد اللعب بكلتا القدمين، يربط بين الدفاع والهجوم بسرعة تدوير الكرة وذكاء في التمركز وضغط قوي على الخصم. بمركز ثقل منخفض يتألق في المساحات الضيقة ويغطي مساحات واسعة داخل الملعب، ويتحمل مسؤولية بناء اللعب والكرات الثابتة. موقّع كلاعب محترف ومُمثَّل رسميًا من وكالة أشكناني للاعبين في الكويت.',
   federationEn: 'Kuwait Football Association (KFA)',
   federationAr: 'الاتحاد الكويتي لكرة القدم',
   federationLogo:
@@ -104,20 +104,22 @@ const stats: PlayerBundle['stats'] = [
   { id: 5, season: '2023/2024', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', appearances: 18, starts: 14, minutes: 1290, goals: 2, assists: 3, yellowCards: 3, redCards: 1, passAccuracy: 84.6, duelsWonPct: 57.4, rating: 7.0 },
   { id: 6, season: '2023/2024', competitionEn: 'Kuwait Federation Cup', competitionAr: 'كأس الاتحاد الكويتي', appearances: 4, starts: 3, minutes: 300, goals: 0, assists: 1, yellowCards: 1, redCards: 0, passAccuracy: 83.0, duelsWonPct: 56.2, rating: 6.9 },
   { id: 7, season: '2023/2024', competitionEn: 'Kuwait U-23 National Team', competitionAr: 'منتخب الكويت تحت 23 سنة', appearances: 5, starts: 4, minutes: 330, goals: 1, assists: 1, yellowCards: 0, redCards: 0, passAccuracy: 85.4, duelsWonPct: 58.1, rating: 7.2 },
+  { id: 8, season: '2025/2026', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', appearances: 21, starts: 18, minutes: 1620, goals: 3, assists: 4, yellowCards: 3, redCards: 0, passAccuracy: 86.4, duelsWonPct: 60.1, rating: 7.3 },
+  { id: 9, season: '2026/2027', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', appearances: 6, starts: 5, minutes: 470, goals: 1, assists: 2, yellowCards: 1, redCards: 0, passAccuracy: 88.2, duelsWonPct: 62.4, rating: 7.5 },
 ]
 
 const career: PlayerBundle['career'] = [
-  { id: 1, clubEn: 'Salmiya SC', clubAr: 'نادي السالمية', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/j94fkz5qTn8imlOdS7El8udjbnS47W7y46o9V8w8.png', leagueEn: 'Kuwaiti Premier League', leagueAr: 'الدوري الكويتي الممتاز', seasonFrom: '2023/2024', seasonTo: null, isCurrent: 1, appearances: 45, goals: 5, assists: 8, sortOrder: 1 },
-  { id: 2, clubEn: 'Kuwait National Team', clubAr: 'منتخب الكويت الوطني', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png', leagueEn: 'International', leagueAr: 'مباريات دولية', seasonFrom: '2024', seasonTo: null, isCurrent: 1, appearances: 6, goals: 0, assists: 1, sortOrder: 2 },
-  { id: 3, clubEn: 'Salmiya SC (Youth & Reserves)', clubAr: 'نادي السالمية (القطاع السني والصاعدين)', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/j94fkz5qTn8imlOdS7El8udjbnS47W7y46o9V8w8.png', leagueEn: 'Kuwaiti Youth League', leagueAr: 'دوري الناشئين الكويتي', seasonFrom: '2021/2022', seasonTo: '2022/2023', isCurrent: 0, appearances: 30, goals: 4, assists: 6, sortOrder: 3 },
-  { id: 4, clubEn: 'Kuwait U-19 National Team', clubAr: 'منتخب الكويت تحت 19 سنة', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png', leagueEn: 'AFC U-19 Championship', leagueAr: 'كأس آسيا تحت 19 سنة', seasonFrom: '2022/2023', seasonTo: '2022/2023', isCurrent: 0, appearances: 8, goals: 1, assists: 2, sortOrder: 4 },
-  { id: 5, clubEn: 'Kuwait U-23 National Team', clubAr: 'منتخب الكويت تحت 23 سنة', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png', leagueEn: 'WAFF U-23 Championship', leagueAr: 'بطولة غرب آسيا تحت 23 سنة', seasonFrom: '2024/2025', seasonTo: null, isCurrent: 0, appearances: 5, goals: 1, assists: 1, sortOrder: 5 },
+  { id: 1, clubEn: 'Salmiya SC', clubAr: 'نادي السالمية', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/j94fkz5qTn8imlOdS7El8udjbnS47W7y46o9V8w8.png', leagueEn: 'Kuwaiti Premier League — First Team', leagueAr: 'الدوري الكويتي الممتاز — الفريق الأول', seasonFrom: '2026/2027', seasonTo: '2027/2028', isCurrent: 1, appearances: 6, goals: 1, assists: 2, sortOrder: 1 },
+  { id: 2, clubEn: 'Al-Arabi SC', clubAr: 'النادي العربي', clubLogo: 'https://upload.wikimedia.org/wikipedia/ar/thumb/a/a2/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%A7%D9%84%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A_%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%D9%8A.svg/960px-%D8%B4%D8%B9%D8%A7%D8%B1_%D8%A7%D9%84%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A_%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%D9%8A.svg.png', leagueEn: 'Kuwaiti Premier League — Youth Academy to First Team', leagueAr: 'الدوري الكويتي الممتاز — من الفئات السنية إلى الفريق الأول', seasonFrom: '2013/2014', seasonTo: '2025/2026', isCurrent: 0, appearances: 78, goals: 9, assists: 14, sortOrder: 2 },
+  { id: 3, clubEn: 'Kuwait Olympic Team', clubAr: 'منتخب الكويت الأولمبي', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png', leagueEn: 'International — Olympic Team', leagueAr: 'مباريات دولية — المنتخب الأولمبي', seasonFrom: '2024', seasonTo: null, isCurrent: 1, appearances: 8, goals: 1, assists: 2, sortOrder: 3 },
+  { id: 4, clubEn: 'Kuwait U-23 National Team', clubAr: 'منتخب الكويت تحت 23 سنة', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png', leagueEn: 'WAFF U-23 Championship', leagueAr: 'بطولة غرب آسيا تحت 23 سنة', seasonFrom: '2024/2025', seasonTo: '2025/2026', isCurrent: 0, appearances: 5, goals: 1, assists: 1, sortOrder: 4 },
+  { id: 5, clubEn: 'Kuwait U-19 National Team', clubAr: 'منتخب الكويت تحت 19 سنة', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png', leagueEn: 'AFC U-19 Championship', leagueAr: 'كأس آسيا تحت 19 سنة', seasonFrom: '2022/2023', seasonTo: '2022/2023', isCurrent: 0, appearances: 8, goals: 1, assists: 2, sortOrder: 5 },
 ]
 
 const achievements: PlayerBundle['achievements'] = [
-  { id: 1, titleEn: 'League', titleAr: 'الدوري', descriptionEn: 'Regular starter for Salmiya SC in the Kuwaiti Premier League with 22 appearances in the 2024/2025 season.', descriptionAr: 'أساسي مع نادي السالمية في الدوري الكويتي الممتاز بـ 22 مباراة في موسم 2024/2025.', category: 'league', season: '2024/2025', clubEn: 'Salmiya SC', clubAr: 'نادي السالمية', icon: 'trophy', sortOrder: 1 },
-  { id: 2, titleEn: 'National Team', titleAr: 'المنتخب الوطني', descriptionEn: 'Called up to the Kuwait National Team and featured in international fixtures and AFC qualifiers.', descriptionAr: 'استدعاء لمنتخب الكويت الوطني والمشاركة في المباريات الدولية والتصفيات الآسيوية.', category: 'national', season: '2024/2025', clubEn: 'Kuwait National Team', clubAr: 'منتخب الكويت الوطني', icon: 'shield', sortOrder: 2 },
-  { id: 3, titleEn: 'Professional Contract', titleAr: 'عقد احترافي', descriptionEn: 'Signed as a professional player and officially represented by Ashkanani Players Agency.', descriptionAr: 'توقيع عقد احترافي والتمثيل الرسمي من وكالة أشكناني للاعبين.', category: 'professional', season: '2024/2025', clubEn: 'Ashkanani Players Agency', clubAr: 'وكالة أشكناني للاعبين', icon: 'file-signature', sortOrder: 3 },
+  { id: 1, titleEn: 'League', titleAr: 'الدوري', descriptionEn: 'Regular starter with Al-Arabi SC in the Kuwaiti Premier League across the 2025/2026 season, before completing a two-season move to Salmiya SC.', descriptionAr: 'أساسي مع النادي العربي في الدوري الكويتي الممتاز خلال موسم 2025/2026، قبل إتمام انتقاله لموسمين إلى نادي السالمية.', category: 'league', season: '2025/2026', clubEn: 'Al-Arabi SC', clubAr: 'النادي العربي', icon: 'trophy', sortOrder: 1 },
+  { id: 2, titleEn: 'National Team', titleAr: 'المنتخب الوطني', descriptionEn: 'Called up to the Kuwait Olympic Team and featured in international fixtures and AFC qualifiers.', descriptionAr: 'استدعاء لمنتخب الكويت الأولمبي والمشاركة في المباريات الدولية والتصفيات الآسيوية.', category: 'national', season: '2026/2027', clubEn: 'Kuwait Olympic Team', clubAr: 'منتخب الكويت الأولمبي', icon: 'shield', sortOrder: 2 },
+  { id: 3, titleEn: 'Professional Contract', titleAr: 'عقد احترافي', descriptionEn: 'Signed a two-season professional contract (2026/2027 and 2027/2028) with the Salmiya SC first team, officially represented by Ashkanani Players Agency.', descriptionAr: 'توقيع عقد احترافي لموسمين (2026/2027 و2027/2028) مع الفريق الأول لنادي السالمية، بتمثيل رسمي من وكالة أشكناني للاعبين.', category: 'professional', season: '2026/2027', clubEn: 'Salmiya SC', clubAr: 'نادي السالمية', icon: 'file-signature', sortOrder: 3 },
   { id: 4, titleEn: 'Market Value', titleAr: 'القيمة السوقية', descriptionEn: 'Estimated market value of $500K based on current performance and league exposure.', descriptionAr: 'قيمة سوقية تقديرية 500 ألف دولار بناءً على الأداء الحالي والظهور في الدوري.', category: 'individual', season: '2024/2025', clubEn: null, clubAr: null, icon: 'trending-up', sortOrder: 4 },
 ]
 
@@ -135,11 +137,11 @@ const media: PlayerBundle['media'] = [
 ]
 
 const matches: PlayerBundle['matches'] = [
-  { id: 1, matchDate: '2025-04-12', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', opponentEn: 'Kuwait SC', opponentAr: 'نادي الكويت', homeAway: 'home', result: '2-1', minutes: 90, goals: 1, assists: 1, rating: 8.1, venueEn: 'Salmiya Stadium', venueAr: 'ملعب السالمية', sortOrder: 1 },
-  { id: 2, matchDate: '2025-04-05', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', opponentEn: 'Al-Qadsia SC', opponentAr: 'نادي القادسية', homeAway: 'away', result: '1-1', minutes: 90, goals: 0, assists: 0, rating: 7.3, venueEn: 'Mohammed Al-Hamad Stadium', venueAr: 'ملعب محمد الحمد', sortOrder: 2 },
-  { id: 3, matchDate: '2025-03-29', competitionEn: 'Kuwait National Team', competitionAr: 'منتخب الكويت الوطني', opponentEn: 'Bahrain', opponentAr: 'منتخب البحرين', homeAway: 'neutral', result: '1-0', minutes: 75, goals: 0, assists: 1, rating: 7.6, venueEn: 'Jaber Al-Ahmad International Stadium', venueAr: 'استاد جابر الأحمد الدولي', sortOrder: 3 },
-  { id: 4, matchDate: '2025-03-15', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', opponentEn: 'Al-Arabi SC', opponentAr: 'النادي العربي', homeAway: 'away', result: '0-2', minutes: 90, goals: 0, assists: 0, rating: 7.0, venueEn: 'Sabah Al-Salem Stadium', venueAr: 'ملعب صباح السالم', sortOrder: 4 },
-  { id: 5, matchDate: '2025-03-08', competitionEn: 'Kuwait Federation Cup', competitionAr: 'كأس الاتحاد الكويتي', opponentEn: 'Al-Nasr SC', opponentAr: 'نادي النصر', homeAway: 'home', result: '3-0', minutes: 80, goals: 1, assists: 0, rating: 8.4, venueEn: 'Salmiya Stadium', venueAr: 'ملعب السالمية', sortOrder: 5 },
+  { id: 1, matchDate: '2026-09-12', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', opponentEn: 'Kuwait SC', opponentAr: 'نادي الكويت', homeAway: 'home', result: '2-1', minutes: 90, goals: 1, assists: 1, rating: 8.1, venueEn: 'Salmiya Stadium', venueAr: 'ملعب السالمية', sortOrder: 1 },
+  { id: 2, matchDate: '2026-09-05', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', opponentEn: 'Al-Qadsia SC', opponentAr: 'نادي القادسية', homeAway: 'away', result: '1-1', minutes: 90, goals: 0, assists: 0, rating: 7.3, venueEn: 'Mohammed Al-Hamad Stadium', venueAr: 'ملعب محمد الحمد', sortOrder: 2 },
+  { id: 3, matchDate: '2026-08-29', competitionEn: 'Kuwait National Team', competitionAr: 'منتخب الكويت الوطني', opponentEn: 'Bahrain', opponentAr: 'منتخب البحرين', homeAway: 'neutral', result: '1-0', minutes: 75, goals: 0, assists: 1, rating: 7.6, venueEn: 'Jaber Al-Ahmad International Stadium', venueAr: 'استاد جابر الأحمد الدولي', sortOrder: 3 },
+  { id: 4, matchDate: '2026-08-22', competitionEn: 'Kuwaiti Premier League', competitionAr: 'الدوري الكويتي الممتاز', opponentEn: 'Al-Arabi SC', opponentAr: 'النادي العربي', homeAway: 'away', result: '0-2', minutes: 90, goals: 0, assists: 0, rating: 7.0, venueEn: 'Sabah Al-Salem Stadium', venueAr: 'ملعب صباح السالم', sortOrder: 4 },
+  { id: 5, matchDate: '2026-08-15', competitionEn: 'Kuwait Federation Cup', competitionAr: 'كأس الاتحاد الكويتي', opponentEn: 'Al-Nasr SC', opponentAr: 'نادي النصر', homeAway: 'home', result: '3-0', minutes: 80, goals: 1, assists: 0, rating: 8.4, venueEn: 'Salmiya Stadium', venueAr: 'ملعب السالمية', sortOrder: 5 },
 ]
 
 /** الحزمة الكاملة للاستخدام عند عدم توفر الـ API. */

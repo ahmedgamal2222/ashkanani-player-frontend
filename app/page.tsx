@@ -10,8 +10,10 @@ import SiteFooter from '@/components/sections/footer'
 import Hero from '@/components/sections/hero'
 import MatchesSection from '@/components/sections/matches'
 import MediaSection from '@/components/sections/media'
+import PresenceSection from '@/components/sections/presence'
 import ProfileSection from '@/components/sections/profile'
 import StatsSection from '@/components/sections/stats'
+import TacticalSection from '@/components/sections/tactical'
 
 export const revalidate = 120
 
@@ -50,8 +52,10 @@ export default async function HomePage() {
         <ProfileSection />
         {/* سمات اللاعب مخفية مؤقتًا — لإعادة إظهارها أزل 'attributes' من HIDDEN_SECTIONS في lib/site-sections.ts */}
         {isSectionVisible('attributes') ? <AttributesSection /> : null}
+        {isSectionVisible('tactical') ? <TacticalSection /> : null}
         <StatsSection seasons={seasons} />
         <CareerSection />
+        {isSectionVisible('presence') ? <PresenceSection /> : null}
         <AchievementsSection />
         <MediaSection />
         <MatchesSection />

@@ -1,8 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ChevronDown, Play, ShieldCheck, Sparkles, TrendingUp } from 'lucide-react'
+import { ChevronDown, Play, ShieldCheck, Sparkles } from 'lucide-react'
 
+import { OfficialProfileChips } from '@/components/player-links'
 import { usePlayer } from '@/components/player-provider'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -56,6 +57,26 @@ export default function Hero() {
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
+          {/* هوية الوكالة — في المقدمة */}
+          <div className="mb-6 flex items-center gap-3">
+            <span className="gold-ring grid size-14 shrink-0 place-items-center overflow-hidden rounded-2xl border border-primary/40 bg-ink/60 p-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={content.siteInfo.agencyLogo}
+                alt={content.siteInfo.agencyName}
+                className="max-h-full max-w-full object-contain"
+              />
+            </span>
+            <span className="flex flex-col">
+              <span className="font-serif text-base font-black text-foreground sm:text-lg">
+                {content.siteInfo.agencyName}
+              </span>
+              <span className="text-[10px] font-semibold tracking-[0.22em] text-primary/85 uppercase">
+                {content.siteInfo.agencyTagline}
+              </span>
+            </span>
+          </div>
+
           <div className="mb-6 flex flex-wrap items-center gap-2">
             <Badge variant="solid">
               <Sparkles className="size-3" />
@@ -121,22 +142,8 @@ export default function Hero() {
             ))}
           </dl>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-            <span className="inline-flex items-center gap-2">
-              <TrendingUp className="size-4 text-primary" />
-              {content.quickStats.transfermarkt}
-            </span>
-            {player.transfermarktUrl ? (
-              <a
-                href={player.transfermarktUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-primary underline-offset-4 hover:underline"
-              >
-                {pick('View Transfermarkt profile', 'عرض الملف في ترانسفير ماركت')}
-              </a>
-            ) : null}
-          </div>
+          {/* الملف الرسمي على أشكناني ترانسفير ماركت */}
+          <OfficialProfileChips className="mt-8" />
         </div>
 
         {/* بطاقة اللاعب */}
