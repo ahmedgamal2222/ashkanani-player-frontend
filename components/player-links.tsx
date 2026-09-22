@@ -25,25 +25,25 @@ export function OfficialProfileChips({ className }: { className?: string }) {
   const url = bundle.player.transfermarktUrl || ASHKANANI_CV_URL
 
   return (
-    <div className={cn('flex flex-wrap items-center gap-3', className)}>
+    <div className={cn('flex w-full flex-wrap items-center gap-3', className)}>
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
         title={content.links.transfermarktNote}
-        className="glass-panel group inline-flex items-center gap-3 rounded-2xl px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50"
+        className="glass-panel group inline-flex w-full min-w-0 items-center gap-3 rounded-2xl px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 sm:w-auto"
       >
-        <span className="grid size-9 place-items-center rounded-xl border border-primary/30 bg-primary/10 p-1.5">
+        <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-primary/30 bg-primary/10 p-1.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={TRANSFERMARKT_LOGO} alt="Transfermarkt" className="max-h-full max-w-full object-contain" />
         </span>
-        <span className="flex flex-col text-start">
-          <span className="text-[10px] font-semibold tracking-[0.2em] text-primary/90 uppercase">
+        <span className="flex min-w-0 flex-1 flex-col text-start">
+          <span className="truncate text-[10px] font-semibold tracking-[0.2em] text-primary/90 uppercase">
             {content.links.transfermarkt}
           </span>
-          <span className="text-xs font-semibold text-foreground/85">{linkHost(url)}</span>
+          <span className="truncate text-xs font-semibold text-foreground/85">{linkHost(url)}</span>
         </span>
-        <ExternalLink className="size-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
+        <ExternalLink className="size-4 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
       </a>
 
       <a
@@ -51,9 +51,9 @@ export function OfficialProfileChips({ className }: { className?: string }) {
         target="_blank"
         rel="noopener noreferrer"
         title={content.links.ashkananiNote}
-        className="glass-panel group inline-flex items-center gap-3 rounded-2xl px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50"
+        className="glass-panel group inline-flex w-full min-w-0 items-center gap-3 rounded-2xl px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 sm:w-auto"
       >
-        <span className="grid size-9 place-items-center rounded-xl border border-white/12 bg-white/5 p-1.5">
+        <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-white/12 bg-white/5 p-1.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={content.siteInfo.agencyLogo}
@@ -61,15 +61,15 @@ export function OfficialProfileChips({ className }: { className?: string }) {
             className="max-h-full max-w-full object-contain"
           />
         </span>
-        <span className="flex flex-col text-start">
-          <span className="text-[10px] font-semibold tracking-[0.2em] text-primary/90 uppercase">
+        <span className="flex min-w-0 flex-1 flex-col text-start">
+          <span className="truncate text-[10px] font-semibold tracking-[0.2em] text-primary/90 uppercase">
             {content.links.ashkanani}
           </span>
-          <span className="text-xs font-semibold text-foreground/85">
+          <span className="truncate text-xs font-semibold text-foreground/85">
             {linkHost(content.siteInfo.agencyTransfermarkt)}
           </span>
         </span>
-        <ExternalLink className="size-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
+        <ExternalLink className="size-4 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
       </a>
     </div>
   )

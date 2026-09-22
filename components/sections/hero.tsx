@@ -95,11 +95,11 @@ export default function Hero() {
             ) : null}
           </div>
 
-          <h1 className="font-serif text-[clamp(2rem,8.5vw,6rem)] leading-[1.02] font-black tracking-tight break-words [text-wrap:balance]">
+          <h1 className="font-serif text-[clamp(1.8rem,7.5vw,5.5rem)] leading-[1.15] font-black tracking-tight [text-wrap:balance]">
             <span className="block text-foreground">
               {pick(player.firstNameEn, player.firstNameAr)}
             </span>
-            <span className="block text-gold-gradient">
+            <span className="block w-fit px-0.5 pb-1 text-gold-gradient">
               {pick(player.lastNameEn, player.lastNameAr)}
             </span>
           </h1>

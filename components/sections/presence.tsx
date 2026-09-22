@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Compass, Globe2, MapPin, Ruler, ZoomIn, ZoomOut } from 'lucide-react'
 
-import KuwaitFlag from '@/components/kuwait-flag'
+import KuwaitFlag, { WavingKuwaitFlag } from '@/components/kuwait-flag'
 import { ASHKANANI_CV_URL } from '@/components/player-links'
 import { usePlayer } from '@/components/player-provider'
 import SectionHeading from '@/components/section-heading'
@@ -14,9 +14,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { useLanguage } from '@/contexts/language-context'
 import { sectionNumber } from '@/lib/site-sections'
 
-/** خريطة العالم الحقيقية — إسقاط متساوي المستطيلات (2:1) من ويكيميديا كومنز */
-const MAP_URL =
-  'https://commons.wikimedia.org/wiki/Special:FilePath/BlankMap-World-Equirectangular.svg?width=1920'
+/** خريطة الأرض الحقيقية — صور القمر الصناعي (NASA Blue Marble) بإسقاط متساوي المستطيلات 2048×1024 */
+const BLUE_MARBLE =
+  'https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57752/land_shallow_topo_2048.jpg'
 
 /** أبعاد الخريطة بوحدات الـ SVG: 360° خط طول × 180° خط عرض */
 const WORLD_W = 360
@@ -96,15 +96,6 @@ export default function PresenceSection() {
     transition: 'transform 600ms cubic-bezier(0.22, 1, 0.36, 1)',
   }
 
-  /** قصّ صورة الخريطة على اليابسة فقط (قناة الشفافية) */
-  const maskStyle = {
-    maskImage: `url("${MAP_URL}")`,
-    WebkitMaskImage: `url("${MAP_URL}")`,
-    maskSize: '100% 100%',
-    maskRepeat: 'no-repeat',
-    maskPosition: 'center',
-  }
-
   const infoTiles = [
     { label: content.presence.labels.country, value: pick(KUWAIT.en, KUWAIT.ar) },
     { label: content.presence.labels.region, value: content.presence.regionValue },
@@ -128,31 +119,23 @@ export default function PresenceSection() {
             <CardContent className="p-4 sm:p-6">
               <div className="relative aspect-[2/1] w-full overflow-hidden rounded-2xl border border-primary/20 bg-[linear-gradient(180deg,oklch(0.19_0.035_258)_0%,oklch(0.13_0.025_260)_60%,oklch(0.1_0.02_262)_100%)]">
                 <div className="absolute inset-0" style={zoomStyle}>
-                  {/* اليابسة — تظليل تضاريسي بلون ترابي دافئ + حافة ذهبية (طابع خرائط حقيقي) */}
+                  {/* خريطة الأرض الحقيقية — صور القمر الصناعي NASA Blue Marble (2:1) */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={BLUE_MARBLE}
+                    alt={content.presence.mapTitle}
+                    loading="lazy"
+                    className="pointer-events-none absolute inset-0 size-full object-cover brightness-[0.95] contrast-[1.04] saturate-[0.92]"
+                  />
+                  {/* تلوين الهوية: طبقة كحلية + وهج ذهبي + تظليل الحواف */}
+                  <div aria-hidden className="pointer-events-none absolute inset-0 bg-ink/30" />
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(0.42_0.035_95)_0%,oklch(0.33_0.03_92)_55%,oklch(0.25_0.025_88)_100%)]"
-                    style={maskStyle}
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_63%_34%,oklch(0.9_0.1_88/0.14)_0%,transparent_45%)]"
                   />
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-primary/35 blur-[1.6px]"
-                    style={maskStyle}
-                  />
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(1_0_0/0.16)_0%,transparent_45%)]"
-                    style={maskStyle}
-                  />
-                  {/* مياه ضحلة حول السواحل */}
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-cyan-200/12 blur-[4px]"
-                    style={{ ...maskStyle, transform: 'scale(1.015)' }}
-                  />
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_63%_34%,oklch(0.9_0.1_88/0.16)_0%,transparent_42%)]"
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_42%,oklch(0.08_0.02_262/0.8)_100%)]"
                   />
 
                   {/* مسح رادار هادئ حول الكويت */}
@@ -490,8 +473,8 @@ export default function PresenceSection() {
             {/* علم الكويت + نقطة اللاعب */}
             <Card className="overflow-hidden">
               <CardContent className="flex items-center gap-4 p-5">
-                <span className="w-20 shrink-0 overflow-hidden rounded-xl ring-1 ring-white/20 sm:w-24">
-                  <KuwaitFlag className="w-full" title={content.presence.flagCaption} />
+                <span className="w-24 shrink-0 sm:w-28">
+                  <WavingKuwaitFlag className="w-full" title={content.presence.flagCaption} />
                 </span>
                 <span className="min-w-0">
                   <span className="block font-serif text-lg font-black text-foreground">
