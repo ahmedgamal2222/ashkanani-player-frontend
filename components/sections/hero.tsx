@@ -28,7 +28,11 @@ export default function Hero() {
   ]
 
   return (
-    <section id="home" className="relative isolate min-h-screen overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16">
+    <section
+      id="home"
+      style={{ minHeight: '100svh' }}
+      className="relative isolate min-h-screen w-full max-w-full overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16"
+    >
       {/* الخلفية */}
       <div className="absolute inset-0 -z-10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -45,15 +49,15 @@ export default function Hero() {
       {/* رقم القميص كخلفية فنية */}
       <span
         aria-hidden
-        className="pointer-events-none absolute top-1/2 -z-10 -translate-y-1/2 font-serif text-[14rem] leading-none font-black text-white/[0.03] select-none ltr:right-[-2rem] rtl:left-[-2rem] sm:text-[26rem] lg:text-[34rem]"
+        className="pointer-events-none absolute top-1/2 -z-10 hidden -translate-y-1/2 font-serif text-[26rem] leading-none font-black text-white/[0.03] select-none ltr:right-[-3rem] rtl:left-[-3rem] sm:block lg:text-[34rem]"
       >
         {player.jerseyNumber}
       </span>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8">
         {/* المحتوى النصي */}
         <div
-          className={`transition-all duration-1000 ${
+          className={`w-full min-w-0 transition-all duration-1000 ${
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
@@ -148,7 +152,7 @@ export default function Hero() {
 
         {/* بطاقة اللاعب */}
         <div
-          className={`relative mx-auto w-full max-w-sm transition-all delay-200 duration-1000 ${
+          className={`relative mx-auto w-full min-w-0 max-w-sm transition-all delay-200 duration-1000 ${
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-14 opacity-0'
           }`}
         >

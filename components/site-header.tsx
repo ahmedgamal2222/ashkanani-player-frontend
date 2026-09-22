@@ -108,9 +108,6 @@ export default function SiteHeader() {
               alt={pick(bundle.player.fullNameEn, bundle.player.fullNameAr)}
               className="size-full object-cover object-top"
             />
-            <span className="absolute -end-0.5 -bottom-0.5 grid size-[1.15rem] place-items-center rounded-full border border-primary/60 bg-ink font-serif text-[9px] font-black text-primary">
-              {bundle.player.jerseyNumber}
-            </span>
           </span>
           <span className="flex min-w-0 flex-col">
             <span className="max-w-[5.5rem] truncate font-serif text-[13px] font-black tracking-wide text-foreground sm:max-w-[13rem] sm:text-sm">

@@ -126,37 +126,48 @@ export default function PresenceSection() {
         <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
           <Card className="overflow-hidden">
             <CardContent className="p-4 sm:p-6">
-              <div className="relative aspect-[2/1] w-full overflow-hidden rounded-2xl border border-cyan-300/15 bg-[radial-gradient(circle_at_63%_34%,oklch(0.3_0.06_235)_0%,oklch(0.16_0.04_255)_45%,oklch(0.09_0.02_262)_100%)]">
+              <div className="relative aspect-[2/1] w-full overflow-hidden rounded-2xl border border-primary/20 bg-[linear-gradient(180deg,oklch(0.19_0.035_258)_0%,oklch(0.13_0.025_260)_60%,oklch(0.1_0.02_262)_100%)]">
                 <div className="absolute inset-0" style={zoomStyle}>
-                  {/* اليابسة بإطلالة أطلس: طبقة أساس + حافة مضيئة */}
+                  {/* اليابسة — تظليل تضاريسي بلون ترابي دافئ + حافة ذهبية (طابع خرائط حقيقي) */}
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(0.47_0.05_232)_0%,oklch(0.35_0.05_244)_55%,oklch(0.27_0.04_252)_100%)]"
+                    className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(0.42_0.035_95)_0%,oklch(0.33_0.03_92)_55%,oklch(0.25_0.025_88)_100%)]"
                     style={maskStyle}
                   />
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-cyan-300/25 blur-[2px]"
+                    className="pointer-events-none absolute inset-0 bg-primary/35 blur-[1.6px]"
                     style={maskStyle}
                   />
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_63%_34%,oklch(0.9_0.1_88/0.2)_0%,transparent_45%)]"
+                    className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(1_0_0/0.16)_0%,transparent_45%)]"
+                    style={maskStyle}
+                  />
+                  {/* مياه ضحلة حول السواحل */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-cyan-200/12 blur-[4px]"
+                    style={{ ...maskStyle, transform: 'scale(1.015)' }}
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_63%_34%,oklch(0.9_0.1_88/0.16)_0%,transparent_42%)]"
                   />
 
-                  {/* مسح رادار يدور حول الكويت */}
+                  {/* مسح رادار هادئ حول الكويت */}
                   <div
                     aria-hidden
                     className="pointer-events-none absolute"
                     style={{
                       left: `${(kuwait.x / WORLD_W) * 100}%`,
                       top: `${(kuwait.y / WORLD_H) * 100}%`,
-                      width: '62%',
+                      width: '46%',
                       aspectRatio: '1 / 1',
                       transform: 'translate(-50%, -50%)',
                     }}
                   >
-                    <div className="size-full animate-spin rounded-full [animation-duration:9s] [background:conic-gradient(from_0deg,transparent_0deg,transparent_296deg,oklch(0.9_0.12_190/0.22)_344deg,transparent_360deg)]" />
+                    <div className="size-full animate-spin rounded-full [animation-duration:14s] [background:conic-gradient(from_0deg,transparent_0deg,transparent_300deg,oklch(0.9_0.1_88/0.09)_345deg,transparent_360deg)]" />
                   </div>
 
                   <svg
@@ -173,8 +184,8 @@ export default function PresenceSection() {
                     </radialGradient>
                   </defs>
 
-                  {/* شبكة خطوط الطول والعرض — إطلالة أطلس حديثة */}
-                  <g stroke="oklch(0.8 0.06 200 / 0.13)" strokeWidth="0.22" strokeDasharray="1.2 2.2">
+                  {/* شبكة إحداثيات حقيقية + خطوط المدارين */}
+                  <g stroke="oklch(0.92 0.03 95 / 0.1)" strokeWidth="0.22" strokeDasharray="1.2 2.4">
                     {[-150, -120, -90, -60, -30, 0, 30, 60, 90, 120, 150].map((lng) => (
                       <line
                         key={`meridian-${lng}`}
@@ -194,23 +205,43 @@ export default function PresenceSection() {
                       />
                     ))}
                   </g>
-                  <g fill="none">
-                    <line
-                      x1="0"
-                      y1={WORLD_H / 2}
-                      x2={WORLD_W}
-                      y2={WORLD_H / 2}
-                      stroke="oklch(0.82 0.08 200 / 0.35)"
-                      strokeWidth="0.3"
-                    />
-                    <line
-                      x1={WORLD_W / 2}
-                      y1="0"
-                      x2={WORLD_W / 2}
-                      y2={WORLD_H}
-                      stroke="oklch(0.82 0.08 200 / 0.2)"
-                      strokeWidth="0.25"
-                    />
+                  <g stroke="oklch(0.92 0.05 95 / 0.26)" strokeWidth="0.3" fill="none">
+                    <line x1="0" y1={WORLD_H / 2} x2={WORLD_W} y2={WORLD_H / 2} />
+                    <line x1={WORLD_W / 2} y1="0" x2={WORLD_W / 2} y2={WORLD_H} />
+                  </g>
+                  <g stroke="oklch(0.92 0.05 95 / 0.14)" strokeWidth="0.22" strokeDasharray="1 2">
+                    <line x1="0" y1={WORLD_H / 2 - 23.5} x2={WORLD_W} y2={WORLD_H / 2 - 23.5} />
+                    <line x1="0" y1={WORLD_H / 2 + 23.5} x2={WORLD_W} y2={WORLD_H / 2 + 23.5} />
+                  </g>
+
+                  {/* أرقام الإحداثيات على الحواف (خرائط واقعية) */}
+                  <g fontSize="4.4" fontWeight="600" fill="oklch(0.95 0.02 95 / 0.3)">
+                    {[
+                      { value: 60, label: '60°N' },
+                      { value: 30, label: '30°N' },
+                      { value: 0, label: '0°' },
+                      { value: -30, label: '30°S' },
+                      { value: -60, label: '60°S' },
+                    ].map((row) => (
+                      <text key={`lat-label-${row.value}`} x="1.5" y={WORLD_H / 2 - row.value - 1.2}>
+                        {row.label}
+                      </text>
+                    ))}
+                    {[
+                      { value: -120, label: '120°W' },
+                      { value: -60, label: '60°W' },
+                      { value: 0, label: '0°' },
+                      { value: 60, label: '60°E' },
+                      { value: 120, label: '120°E' },
+                    ].map((col) => (
+                      <text
+                        key={`lng-label-${col.value}`}
+                        x={col.value + WORLD_W / 2 + 1}
+                        y={WORLD_H - 1.5}
+                      >
+                        {col.label}
+                      </text>
+                    ))}
                   </g>
 
                   {/* أقواس تصل كل سوق بالكويت — السوق المُحدد يتوهج */}
@@ -222,7 +253,7 @@ export default function PresenceSection() {
                         key={`arc-${city.name}`}
                         d={arc(city.point, kuwait)}
                         fill="none"
-                        stroke={isActive ? 'oklch(0.9 0.12 88 / 0.95)' : 'oklch(0.8 0.1 200 / 0.34)'}
+                        stroke={isActive ? 'oklch(0.9 0.12 88 / 0.95)' : 'oklch(0.92 0.05 95 / 0.38)'}
                         strokeWidth={isActive ? 0.75 : 0.4}
                         strokeDasharray={isActive ? '2 2' : '3 3'}
                         className="animate-dash-flow"
@@ -260,30 +291,50 @@ export default function PresenceSection() {
                         <circle
                           cx={city.point.x}
                           cy={city.point.y}
-                          r={isActive ? 1.9 : 1.2}
-                          fill={isActive ? 'oklch(0.92 0.12 88)' : 'oklch(0.95 0.06 200 / 0.95)'}
+                          r={isActive ? 1.9 : 1.3}
+                          fill={isActive ? 'oklch(0.92 0.12 88)' : 'oklch(0.96 0.03 95 / 0.92)'}
                         />
                         <circle
                           cx={city.point.x}
                           cy={city.point.y}
-                          r={isActive ? 3.4 : 2.3}
+                          r={isActive ? 3.4 : 2.4}
                           fill="none"
-                          stroke={isActive ? 'oklch(0.9 0.12 88 / 0.9)' : 'oklch(0.8 0.1 200 / 0.5)'}
+                          stroke={isActive ? 'oklch(0.9 0.12 88 / 0.9)' : 'oklch(0.9 0.05 95 / 0.45)'}
                           strokeWidth={isActive ? 0.45 : 0.3}
                         />
-                        <text
-                          x={city.point.x + 3.6}
-                          y={city.point.y + 1.2}
-                          fontSize={isActive ? '4' : '3.4'}
-                          fontWeight={isActive ? '800' : '600'}
-                          fill={isActive ? 'oklch(0.95 0.1 88)' : 'oklch(0.97 0.01 95 / 0.7)'}
-                          className={isActive ? undefined : 'hidden sm:block'}
-                        >
-                          {pick(city.name, city.ar)}
-                        </text>
                       </g>
                     )
                   })}
+
+                  {/* نبضات اتصال تنطلق من الكويت (نمط خرائط شبكات الطيران) */}
+                  {[0, 1.8].map((delay) => (
+                    <circle
+                      key={`pulse-${delay}`}
+                      cx={kuwait.x}
+                      cy={kuwait.y}
+                      r="2"
+                      fill="none"
+                      stroke="oklch(0.9 0.12 88 / 0.6)"
+                      strokeWidth="0.3"
+                    >
+                      <animate
+                        attributeName="r"
+                        from="2"
+                        to="26"
+                        dur="3.6s"
+                        begin={`${delay}s`}
+                        repeatCount="indefinite"
+                      />
+                      <animate
+                        attributeName="opacity"
+                        from="0.5"
+                        to="0"
+                        dur="3.6s"
+                        begin={`${delay}s`}
+                        repeatCount="indefinite"
+                      />
+                    </circle>
+                  ))}
 
                   {/* مؤشر الكويت — نقطة اللاعب */}
                   <g>
@@ -321,6 +372,30 @@ export default function PresenceSection() {
                     />
                   </g>
                 </svg>
+
+                  {/* أسماء الأسواق — طبقة HTML بخط ثابت وواضح على كل المقاسات */}
+                  <div className="pointer-events-none absolute inset-0">
+                    {cities.map((city) => {
+                      const isActive = city.name === activeCity?.name
+
+                      return (
+                        <span
+                          key={`label-${city.name}`}
+                          className={cn(
+                            'absolute -translate-y-1/2 whitespace-nowrap text-[10px] leading-none font-semibold transition-colors sm:text-[11px]',
+                            isActive ? 'text-primary' : 'text-foreground/70',
+                            !isActive && 'hidden sm:inline'
+                          )}
+                          style={{
+                            left: `${(city.point.x / WORLD_W) * 100 + 1.6}%`,
+                            top: `${(city.point.y / WORLD_H) * 100}%`,
+                          }}
+                        >
+                          {pick(city.name, city.ar)}
+                        </span>
+                      )
+                    })}
+                  </div>
                 </div>
 
                 {/* شارة علم الكويت على نقطة اللاعب */}
@@ -353,6 +428,24 @@ export default function PresenceSection() {
                       <KuwaitFlag className="w-full" />
                     </span>
                     {pick(KUWAIT.en, KUWAIT.ar)}
+                  </span>
+                </div>
+
+                {/* وردة البوصلة */}
+                <div className="pointer-events-none absolute start-3 top-3 grid size-8 place-items-center rounded-full border border-primary/25 bg-ink/70 backdrop-blur-sm sm:size-9">
+                  <svg viewBox="0 0 24 24" aria-hidden className="size-4 text-primary sm:size-5">
+                    <path
+                      d="M12 1.5 L14.3 9.7 L22.5 12 L14.3 14.3 L12 22.5 L9.7 14.3 L1.5 12 L9.7 9.7 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+
+                {/* مفتاح مقياس حقيقي: 4,000 كم ≈ 10% من عرض الخريطة عند خط الاستواء */}
+                <div className="pointer-events-none absolute inset-x-3 bottom-8">
+                  <div className="h-1.5 w-[10%] min-w-12 border-x border-b border-primary/60" />
+                  <span className="mt-0.5 block text-[9px] font-semibold text-foreground/45">
+                    4,000 km
                   </span>
                 </div>
 

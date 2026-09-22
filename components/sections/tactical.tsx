@@ -350,24 +350,6 @@ export default function TacticalSection() {
                     stroke="oklch(0.86 0.12 88)"
                     strokeWidth="0.8"
                   />
-                  <circle
-                    cx={px + 6.4}
-                    cy={py + 6.4}
-                    r="3.6"
-                    fill="oklch(0.12 0.02 262)"
-                    stroke="oklch(0.86 0.12 88)"
-                    strokeWidth="0.5"
-                  />
-                  <text
-                    x={px + 6.4}
-                    y={py + 7.6}
-                    textAnchor="middle"
-                    fontSize="3.6"
-                    fontWeight="900"
-                    fill="oklch(0.86 0.12 88)"
-                  >
-                    {player.jerseyNumber}
-                  </text>
                   <line
                     x1={px}
                     y1={py - 9.5}
@@ -400,12 +382,11 @@ export default function TacticalSection() {
                   alt={pick(player.fullNameEn, player.fullNameAr)}
                   className="aspect-[3/4] w-full object-cover object-[center_top]"
                 />
-                <div className="flex items-center justify-between gap-1 border-t border-white/10 px-2 py-1.5">
+                <div className="flex items-center justify-center gap-1 border-t border-white/10 px-2 py-1.5">
                   <span className="truncate text-[9px] font-bold text-foreground/85">
                     {pick(player.firstNameEn, player.firstNameAr)}
-                  </span>
-                  <span className="font-serif text-[10px] font-black text-primary">
-                    #{player.jerseyNumber}
+                    {' '}
+                    {pick(player.lastNameEn, player.lastNameAr)}
                   </span>
                 </div>
               </div>

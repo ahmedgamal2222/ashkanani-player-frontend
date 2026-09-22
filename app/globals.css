@@ -95,12 +95,18 @@
   html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    /* إصلاح الإزاحة/القص الأفقي على الجوال — Safari وiOS تحتاجها على html أيضًا */
+    overflow-x: hidden;
+    overflow-x: clip;
+    width: 100%;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     /* يمنع أي تمرير أفقي غير مقصود على الجوال ويثبّت حجم النص عند تدوير الجهاز */
     overflow-x: hidden;
+    overflow-x: clip;
+    width: 100%;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     background-image:
