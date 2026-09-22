@@ -114,9 +114,53 @@ export default function TacticalSection() {
                   <clipPath id="pitchClip">
                     <rect x="1.5" y="1.5" width="97" height="137" rx="1.5" />
                   </clipPath>
+                  <pattern id="grassPattern" width="3.5" height="3.5" patternUnits="userSpaceOnUse">
+                    <rect width="3.5" height="3.5" fill="oklch(0.28 0.05 158)" />
+                    <circle cx="1" cy="1" r="0.35" fill="oklch(0.34 0.06 158 / 0.35)" />
+                    <circle cx="2.6" cy="2.4" r="0.3" fill="oklch(0.2 0.04 158 / 0.4)" />
+                  </pattern>
+                  <pattern id="netPattern" width="2" height="2" patternUnits="userSpaceOnUse">
+                    <path
+                      d="M 0 0 L 0 2 M 0 0 L 2 0"
+                      stroke="oklch(1 0 0 / 0.4)"
+                      strokeWidth="0.12"
+                    />
+                  </pattern>
+                  <radialGradient id="stadiumLight" cx="28%" cy="10%" r="90%">
+                    <stop offset="0%" stopColor="oklch(0.98 0.02 95)" stopOpacity="0.2" />
+                    <stop offset="55%" stopColor="oklch(0.9 0.03 95)" stopOpacity="0.05" />
+                    <stop offset="100%" stopColor="oklch(0.9 0.03 95)" stopOpacity="0" />
+                  </radialGradient>
+                  <radialGradient id="vignette" cx="50%" cy="45%" r="72%">
+                    <stop offset="52%" stopColor="oklch(0.08 0.02 262)" stopOpacity="0" />
+                    <stop offset="100%" stopColor="oklch(0.08 0.02 262)" stopOpacity="0.7" />
+                  </radialGradient>
+                  <radialGradient id="coverageFill" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="oklch(0.86 0.12 88)" stopOpacity="0.22" />
+                    <stop offset="70%" stopColor="oklch(0.86 0.12 88)" stopOpacity="0.07" />
+                    <stop offset="100%" stopColor="oklch(0.86 0.12 88)" stopOpacity="0" />
+                  </radialGradient>
+                  <clipPath id="playerAvatar">
+                    <circle cx={px} cy={py} r="6.6" />
+                  </clipPath>
                 </defs>
 
                 <rect x="0" y="0" width={PITCH_W} height={PITCH_H} fill="url(#turf)" />
+                <rect
+                  x="1.5"
+                  y="1.5"
+                  width="97"
+                  height="137"
+                  fill="url(#grassPattern)"
+                  opacity="0.45"
+                />
+
+                {/* المرميان والشباك */}
+                <rect x="39" y="0.2" width="22" height="1.3" fill="url(#netPattern)" />
+                <rect x="39" y="138.5" width="22" height="1.3" fill="url(#netPattern)" />
+
+                {/* إضاءة الاستاد */}
+                <rect x="0" y="0" width={PITCH_W} height={PITCH_H} fill="url(#stadiumLight)" />
 
                 <g clipPath="url(#pitchClip)">
                   {Array.from({ length: 10 }).map((_, index) => (
@@ -196,6 +240,46 @@ export default function TacticalSection() {
                   </g>
                 ))}
 
+                {/* منطقة التغطية والتحرك */}
+                <ellipse
+                  cx={px}
+                  cy={py - 4}
+                  rx="17"
+                  ry="21"
+                  fill="url(#coverageFill)"
+                  className="animate-pitch-pulse"
+                />
+                <ellipse
+                  cx={px}
+                  cy={py - 4}
+                  rx="17"
+                  ry="21"
+                  fill="none"
+                  stroke="oklch(0.86 0.12 88 / 0.25)"
+                  strokeWidth="0.3"
+                  strokeDasharray="2 2.4"
+                />
+
+                {/* كرات متحركة — تدوير اللعب */}
+                {[
+                  { key: 'pass-rw', x: 82, y: 42, dur: '4.4s' },
+                  { key: 'pass-cm', x: 30, y: 78.4, dur: '5.8s' },
+                ].map((pass) => (
+                  <circle
+                    key={pass.key}
+                    r="0.95"
+                    fill="oklch(0.97 0.01 95)"
+                    stroke="oklch(0.12 0.02 262)"
+                    strokeWidth="0.15"
+                  >
+                    <animateMotion
+                      dur={pass.dur}
+                      repeatCount="indefinite"
+                      path={`M ${px} ${py} Q ${(px + pass.x) / 2} ${(py + pass.y) / 2 - 14} ${pass.x} ${pass.y} Q ${(px + pass.x) / 2} ${(py + pass.y) / 2 - 14} ${px} ${py}`}
+                    />
+                  </circle>
+                ))}
+
                 {/* نطاق التحرك نحو المركز الثاني */}
                 {showSecondary ? (
                   <>
@@ -229,31 +313,56 @@ export default function TacticalSection() {
                   </>
                 ) : null}
 
-                {/* مؤشر اللاعب: الرقم + المركز */}
+                {/* مؤشر اللاعب: صورة + الرقم + المركز */}
                 <g>
-                  <circle cx={px} cy={py} r="11" fill="url(#playerGlow)" className="animate-pitch-pulse" />
+                  <circle cx={px} cy={py} r="13" fill="url(#playerGlow)" className="animate-pitch-pulse" />
                   <circle
                     cx={px}
                     cy={py}
-                    r="7"
+                    r="9"
                     fill="none"
-                    stroke="oklch(0.86 0.12 88 / 0.6)"
-                    strokeWidth="0.4"
+                    stroke="oklch(0.86 0.12 88 / 0.55)"
+                    strokeWidth="0.35"
                     className="animate-pitch-pulse"
                   />
                   <circle
                     cx={px}
                     cy={py}
-                    r="4.8"
+                    r="7"
                     fill="oklch(0.12 0.02 262)"
+                    stroke="oklch(0.86 0.12 88)"
+                    strokeWidth="0.6"
+                  />
+                  <image
+                    href={player.photoUrl || content.siteInfo.playerPhoto}
+                    x={px - 6.6}
+                    y={py - 6.6}
+                    width="13.2"
+                    height="13.2"
+                    preserveAspectRatio="xMidYMid slice"
+                    clipPath="url(#playerAvatar)"
+                  />
+                  <circle
+                    cx={px}
+                    cy={py}
+                    r="6.6"
+                    fill="none"
                     stroke="oklch(0.86 0.12 88)"
                     strokeWidth="0.7"
                   />
+                  <circle
+                    cx={px + 4.8}
+                    cy={py + 4.8}
+                    r="2.9"
+                    fill="oklch(0.12 0.02 262)"
+                    stroke="oklch(0.86 0.12 88)"
+                    strokeWidth="0.5"
+                  />
                   <text
-                    x={px}
-                    y={py + 1.7}
+                    x={px + 4.8}
+                    y={py + 5.9}
                     textAnchor="middle"
-                    fontSize="4.4"
+                    fontSize="3"
                     fontWeight="900"
                     fill="oklch(0.86 0.12 88)"
                   >
@@ -261,9 +370,9 @@ export default function TacticalSection() {
                   </text>
                   <line
                     x1={px}
-                    y1={py - 6}
+                    y1={py - 7.5}
                     x2={px}
-                    y2={py - 14}
+                    y2={py - 15}
                     stroke="oklch(0.86 0.12 88 / 0.35)"
                     strokeWidth="0.35"
                   />
@@ -278,12 +387,15 @@ export default function TacticalSection() {
                     {pick(player.positionEn, player.positionAr)}
                   </text>
                 </g>
+
+                {/* تظليل الحواف لمظهر بثّ تلفزيوني */}
+                <rect x="0" y="0" width={PITCH_W} height={PITCH_H} fill="url(#vignette)" />
               </svg>
             </CardContent>
           </Card>
 
           <div className="space-y-6">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {tiles.map((tile) => (
                 <Card key={tile.label}>
                   <CardContent className="p-5">
@@ -340,6 +452,14 @@ export default function TacticalSection() {
                         {content.tactical.legendMove}
                       </li>
                     ) : null}
+                    <li className="flex items-center gap-2">
+                      <span className="size-4 rounded-full bg-[radial-gradient(circle,oklch(0.86_0.12_88/0.5),transparent_70%)] ring-1 ring-primary/30" />
+                      {content.tactical.labels.coverage}
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="size-2.5 rounded-full bg-foreground/90 ring-1 ring-ink" />
+                      {content.tactical.labels.ballPath}
+                    </li>
                   </ul>
                 </div>
               </CardContent>

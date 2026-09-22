@@ -169,7 +169,7 @@ export default function StatsSection({ seasons }: StatsSectionProps) {
               </span>
             </div>
 
-            <div className="hide-scrollbar overflow-x-auto">
+            <div className="scroll-x">
               <table className="w-full min-w-[46rem] text-sm">
                 <thead>
                   <tr className="text-[10px] tracking-[0.16em] text-muted-foreground uppercase">

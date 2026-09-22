@@ -85,7 +85,6 @@
   --animate-marquee: marquee 26s linear infinite;
   --animate-pitch-pulse: pitchPulse 2.6s ease-in-out infinite;
   --animate-dash-flow: dashFlow 4s linear infinite;
-  --animate-slow-spin: slowSpin 26s linear infinite;
 }
 
 @layer base {
@@ -100,6 +99,10 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    /* يمنع أي تمرير أفقي غير مقصود على الجوال ويثبّت حجم النص عند تدوير الجهاز */
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     background-image:
       radial-gradient(60rem 60rem at 12% -10%, oklch(0.79 0.13 85 / 0.07), transparent 60%),
       radial-gradient(50rem 50rem at 90% 8%, oklch(0.6 0.14 265 / 0.12), transparent 62%);
@@ -151,11 +154,22 @@
     0 18px 60px -20px oklch(0.79 0.13 85 / 0.35);
 }
 
-@utility hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* تمرير أفقي رقيق بشريط ذهبي واضح (جداول الجوال) */
+@utility scroll-x {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) oklch(0.16 0.02 262);
+  -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
-    display: none;
+    height: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    background: oklch(0.16 0.02 262);
+    border-radius: 999px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+    border-radius: 999px;
   }
 }
 
@@ -226,15 +240,6 @@
 @keyframes dashFlow {
   to {
     stroke-dashoffset: -160;
-  }
-}
-
-@keyframes slowSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 

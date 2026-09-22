@@ -7,6 +7,7 @@
       "agencyTagline": "Official Player Representation • Kuwait",
       "agencyLogo": "https://ashkananitransfer.com/logo.png",
       "agencyWebsite": "https://ashknanisport2025.vercel.app/",
+      "agencyTransfermarkt": "https://ashkananitransfer.com/cv/978",
       "agencyInstagram": "https://www.instagram.com/ashkanani.sport/",
       "playerPhoto": "/images/ahmedhussin4.jpg",
       "heroImage": "/images/ahmedhussin6.jpg",
@@ -24,7 +25,9 @@
       "contact": "Contact",
       "agentContact": "Contact Agency",
       "tactical": "Tactical Map",
-      "presence": "Global Presence"
+      "presence": "Global Presence",
+      "more": "More",
+      "menu": "Menu"
     },
     "hero": {
       "eyebrow": "Kuwait Olympic Team • Salmiya SC",
@@ -50,13 +53,17 @@
       "transfermarkt": "Transfermarkt"
     },
     "links": {
-      "transfermarkt": "Ashkanani Transfermarkt",
-      "transfermarktNote": "Full CV, statistics and verified official data on the Ashkanani Transfermarkt platform.",
+      "transfermarkt": "Transfermarkt — Official Profile",
+      "transfermarktNote": "Official market value, transfer history and career record on the global Transfermarkt platform.",
+      "ashkanani": "Ashkanani Transfermarkt",
+      "ashkananiNote": "The agency's official platform — player file no. 978 with verified data and full statistics.",
       "verified": "Verified",
       "agency": "Agency Website",
       "agencyNote": "News, transfers and the agency's full player portfolio.",
       "instagram": "Agency Instagram",
-      "instagramNote": "Latest updates and behind-the-scenes content."
+      "instagramNote": "Latest updates and behind-the-scenes content.",
+      "whatsapp": "WhatsApp",
+      "whatsappNote": "Direct line to the agency for official enquiries."
     },
     "tactical": {
       "title": "Position on the Pitch",
@@ -78,7 +85,9 @@
         "jersey": "Jersey Number",
         "foot": "Preferred Foot",
         "club": "Current Club",
-        "nationalTeam": "National Team"
+        "nationalTeam": "National Team",
+        "coverage": "Coverage zone",
+        "ballPath": "Ball circulation"
       }
     },
     "presence": {
@@ -87,12 +96,12 @@
       "regionValue": "Arabian Gulf",
       "hemisphereValue": "Northern · Eastern",
       "mapTitle": "Player Location on the Map",
-      "mapNote": "The Kuwait marker shows where the player was born and started his journey on the world map.",
+      "mapNote": "A real equirectangular world map with the player's location pinned to Kuwait, plus the routes connecting him to the world's main markets.",
       "legendPlayer": "Player location (Kuwait)",
       "legendRoute": "Markets and interest routes",
       "legendNote": "Dashed lines show the reach and interest from European, Gulf and Asian markets.",
       "markets": "{count} markets on the map",
-      "cta": "Official file on Ashkanani Transfermarkt",
+      "cta": "Open the official Transfermarkt profile",
       "labels": {
         "playerPoint": "Player",
         "country": "Country",
@@ -263,6 +272,7 @@
       "agencyTagline": "تمثيل رسمي للاعبين • الكويت",
       "agencyLogo": "https://ashkananitransfer.com/logo.png",
       "agencyWebsite": "https://ashknanisport2025.vercel.app/",
+      "agencyTransfermarkt": "https://ashkananitransfer.com/cv/978",
       "agencyInstagram": "https://www.instagram.com/ashkanani.sport/",
       "playerPhoto": "/images/ahmedhussin4.jpg",
       "heroImage": "/images/ahmedhussin6.jpg",
@@ -280,7 +290,9 @@
       "contact": "التواصل",
       "agentContact": "اتصل بالوكالة",
       "tactical": "المركز في الملعب",
-      "presence": "الحضور عالميًا"
+      "presence": "الحضور عالميًا",
+      "more": "المزيد",
+      "menu": "القائمة"
     },
     "hero": {
       "eyebrow": "منتخب الكويت الأولمبي • نادي السالمية",
@@ -306,13 +318,17 @@
       "transfermarkt": "ترانسفير ماركت"
     },
     "links": {
-      "transfermarkt": "أشكناني ترانسفير ماركت",
-      "transfermarktNote": "السيرة الكاملة والإحصائيات والبيانات الرسمية الموثّقة على منصة أشكناني ترانسفير ماركت.",
+      "transfermarkt": "ترانسفير ماركت — الملف الرسمي",
+      "transfermarktNote": "القيمة السوقية الرسمية وسجل الانتقالات والمسيرة الكاملة على منصة ترانسفير ماركت العالمية.",
+      "ashkanani": "أشكناني ترانسفير ماركت",
+      "ashkananiNote": "منصة الوكالة الرسمية — ملف اللاعب رقم 978 ببيانات موثّقة وإحصائيات كاملة.",
       "verified": "موثّق",
       "agency": "موقع الوكالة",
       "agencyNote": "الأخبار والانتقالات وقائمة لاعبي الوكالة كاملة.",
       "instagram": "إنستغرام الوكالة",
-      "instagramNote": "أحدث التحديثات ولقطات من الكواليس."
+      "instagramNote": "أحدث التحديثات ولقطات من الكواليس.",
+      "whatsapp": "واتساب",
+      "whatsappNote": "خط مباشر مع الوكالة للاستفسارات الرسمية."
     },
     "tactical": {
       "title": "المركز داخل الملعب",
@@ -334,7 +350,9 @@
         "jersey": "رقم القميص",
         "foot": "القدم المفضّلة",
         "club": "النادي الحالي",
-        "nationalTeam": "المنتخب الوطني"
+        "nationalTeam": "المنتخب الوطني",
+        "coverage": "منطقة التغطية",
+        "ballPath": "مسار الكرة"
       }
     },
     "presence": {
@@ -343,12 +361,12 @@
       "regionValue": "الخليج العربي",
       "hemisphereValue": "شمالي · شرقي",
       "mapTitle": "موقع اللاعب على الخريطة",
-      "mapNote": "مؤشر الكويت يحدّد مكان ولادة اللاعب وبداية مسيرته على خريطة العالم.",
+      "mapNote": "خريطة عالم حقيقية بإسقاط متساوي المستطيلات، مع تثبيت موقع اللاعب في الكويت ومسارات الوصول من أهم أسواق العالم.",
       "legendPlayer": "موقع اللاعب (الكويت)",
       "legendRoute": "أسواق ومسارات الاهتمام",
       "legendNote": "الخطوط المتقطعة توضّح مسارات الاهتمام والوصول من الأسواق الأوروبية والخليجية والآسيوية.",
       "markets": "{count} سوقًا على الخريطة",
-      "cta": "الملف الرسمي على أشكناني ترانسفير ماركت",
+      "cta": "افتح الملف الرسمي على ترانسفير ماركت",
       "labels": {
         "playerPoint": "اللاعب",
         "country": "الدولة",

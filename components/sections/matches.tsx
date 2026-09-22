@@ -34,7 +34,7 @@ export default function MatchesSection() {
         ) : (
           <Card className="mt-12 overflow-hidden">
             <CardContent className="p-0">
-              <div className="hide-scrollbar overflow-x-auto">
+              <div className="scroll-x">
                 <table className="w-full min-w-[52rem] text-sm">
                   <thead>
                     <tr className="text-[10px] tracking-[0.16em] text-muted-foreground uppercase">

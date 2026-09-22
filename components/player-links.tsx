@@ -1,6 +1,6 @@
 'use client'
 
-import { BadgeCheck, ExternalLink, Instagram } from 'lucide-react'
+import { BadgeCheck, ExternalLink, Instagram, MessageCircle } from 'lucide-react'
 
 import { usePlayer } from '@/components/player-provider'
 import { Badge } from '@/components/ui/badge'
@@ -19,7 +19,7 @@ const linkHost = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$/,
  * شارات سريعة تظهر في المقدمة (الهيرو): شعار ترانسفير ماركت + رابط الملف الرسمي.
  */
 export function OfficialProfileChips({ className }: { className?: string }) {
-  const { content, pick } = useLanguage()
+  const { content } = useLanguage()
   const { bundle } = usePlayer()
 
   const url = bundle.player.transfermarktUrl || ASHKANANI_CV_URL
@@ -47,9 +47,10 @@ export function OfficialProfileChips({ className }: { className?: string }) {
       </a>
 
       <a
-        href={content.siteInfo.agencyWebsite}
+        href={content.siteInfo.agencyTransfermarkt}
         target="_blank"
         rel="noopener noreferrer"
+        title={content.links.ashkananiNote}
         className="glass-panel group inline-flex items-center gap-3 rounded-2xl px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50"
       >
         <span className="grid size-9 place-items-center rounded-xl border border-white/12 bg-white/5 p-1.5">
@@ -62,26 +63,14 @@ export function OfficialProfileChips({ className }: { className?: string }) {
         </span>
         <span className="flex flex-col text-start">
           <span className="text-[10px] font-semibold tracking-[0.2em] text-primary/90 uppercase">
-            {content.links.agency}
+            {content.links.ashkanani}
           </span>
           <span className="text-xs font-semibold text-foreground/85">
-            {linkHost(content.siteInfo.agencyWebsite)}
+            {linkHost(content.siteInfo.agencyTransfermarkt)}
           </span>
         </span>
         <ExternalLink className="size-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
       </a>
-
-      {bundle.player.instagramUrl ? (
-        <a
-          href={bundle.player.instagramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={pick('Instagram', 'إنستغرام')}
-          className="grid size-12 place-items-center rounded-2xl border border-white/12 bg-white/5 text-foreground/80 transition-colors hover:border-primary/50 hover:text-primary"
-        >
-          <Instagram className="size-5" />
-        </a>
-      ) : null}
     </div>
   )
 }
@@ -91,33 +80,38 @@ export default function OfficialProfileCards({ className }: { className?: string
   const { content } = useLanguage()
   const { bundle } = usePlayer()
 
-  const url = bundle.player.transfermarktUrl || ASHKANANI_CV_URL
+  const agencyWhatsapp = bundle.player.whatsappNumber
+    ? `https://wa.me/${bundle.player.whatsappNumber}`
+    : content.siteInfo.agencyWebsite
 
   const cards = [
-    {
-      key: 'transfermarkt',
-      href: url,
-      logo: TRANSFERMARKT_LOGO,
-      label: content.links.transfermarkt,
-      note: content.links.transfermarktNote,
-      badge: content.links.verified,
-      highlight: true,
-    },
     {
       key: 'agency',
       href: content.siteInfo.agencyWebsite,
       logo: content.siteInfo.agencyLogo,
+      icon: null,
       label: content.links.agency,
       note: content.links.agencyNote,
-      badge: null,
-      highlight: false,
+      badge: content.links.verified,
+      highlight: true,
     },
     {
       key: 'instagram',
       href: bundle.player.instagramUrl ?? content.siteInfo.agencyInstagram,
       logo: null,
+      icon: <Instagram className="size-5 text-primary" />,
       label: content.links.instagram,
       note: content.links.instagramNote,
+      badge: null,
+      highlight: false,
+    },
+    {
+      key: 'whatsapp',
+      href: agencyWhatsapp,
+      logo: null,
+      icon: <MessageCircle className="size-5 text-primary" />,
+      label: content.links.whatsapp,
+      note: content.links.whatsappNote,
       badge: null,
       highlight: false,
     },
@@ -149,7 +143,7 @@ export default function OfficialProfileCards({ className }: { className?: string
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img src={card.logo} alt={card.label} className="max-h-full max-w-full object-contain" />
               ) : (
-                <Instagram className="size-5 text-primary" />
+                card.icon
               )}
             </span>
             {card.badge ? (

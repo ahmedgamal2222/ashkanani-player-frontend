@@ -36,7 +36,7 @@ const player: PlayerBundle['player'] = {
   email: null,
   whatsappNumber: '96500000000',
   instagramUrl: 'https://www.instagram.com/ashkanani.sport/',
-  transfermarktUrl: 'https://ashkananitransfer.com/cv/978',
+  transfermarktUrl: 'https://www.transfermarkt.com/ahmed-awadh/transfers/spieler/1115547/transfer_id/6434546',
   photoUrl: '/images/ahmedhussin4.jpg',
   heroImageUrl: '/images/ahmedhussin6.jpg',
   bioEn:

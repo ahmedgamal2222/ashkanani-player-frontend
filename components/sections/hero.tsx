@@ -45,7 +45,7 @@ export default function Hero() {
       {/* رقم القميص كخلفية فنية */}
       <span
         aria-hidden
-        className="pointer-events-none absolute top-1/2 -z-10 -translate-y-1/2 font-serif text-[26rem] leading-none font-black text-white/[0.03] select-none ltr:right-[-3rem] rtl:left-[-3rem] sm:text-[34rem]"
+        className="pointer-events-none absolute top-1/2 -z-10 -translate-y-1/2 font-serif text-[14rem] leading-none font-black text-white/[0.03] select-none ltr:right-[-2rem] rtl:left-[-2rem] sm:text-[26rem] lg:text-[34rem]"
       >
         {player.jerseyNumber}
       </span>
@@ -91,7 +91,7 @@ export default function Hero() {
             ) : null}
           </div>
 
-          <h1 className="font-serif text-5xl leading-[0.95] font-black tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
+          <h1 className="font-serif text-[2.6rem] leading-[0.95] font-black tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
             <span className="block text-foreground">
               {pick(player.firstNameEn, player.firstNameAr)}
             </span>
