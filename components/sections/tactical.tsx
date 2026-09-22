@@ -94,7 +94,7 @@ export default function TacticalSection() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
           <Card className="overflow-hidden">
-            <CardContent className="p-4 sm:p-6">
+            <CardContent className="relative p-4 sm:p-6">
               <svg
                 viewBox={`0 0 ${PITCH_W} ${PITCH_H}`}
                 role="img"
@@ -141,7 +141,7 @@ export default function TacticalSection() {
                     <stop offset="100%" stopColor="oklch(0.86 0.12 88)" stopOpacity="0" />
                   </radialGradient>
                   <clipPath id="playerAvatar">
-                    <circle cx={px} cy={py} r="6.6" />
+                    <circle cx={px} cy={py} r="8.4" />
                   </clipPath>
                 </defs>
 
@@ -315,54 +315,54 @@ export default function TacticalSection() {
 
                 {/* مؤشر اللاعب: صورة + الرقم + المركز */}
                 <g>
-                  <circle cx={px} cy={py} r="13" fill="url(#playerGlow)" className="animate-pitch-pulse" />
+                  <circle cx={px} cy={py} r="16" fill="url(#playerGlow)" className="animate-pitch-pulse" />
                   <circle
                     cx={px}
                     cy={py}
-                    r="9"
+                    r="12"
                     fill="none"
-                    stroke="oklch(0.86 0.12 88 / 0.55)"
+                    stroke="oklch(0.86 0.12 88 / 0.5)"
                     strokeWidth="0.35"
                     className="animate-pitch-pulse"
                   />
                   <circle
                     cx={px}
                     cy={py}
-                    r="7"
+                    r="9"
                     fill="oklch(0.12 0.02 262)"
                     stroke="oklch(0.86 0.12 88)"
-                    strokeWidth="0.6"
+                    strokeWidth="0.7"
                   />
                   <image
                     href={player.photoUrl || content.siteInfo.playerPhoto}
-                    x={px - 6.6}
-                    y={py - 6.6}
-                    width="13.2"
-                    height="13.2"
-                    preserveAspectRatio="xMidYMid slice"
+                    x={px - 8.4}
+                    y={py - 8.4}
+                    width="16.8"
+                    height="16.8"
+                    preserveAspectRatio="xMidYMin slice"
                     clipPath="url(#playerAvatar)"
                   />
                   <circle
                     cx={px}
                     cy={py}
-                    r="6.6"
+                    r="8.4"
                     fill="none"
                     stroke="oklch(0.86 0.12 88)"
-                    strokeWidth="0.7"
+                    strokeWidth="0.8"
                   />
                   <circle
-                    cx={px + 4.8}
-                    cy={py + 4.8}
-                    r="2.9"
+                    cx={px + 6.4}
+                    cy={py + 6.4}
+                    r="3.6"
                     fill="oklch(0.12 0.02 262)"
                     stroke="oklch(0.86 0.12 88)"
                     strokeWidth="0.5"
                   />
                   <text
-                    x={px + 4.8}
-                    y={py + 5.9}
+                    x={px + 6.4}
+                    y={py + 7.6}
                     textAnchor="middle"
-                    fontSize="3"
+                    fontSize="3.6"
                     fontWeight="900"
                     fill="oklch(0.86 0.12 88)"
                   >
@@ -370,19 +370,19 @@ export default function TacticalSection() {
                   </text>
                   <line
                     x1={px}
-                    y1={py - 7.5}
+                    y1={py - 9.5}
                     x2={px}
-                    y2={py - 15}
+                    y2={py - 19}
                     stroke="oklch(0.86 0.12 88 / 0.35)"
                     strokeWidth="0.35"
                   />
                   <text
                     x={px}
-                    y={py - 16}
+                    y={py - 20.5}
                     textAnchor="middle"
-                    fontSize="3"
+                    fontSize="3.2"
                     fontWeight="700"
-                    fill="oklch(0.97 0.01 95 / 0.85)"
+                    fill="oklch(0.97 0.01 95 / 0.9)"
                   >
                     {pick(player.positionEn, player.positionAr)}
                   </text>
@@ -391,6 +391,24 @@ export default function TacticalSection() {
                 {/* تظليل الحواف لمظهر بثّ تلفزيوني */}
                 <rect x="0" y="0" width={PITCH_W} height={PITCH_H} fill="url(#vignette)" />
               </svg>
+
+              {/* بطاقة صورة اللاعب داخل الملعب */}
+              <div className="pointer-events-none absolute end-3 top-3 w-20 overflow-hidden rounded-2xl border border-primary/40 bg-ink/85 shadow-[0_18px_45px_-25px_var(--gold)] backdrop-blur-sm sm:end-5 sm:top-5 sm:w-28">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={player.photoUrl || content.siteInfo.playerPhoto}
+                  alt={pick(player.fullNameEn, player.fullNameAr)}
+                  className="aspect-[3/4] w-full object-cover object-[center_top]"
+                />
+                <div className="flex items-center justify-between gap-1 border-t border-white/10 px-2 py-1.5">
+                  <span className="truncate text-[9px] font-bold text-foreground/85">
+                    {pick(player.firstNameEn, player.firstNameAr)}
+                  </span>
+                  <span className="font-serif text-[10px] font-black text-primary">
+                    #{player.jerseyNumber}
+                  </span>
+                </div>
+              </div>
             </CardContent>
           </Card>
 

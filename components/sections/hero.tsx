@@ -28,7 +28,7 @@ export default function Hero() {
   ]
 
   return (
-    <section id="home" className="relative isolate min-h-screen overflow-hidden pt-28 pb-16">
+    <section id="home" className="relative isolate min-h-screen overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16">
       {/* الخلفية */}
       <div className="absolute inset-0 -z-10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -50,7 +50,7 @@ export default function Hero() {
         {player.jerseyNumber}
       </span>
 
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8">
         {/* المحتوى النصي */}
         <div
           className={`transition-all duration-1000 ${
@@ -91,7 +91,7 @@ export default function Hero() {
             ) : null}
           </div>
 
-          <h1 className="font-serif text-[2.6rem] leading-[0.95] font-black tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
+          <h1 className="font-serif text-[clamp(2rem,8.5vw,6rem)] leading-[1.02] font-black tracking-tight break-words [text-wrap:balance]">
             <span className="block text-foreground">
               {pick(player.firstNameEn, player.firstNameAr)}
             </span>
@@ -110,7 +110,7 @@ export default function Hero() {
             {content.hero.tagline}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9">
             <Button asChild size="lg">
               <a href="#contact">{content.hero.ctaPrimary}</a>
             </Button>
@@ -123,7 +123,7 @@ export default function Hero() {
           </div>
 
           {/* شرائط سريعة */}
-          <dl className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          <dl className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 lg:grid-cols-5">
             {quickStats.map((stat) => (
               <div
                 key={stat.label}
@@ -143,7 +143,7 @@ export default function Hero() {
           </dl>
 
           {/* الملف الرسمي على أشكناني ترانسفير ماركت */}
-          <OfficialProfileChips className="mt-8" />
+          <OfficialProfileChips className="mt-7 sm:mt-8" />
         </div>
 
         {/* بطاقة اللاعب */}
@@ -154,29 +154,29 @@ export default function Hero() {
         >
           <div className="animate-float">
             <div className="gold-ring relative overflow-hidden rounded-[2rem] border border-primary/25 bg-card/60 p-3 backdrop-blur-md">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[1.6rem] bg-ink/60">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-ink/60 sm:aspect-[3/4]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={player.photoUrl || content.siteInfo.playerPhoto}
                   alt={pick(player.fullNameEn, player.fullNameAr)}
-                  className="size-full object-cover object-top"
+                  className="size-full object-cover object-[center_18%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
 
-                <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3">
-                  <div>
-                    <p className="text-[10px] font-semibold tracking-[0.24em] text-primary/90 uppercase">
+                <div className="absolute inset-x-3 bottom-3 flex items-end justify-between gap-2 sm:inset-x-4 sm:bottom-4 sm:gap-3">
+                  <div className="min-w-0">
+                    <p className="truncate text-[10px] font-semibold tracking-[0.24em] text-primary/90 uppercase">
                       {content.quickStats.club}
                     </p>
-                    <p className="font-serif text-lg font-black text-foreground">
+                    <p className="truncate font-serif text-base font-black text-foreground sm:text-lg">
                       {pick(player.clubEn, player.clubAr)}
                     </p>
-                    <p className="text-xs text-foreground/70">
+                    <p className="truncate text-xs text-foreground/70">
                       {pick(player.nationalTeamEn, player.nationalTeamAr)}
                     </p>
                   </div>
-                  <div className="grid size-16 shrink-0 place-items-center rounded-2xl border border-primary/40 bg-ink/70">
-                    <span className="text-gold-gradient font-serif text-2xl font-black">
+                  <div className="grid size-13 shrink-0 place-items-center rounded-2xl border border-primary/40 bg-ink/70 sm:size-16">
+                    <span className="text-gold-gradient font-serif text-xl font-black sm:text-2xl">
                       {player.jerseyNumber}
                     </span>
                   </div>
@@ -184,7 +184,7 @@ export default function Hero() {
               </div>
 
               {/* الشعارات: الاتحاد / النادي / المنتخب */}
-              <div className="mt-3 grid grid-cols-3 gap-3">
+              <div className="mt-2.5 grid grid-cols-3 gap-2 sm:mt-3 sm:gap-3">
                 {[
                   { src: player.federationLogo, label: pick(player.federationEn, player.federationAr) },
                   { src: player.clubLogo, label: pick(player.clubEn, player.clubAr) },
@@ -219,7 +219,7 @@ export default function Hero() {
       {/* مؤشر التمرير */}
       <a
         href="#profile"
-        className="absolute inset-x-0 bottom-6 mx-auto flex w-fit flex-col items-center gap-1 text-[10px] font-semibold tracking-[0.3em] text-foreground/50 uppercase transition-colors hover:text-primary"
+        className="absolute inset-x-0 bottom-6 mx-auto hidden w-fit flex-col items-center gap-1 text-[10px] font-semibold tracking-[0.3em] text-foreground/50 uppercase transition-colors hover:text-primary sm:flex"
       >
         {content.hero.scroll}
         <ChevronDown className="size-5 animate-bounce text-primary" />
