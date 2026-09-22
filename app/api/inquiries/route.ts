@@ -1,53 +1,29 @@
 import { NextResponse } from 'next/server'
 
-import { API_BASE_URL } from '@/lib/api'
-
 /**
- * وسيط (proxy) من نفس النطاق إلى الـ API (HonoJS + D1).
- * يمنحنا ميزتين:
- *  1. لا نحتاج إعداد CORS في المتصفح.
- *  2. يمكن إخفاء رابط الـ Worker وتغييره دون تعديل الواجهة.
+ * ⚠️ هذا المسار لم يعد الوسيط إلى الـ API (HonoJS + D1).
+ *
+ * السبب: الواجهة تُبنى كتصدير ثابت (`output: 'export'`) وهذا الوضع لا يدعم
+ * مسارات Next.js الديناميكية (POST / قراءة الطلب)، وكان وجوده يُعطّل بناء
+ * Cloudflare Pages بهذا الخطأ:
+ *   `export const dynamic = "force-static"/export const revalidate not configured …`
+ *
+ * لذلك تم نقل الوسيط كما هو (بنفس المنطق والترويسات) إلى:
+ *   `functions/api/inquiries.ts`  ← Cloudflare Pages Function على نفس المسار `/api/inquiries`
+ *
+ * وإن أرغبت في حذف هذا الملف نهائيًا:  Remove-Item -Recurse -Force app\api
+ * (المتصفح يرسل POST إلى /api/inquiries الذي تلتقطه Pages Function، والواجهة
+ *  في `lib/api.ts` تُجرب وسيط النطاق نفسه ثم تتصل بالـ Worker مباشرة كخطة بديلة.)
  */
-export const runtime = 'nodejs'
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
-export async function POST(request: Request) {
-  let body: string
-
-  try {
-    body = await request.text()
-  } catch {
-    return NextResponse.json(
-      { success: false, error: { code: 'INVALID_BODY', message: 'تعذّر قراءة البيانات' } },
-      { status: 400 }
-    )
-  }
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/inquiries`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'user-agent': request.headers.get('user-agent') ?? 'ashkanani-frontend',
-        'cf-connecting-ip':
-          request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown',
-      },
-      body,
-      cache: 'no-store',
-    })
-
-    const payload = await response.json()
-    return NextResponse.json(payload, { status: response.status })
-  } catch {
-    return NextResponse.json(
-      {
-        success: false,
-        error: {
-          code: 'API_UNREACHABLE',
-          message: 'تعذّر الاتصال بخادم الوكالة، يمكنك التواصل عبر واتساب.',
-        },
-      },
-      { status: 503 }
-    )
-  }
+/** مسار ثابت للتوضيح فقط — الإرسال يكون بـ POST إلى /api/inquiries. */
+export async function GET() {
+  return NextResponse.json({
+    success: false,
+    error: {
+      code: 'USE_POST',
+      message: 'أرسل الرسالة عبر POST إلى /api/inquiries — الوسيط موجود في functions/api/inquiries.ts',
+    },
+  })
 }

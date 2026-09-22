@@ -76,11 +76,26 @@ npm run dev                    # http://localhost:3000
    - `NEXT_PUBLIC_SITE_URL` = `https://your-domain.com`
 4. اضبط `ALLOWED_ORIGINS` في `backend/wrangler.toml` على نطاقك ثم `cd ../backend && npm run deploy`.
 
+## النشر (Cloudflare Pages)
+
+المشروع مضبوط على `output: 'export'` في `next.config.mjs` (تصدير ثابت)، لذا في إعدادات مشروع Pages:
+
+| الإعداد | القيمة |
+| --- | --- |
+| Framework preset | `None` (وليس Next.js) |
+| Build command | `npm run build` |
+| Build output directory | `out` |
+| متغيرات البيئة | `API_BASE_URL` = رابط الـ Worker • `NEXT_PUBLIC_SITE_URL` • `NEXT_PUBLIC_PLAYER_SLUG` |
+
+- وسيط `/api/inquiries` يعمل عبر `functions/api/inquiries.ts` (Cloudflare Pages Function) ويقرأ رابط الـ Worker من `API_BASE_URL`.
+- `app/robots.ts` و `app/sitemap.ts` فيهما `export const dynamic = 'force-static'` لأن التصدير الثابت لا يقبل المسارات الديناميكية.
+- إذا تعذّر الوسيط تتصل الواجهة بالـ Worker مباشرة، لذلك أضف نطاق Pages إلى `ALLOWED_ORIGINS` في `backend/wrangler.toml` (المدعوم حاليًا: `https://*.pages.dev`).
+
 ## بنية الملفات
 
 ```
 frontend/
-├─ app/                     layout + page + seo (robots/sitemap) + وسيط /api/inquiries
+├─ app/                     layout + page + seo (robots/sitemap) — تصدير ثابت
 ├─ components/
 │  ├─ sections/            أقسام الموقع: hero, profile, attributes, stats, career,
 │  │                       achievements, media, matches, contact, footer
@@ -91,5 +106,6 @@ frontend/
 ├─ data/content.json       كل النصوص المترجمة
 ├─ lib/                    api.ts (الاتصال بالـ API) • fallback-data.ts • types.ts • format.ts
 │                          site-sections.ts (الأقسام وإظهارها/إخفاؤها) • video.ts (تضمين يوتيوب)
+├─ functions/               وسيط /api/inquiries (Cloudflare Pages Function)
 └─ public/                 الصور والفيديوهات والشعارات
 ```
