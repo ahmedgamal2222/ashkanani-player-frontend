@@ -5,6 +5,7 @@ import { Building2, CheckCircle2, Clock, Instagram, Mail, MapPin, MessageCircle,
 import { toast } from 'sonner'
 import { z } from 'zod'
 
+import AgencyLogo from '@/components/agency-logo'
 import { usePlayer } from '@/components/player-provider'
 import SectionHeading from '@/components/section-heading'
 import { Button } from '@/components/ui/button'
@@ -143,12 +144,7 @@ export default function ContactSection() {
             <Card>
               <CardContent className="space-y-5 p-6 sm:p-8">
                 <div className="flex items-center gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={content.siteInfo.agencyLogo}
-                    alt={content.siteInfo.agencyName}
-                    className="size-14 rounded-2xl border border-primary/30 bg-white/5 object-contain p-1.5"
-                  />
+                  <AgencyLogo size="md" className="h-14 sm:h-16" />
                   <div>
                     <h3 className="font-serif text-lg font-black text-foreground">
                       {content.contact.agentTitle}

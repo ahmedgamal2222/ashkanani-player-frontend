@@ -2,6 +2,7 @@
 
 import { ArrowUp, Instagram, Mail, MapPin, Phone } from 'lucide-react'
 
+import AgencyLogo from '@/components/agency-logo'
 import { usePlayer } from '@/components/player-provider'
 import { useLanguage } from '@/contexts/language-context'
 import { NAV_ITEMS } from '@/lib/site-sections'
@@ -21,12 +22,7 @@ export default function SiteFooter() {
           {/* هوية الوكالة */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={content.siteInfo.agencyLogo}
-                alt={content.siteInfo.agencyName}
-                className="size-12 rounded-xl border border-primary/30 bg-white/5 p-1.5 object-contain"
-              />
+              <AgencyLogo size="md" className="h-12 sm:h-14" />
               <div>
                 <p className="font-serif text-base font-black text-foreground">
                   {content.siteInfo.agencyName}

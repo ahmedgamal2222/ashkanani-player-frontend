@@ -179,6 +179,16 @@
   }
 }
 
+/* لمعان ذهبي يمرّ على لوح شعار الوكالة (يعمل مع خلفيات الشعار الفاتحة) */
+@utility brand-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 36%, oklch(0.79 0.13 85 / 0.32) 50%, transparent 64%);
+  transform: translateX(-130%);
+  animation: brandSheen 7s ease-in-out infinite;
+}
+
 /* ============================== الحركات ============================== */
 @keyframes fadeUp {
   from {
@@ -246,6 +256,18 @@
 @keyframes dashFlow {
   to {
     stroke-dashoffset: -160;
+  }
+}
+
+/* لمعان لوح شعار الوكالة: يمرّ من الحافة إلى الحافة ثم يتوقف لحظات */
+@keyframes brandSheen {
+  0%,
+  14% {
+    transform: translateX(-130%);
+  }
+  60%,
+  100% {
+    transform: translateX(130%);
   }
 }
 

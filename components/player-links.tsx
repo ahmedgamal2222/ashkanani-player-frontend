@@ -53,12 +53,12 @@ export function OfficialProfileChips({ className }: { className?: string }) {
         title={content.links.ashkananiNote}
         className="glass-panel group inline-flex w-full min-w-0 items-center gap-3 rounded-2xl px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 sm:w-auto"
       >
-        <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-white/12 bg-white/5 p-1.5">
+        <span className="grid h-9 w-14 shrink-0 place-items-center overflow-hidden rounded-xl border border-primary/35 bg-gradient-to-br from-white via-[#FFFDF6] to-[#F3E7CD] px-1.5 py-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={content.siteInfo.agencyLogo}
             alt={content.siteInfo.agencyName}
-            className="max-h-full max-w-full object-contain"
+            className="size-full object-contain"
           />
         </span>
         <span className="flex min-w-0 flex-1 flex-col text-start">
@@ -138,10 +138,17 @@ export default function OfficialProfileCards({ className }: { className?: string
           />
 
           <span className="relative flex items-center justify-between gap-3">
-            <span className="grid size-12 shrink-0 place-items-center rounded-2xl border border-white/10 bg-white/5 p-2">
+            <span
+              className={cn(
+                'grid shrink-0 place-items-center overflow-hidden rounded-2xl border p-2',
+                card.logo
+                  ? 'h-12 w-20 border-primary/35 bg-gradient-to-br from-white via-[#FFFDF6] to-[#F3E7CD]'
+                  : 'size-12 border-white/10 bg-white/5'
+              )}
+            >
               {card.logo ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={card.logo} alt={card.label} className="max-h-full max-w-full object-contain" />
+                <img src={card.logo} alt={card.label} className="size-full object-contain" />
               ) : (
                 card.icon
               )}

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { ChevronDown, Play, ShieldCheck, Sparkles } from 'lucide-react'
 
+import AgencyLogo from '@/components/agency-logo'
 import { OfficialProfileChips } from '@/components/player-links'
 import { usePlayer } from '@/components/player-provider'
 import { Badge } from '@/components/ui/badge'
@@ -61,23 +62,20 @@ export default function Hero() {
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          {/* هوية الوكالة — في المقدمة */}
-          <div className="mb-6 flex items-center gap-3">
-            <span className="gold-ring grid size-14 shrink-0 place-items-center overflow-hidden rounded-2xl border border-primary/40 bg-ink/60 p-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={content.siteInfo.agencyLogo}
-                alt={content.siteInfo.agencyName}
-                className="max-h-full max-w-full object-contain"
-              />
-            </span>
-            <span className="flex flex-col">
-              <span className="font-serif text-base font-black text-foreground sm:text-lg">
+          {/* هوية الوكالة — في المقدمة بلوح شعار كبير وهالة ذهبية نابضة */}
+          <div className="mb-7 flex flex-col items-start gap-4 sm:mb-8 sm:flex-row sm:items-center sm:gap-6">
+            <AgencyLogo size="xl" halo className="h-20 sm:h-24 lg:h-28" />
+            <span className="flex min-w-0 flex-col">
+              <span className="font-serif text-lg font-black text-foreground sm:text-2xl">
                 {content.siteInfo.agencyName}
               </span>
-              <span className="text-[10px] font-semibold tracking-[0.22em] text-primary/85 uppercase">
+              <span className="mt-1.5 text-[10px] font-semibold tracking-[0.24em] text-primary/90 uppercase sm:text-[11px]">
                 {content.siteInfo.agencyTagline}
               </span>
+              <span
+                aria-hidden
+                className="mt-3 h-px w-32 bg-gradient-to-r from-primary via-primary/40 to-transparent sm:w-44"
+              />
             </span>
           </div>
 
