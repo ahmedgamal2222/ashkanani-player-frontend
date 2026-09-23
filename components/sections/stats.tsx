@@ -106,10 +106,12 @@ export default function StatsSection({ seasons }: StatsSectionProps) {
             {overview.map((item) => {
               const Icon = item.icon
               return (
-                <div key={item.label} className="glass-panel rounded-2xl px-4 py-3 text-center">
+                <div key={item.label} className="glass-panel min-w-0 rounded-2xl px-3 py-3 text-center sm:px-4">
                   <Icon className="mx-auto size-4 text-primary" />
-                  <p className="mt-1 font-serif text-xl font-black text-foreground">{item.value}</p>
-                  <p className="text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
+                  <p className="mt-1 font-serif text-lg font-black text-foreground sm:text-xl">
+                    {item.value}
+                  </p>
+                  <p className="text-[9px] leading-tight tracking-[0.1em] text-muted-foreground uppercase sm:text-[10px] sm:tracking-[0.16em]">
                     {item.label}
                   </p>
                 </div>
@@ -151,7 +153,7 @@ export default function StatsSection({ seasons }: StatsSectionProps) {
                 >
                   {card.value}
                 </p>
-                <p className="mt-1 text-[10px] leading-tight tracking-[0.14em] text-muted-foreground uppercase">
+                <p className="mt-1 text-[9px] leading-tight tracking-[0.1em] text-muted-foreground uppercase sm:text-[10px] sm:tracking-[0.14em]">
                   {card.label}
                 </p>
               </CardContent>
@@ -162,9 +164,9 @@ export default function StatsSection({ seasons }: StatsSectionProps) {
         {/* جدول المسابقات */}
         <Card className="mt-8 overflow-hidden">
           <CardContent className="p-0">
-            <div className="flex items-center justify-between gap-4 border-b border-white/8 px-6 py-4">
-              <h3 className="font-serif text-base font-bold">{content.stats.tableCaption}</h3>
-              <span className="text-xs text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/8 px-4 py-4 sm:px-6">
+              <h3 className="font-serif text-sm font-bold sm:text-base">{content.stats.tableCaption}</h3>
+              <span className="text-[11px] text-muted-foreground sm:text-xs">
                 {seasonStats.length} {pick('competitions', 'مسابقات')}
               </span>
             </div>

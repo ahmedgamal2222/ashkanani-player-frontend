@@ -110,10 +110,12 @@ export default function ProfileSection() {
                     key={row.label}
                     className="flex items-center justify-between gap-3 border-b border-white/6 py-3"
                   >
-                    <dt className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+                    <dt className="shrink-0 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase sm:text-xs">
                       {row.label}
                     </dt>
-                    <dd className="text-end text-sm font-semibold text-foreground">{row.value}</dd>
+                    <dd className="min-w-0 text-end text-[13px] font-semibold text-foreground sm:text-sm">
+                      {row.value}
+                    </dd>
                   </div>
                 ))}
               </dl>

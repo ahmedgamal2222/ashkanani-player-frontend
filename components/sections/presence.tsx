@@ -472,7 +472,7 @@ export default function PresenceSection() {
           <div className="space-y-6">
             {/* علم الكويت + نقطة اللاعب */}
             <Card className="overflow-hidden">
-              <CardContent className="flex items-center gap-4 p-5">
+              <CardContent className="flex flex-col items-center gap-3 p-5 text-center sm:flex-row sm:gap-4 sm:text-start">
                 <span className="w-24 shrink-0 sm:w-28">
                   <WavingKuwaitFlag className="w-full" title={content.presence.flagCaption} />
                 </span>
@@ -538,15 +538,15 @@ export default function PresenceSection() {
 
                 <div className="rounded-2xl border border-primary/25 bg-primary/[0.06] p-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h4 className="font-serif text-base font-black text-foreground">
+                    <h4 className="min-w-0 font-serif text-base font-black text-foreground">
                       {pick(activeCity.name, activeCity.ar)}
                     </h4>
                     <Badge>
-                      <Ruler className="size-3" />
-                      {content.presence.distance}
+                      <Compass className="size-3" />
+                      {content.presence.legendCity}
                     </Badge>
                   </div>
-                  <dl className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+                  <dl className="mt-3 grid grid-cols-1 gap-2 text-[11px] sm:grid-cols-2">
                     <div className="rounded-xl border border-white/8 bg-white/[0.03] px-3 py-2">
                       <dt className="text-muted-foreground">{content.presence.labels.coordinates}</dt>
                       <dd className="mt-0.5 font-semibold text-foreground/90">
@@ -611,13 +611,16 @@ export default function PresenceSection() {
                 </div>
 
                 <div className="space-y-3">
-                  <Button asChild className="w-full sm:w-auto">
+                  <Button
+                    asChild
+                    className="h-auto w-full py-2.5 text-center text-[13px] leading-tight whitespace-normal sm:w-auto sm:text-sm"
+                  >
                     <a
                       href={bundle.player.transfermarktUrl || ASHKANANI_CV_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <MapPin className="size-4" />
+                      <MapPin className="size-4 shrink-0" />
                       {content.presence.cta}
                     </a>
                   </Button>

@@ -26,7 +26,7 @@ export default function CareerSection() {
           {bundle.career.map((entry) => (
             <li
               key={entry.id}
-              className="relative grid grid-cols-[auto_1fr] items-start gap-4 sm:gap-6"
+              className="relative grid grid-cols-[auto_1fr] items-start gap-3 sm:gap-6"
             >
               {/* علامة الخط الزمني */}
               <span className="relative z-10 mt-6 grid size-8 shrink-0 place-items-center rounded-full border border-primary/40 bg-ink sm:size-12">
@@ -38,27 +38,27 @@ export default function CareerSection() {
                 )}
               </span>
 
-              <Card className="w-full">
-                <CardContent className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+              <Card className="w-full min-w-0">
+                <CardContent className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:p-6">
                   <div className="min-w-0 space-y-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="font-serif text-lg font-black text-foreground">
+                      <h3 className="font-serif text-base font-black break-words text-foreground sm:text-lg">
                         {pick(entry.clubEn, entry.clubAr)}
                       </h3>
                       {entry.isCurrent === 1 ? (
                         <Badge variant="solid">{content.career.current}</Badge>
                       ) : null}
                     </div>
-                    <p className="text-xs tracking-wide text-muted-foreground">
+                    <p className="text-[11px] leading-relaxed tracking-wide text-muted-foreground sm:text-xs">
                       {pick(entry.leagueEn, entry.leagueAr)}
                     </p>
-                    <p className="text-xs font-semibold text-primary/90">
+                    <p className="text-[11px] font-semibold text-primary/90 sm:text-xs">
                       {entry.seasonFrom}
                       {entry.seasonTo ? ` — ${entry.seasonTo}` : ` — ${content.career.present}`}
                     </p>
                   </div>
 
-                  <dl className="flex shrink-0 gap-3">
+                  <dl className="grid w-full grid-cols-3 gap-2 sm:flex sm:w-auto sm:shrink-0 sm:gap-3">
                     {[
                       { label: content.career.appearances, value: entry.appearances },
                       { label: content.career.goals, value: entry.goals },
@@ -66,12 +66,12 @@ export default function CareerSection() {
                     ].map((stat) => (
                       <div
                         key={stat.label}
-                        className="min-w-16 rounded-xl border border-white/8 bg-white/4 px-3 py-2 text-center"
+                        className="min-w-0 rounded-xl border border-white/8 bg-white/4 px-2 py-2 text-center sm:min-w-16 sm:px-3"
                       >
-                        <dd className="font-serif text-lg font-black text-foreground">
+                        <dd className="font-serif text-base font-black text-foreground sm:text-lg">
                           {stat.value}
                         </dd>
-                        <dt className="text-[9px] tracking-[0.14em] text-muted-foreground uppercase">
+                        <dt className="text-[8px] leading-tight tracking-[0.06em] text-muted-foreground uppercase sm:text-[9px] sm:tracking-[0.14em]">
                           {stat.label}
                         </dt>
                       </div>
