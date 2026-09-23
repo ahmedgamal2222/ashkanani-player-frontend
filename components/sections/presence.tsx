@@ -114,8 +114,10 @@ export default function PresenceSection() {
           subtitle={content.presence.subtitle}
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-          <Card className="overflow-hidden">
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-8">
+          {/* عمود الخريطة وبطاقات المعلومات */}
+          <div className="space-y-6">
+            <Card className="overflow-hidden">
             <CardContent className="p-4 sm:p-6">
               <div className="relative aspect-[2/1] w-full overflow-hidden rounded-2xl border border-primary/20 bg-[linear-gradient(180deg,oklch(0.19_0.035_258)_0%,oklch(0.13_0.025_260)_60%,oklch(0.1_0.02_262)_100%)]">
                 <div className="absolute inset-0" style={zoomStyle}>
@@ -469,6 +471,23 @@ export default function PresenceSection() {
             </CardContent>
           </Card>
 
+            {/* بطاقات المعلومات السريعة */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {infoTiles.map((tile) => (
+                <Card key={tile.label}>
+                  <CardContent className="p-4 sm:p-5">
+                    <p className="text-[10px] font-semibold tracking-[0.24em] text-primary/85 uppercase">
+                      {tile.label}
+                    </p>
+                    <p className="mt-2 font-serif text-sm font-black text-foreground sm:text-base">
+                      {tile.value}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
           <div className="space-y-6">
             {/* علم الكويت + نقطة اللاعب */}
             <Card className="overflow-hidden">
@@ -563,21 +582,6 @@ export default function PresenceSection() {
                 </div>
               </CardContent>
             </Card>
-
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {infoTiles.map((tile) => (
-                <Card key={tile.label}>
-                  <CardContent className="p-5">
-                    <p className="text-[10px] font-semibold tracking-[0.24em] text-primary/85 uppercase">
-                      {tile.label}
-                    </p>
-                    <p className="mt-2 font-serif text-base font-black text-foreground">
-                      {tile.value}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
 
             <Card>
               <CardContent className="space-y-5 p-6">

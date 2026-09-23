@@ -70,7 +70,7 @@ export default function ProfileSection() {
           subtitle={content.profile.subtitle}
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-8">
           {/* النبذة */}
           <Card className="overflow-hidden">
             <CardContent className="space-y-6 p-6 sm:p-8">

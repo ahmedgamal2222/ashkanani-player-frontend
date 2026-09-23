@@ -92,7 +92,7 @@ export default function TacticalSection() {
           subtitle={content.tactical.subtitle}
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
+        <div className="mt-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-8">
           <Card className="overflow-hidden">
             <CardContent className="relative p-4 sm:p-6">
               <svg

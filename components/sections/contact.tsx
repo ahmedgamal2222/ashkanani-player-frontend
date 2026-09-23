@@ -137,7 +137,7 @@ export default function ContactSection() {
           subtitle={content.contact.subtitle}
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
+        <div className="mt-14 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-8">
           {/* بيانات الوكالة */}
           <div className="space-y-6">
             <Card>
