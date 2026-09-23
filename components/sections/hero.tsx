@@ -62,9 +62,9 @@ export default function Hero() {
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          {/* هوية الوكالة — في المقدمة بلوح شعار كبير وهالة ذهبية نابضة */}
+          {/* هوية الوكالة — الشعار بألوانه الأصلية في المقدمة */}
           <div className="mb-7 flex flex-col items-start gap-4 sm:mb-8 sm:flex-row sm:items-center sm:gap-6">
-            <AgencyLogo size="xl" halo className="h-20 sm:h-24 lg:h-28" />
+            <AgencyLogo size="xl" className="h-16 sm:h-20 lg:h-24" />
             <span className="flex min-w-0 flex-col">
               <span className="font-serif text-lg font-black text-foreground sm:text-2xl">
                 {content.siteInfo.agencyName}

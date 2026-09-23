@@ -144,7 +144,7 @@ export default function ContactSection() {
             <Card>
               <CardContent className="space-y-5 p-6 sm:p-8">
                 <div className="flex items-center gap-3">
-                  <AgencyLogo size="md" className="h-14 sm:h-16" />
+                  <AgencyLogo framed className="h-14 sm:h-16" />
                   <div>
                     <h3 className="font-serif text-lg font-black text-foreground">
                       {content.contact.agentTitle}

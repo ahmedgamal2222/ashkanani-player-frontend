@@ -1,90 +1,85 @@
 'use client'
 
+import { useState } from 'react'
+
 import { useLanguage } from '@/contexts/language-context'
 import { cn } from '@/lib/utils'
 
+/** شعار الوكالة المستضاف — يُستخدم تلقائيًا إذا تعذّر تحميل الملف المحلي */
+const REMOTE_LOGO = 'https://ashkananitransfer.com/logo.png'
+
 /**
- * لوح شعار وكالة أشكناني — شكل موحّد واحترافي في كل مواضع الموقع.
+ * شعار وكالة أشكناني — يُعرض **بألوانه الأصلية** مباشرة فوق الخلفية الداكنة للموقع.
  *
- * ملاحظات مهمة:
- *  - ملف الشعار `/images/logo.png` عريض (نسبة تقارب 2:1)، لذلك يُعرض على «لوح»
- *    بخلفية فاتحة (أبيض/عاجي) حتى تندمج خلفية الشعار الفاتحة مع اللوح بلا إطار ظاهر،
- *    ويظهر التاج الذهبي وحروف ASM بتفاصيلها كاملة.
- *  - الارتفاع هو المتحكّم: الصورة تأخذ ارتفاع اللوح كاملًا وبعرض تلقائي (`h-full w-auto`
- *    + `object-contain`) فلا تتشوّه على أي مقاس (جوال/تابلت/لابتوب).
- *  - لتكبير/تصغير الشعار في أي موضع: مرّر صنف ارتفاع عبر `className`
- *    (مثال: `className="h-16 sm:h-20 lg:h-24"`) — والمقاسات الجاهزة: xs → xl.
+ * - الوضع الافتراضي: بلا خلفية وبلا إطار (الناف بار والهيرو) — تُضبط الأبعاد
+ *   بارتفاع فقط عبر `className` (مثال: `h-16 sm:h-20 lg:h-24`) والصورة تحفظ
+ *   نسبتها (`w-auto` + `object-contain`) فلا تتشوّه على أي مقاس.
+ * - `framed`: يضع الشعار داخل صندوق داكن خفيف (الفوتر • التواصل • بطاقات الملف)
+ *   كما كان معتمدًا سابقًا.
  */
-const PLATE_SIZES = {
-  xs: 'h-9 rounded-xl px-2 py-1.5',
-  sm: 'h-11 rounded-xl px-2.5 py-2 sm:h-12',
-  md: 'h-14 rounded-2xl px-3 py-2.5',
-  lg: 'h-16 rounded-2xl px-3.5 py-3 sm:h-20',
-  xl: 'h-20 rounded-[1.5rem] px-4 py-3 sm:h-24 sm:px-5 sm:py-4 lg:h-28',
+const LOGO_HEIGHTS = {
+  xs: 'h-8',
+  sm: 'h-10',
+  md: 'h-12',
+  lg: 'h-16',
+  xl: 'h-20',
 } as const
 
-export type AgencyLogoSize = keyof typeof PLATE_SIZES
+export type AgencyLogoSize = keyof typeof LOGO_HEIGHTS
 
 interface AgencyLogoProps {
   size?: AgencyLogoSize
-  /** لتغيير الارتفاع من موضع الاستخدام (مثال: "h-16 sm:h-20") */
+  /** لتغيير الارتفاع/المقاس من موضع الاستخدام (مثال: "h-16 sm:h-20") */
   className?: string
   /** وصف بديل للصورة */
   alt?: string
-  /** هالة ذهبية نابضة حول اللوح */
-  halo?: boolean
-  /** لمعان ذهبي يمرّ على اللوح */
-  animated?: boolean
+  /** صندوق داكن خفيف حول الشعار (الفوتر • التواصل • بطاقات الملف) */
+  framed?: boolean
 }
 
-export default function AgencyLogo({
-  size = 'md',
-  className,
-  alt,
-  halo = false,
-  animated = true,
-}: AgencyLogoProps) {
+export default function AgencyLogo({ size = 'md', className, alt, framed = false }: AgencyLogoProps) {
   const { content } = useLanguage()
 
-  return (
-    <span className="relative inline-flex shrink-0">
-      {halo ? (
-        <span
-          aria-hidden
-          className="animate-pulse-gold pointer-events-none absolute -inset-2 rounded-[1.9rem] border border-primary/35"
-        />
-      ) : null}
+  const local = content.siteInfo.agencyLogo || '/images/logo.png'
+  const [src, setSrc] = useState(local)
+  const label = alt ?? content.siteInfo.agencyName
 
+  // إن تعذّر تحميل الشعار المحلي (مثلًا لم يُرفع للمستودع بعد) نرجع للشعار المستضاف
+  const handleError = () => {
+    if (src !== REMOTE_LOGO) setSrc(REMOTE_LOGO)
+  }
+
+  if (framed) {
+    return (
       <span
         className={cn(
-          'relative inline-flex items-center justify-center overflow-hidden border border-primary/45',
-          'bg-gradient-to-br from-white via-[#FFFDF6] to-[#F3E7CD]',
-          'shadow-[0_0_0_1px_oklch(0.79_0.13_85/0.35),0_14px_36px_-18px_oklch(0.79_0.13_85/0.85),0_0_48px_-14px_oklch(0.79_0.13_85/0.45)]',
-          'transition-transform duration-500 group-hover:scale-[1.03]',
-          PLATE_SIZES[size],
+          'inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/5 p-2',
+          LOGO_HEIGHTS[size],
           className
         )}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={content.siteInfo.agencyLogo || '/images/logo.png'}
-          alt={alt ?? content.siteInfo.agencyName}
-          className="h-full w-auto max-w-full object-contain"
+          src={src}
+          alt={label}
+          className="max-h-full max-w-full object-contain"
           loading="lazy"
           decoding="async"
-        />
-
-        {animated ? <span aria-hidden className="brand-sheen" /> : null}
-
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.65),inset_0_-10px_18px_-14px_oklch(0.62_0.12_78/0.55)]"
-        />
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-x-2 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent"
+          onError={handleError}
         />
       </span>
-    </span>
+    )
+  }
+
+  return (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img
+      src={src}
+      alt={label}
+      className={cn('w-auto max-w-full object-contain', LOGO_HEIGHTS[size], className)}
+      loading="lazy"
+      decoding="async"
+      onError={handleError}
+    />
   )
 }

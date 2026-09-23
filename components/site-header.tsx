@@ -102,7 +102,7 @@ export default function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-3 py-2 sm:h-18 sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
         {/* الشعار + اسم اللاعب */}
         <a href="#home" className="group flex min-w-0 items-center gap-2.5 sm:gap-3">
-          <AgencyLogo size="xs" className="h-10 sm:h-12" />
+          <AgencyLogo size="xs" className="h-9 sm:h-11" />
           <span className="hidden shrink-0 place-items-center overflow-hidden rounded-full border border-primary/40 bg-white/5 transition-transform duration-500 group-hover:scale-105 sm:grid sm:size-11">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

@@ -1,5 +1,7 @@
 'use client'
 
+import type { SyntheticEvent } from 'react'
+
 import { BadgeCheck, ExternalLink, Instagram, MessageCircle } from 'lucide-react'
 
 import { usePlayer } from '@/components/player-provider'
@@ -14,6 +16,17 @@ const TRANSFERMARKT_LOGO = 'https://tmsi.akamaized.net/head/tm_logo_rebrush.svg'
 export const ASHKANANI_CV_URL = 'https://ashkananitransfer.com/cv/978'
 
 const linkHost = (url: string) => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+
+/** شعار الوكالة المستضاف — رجوع تلقائي إذا تعذّر تحميل الملف المحلي */
+const AGENCY_LOGO_FALLBACK = 'https://ashkananitransfer.com/logo.png'
+
+/** يبدّل مصدر الصورة مرة واحدة إلى الشعار المستضاف عند فشل التحميل */
+const handleAgencyLogoError = (event: SyntheticEvent<HTMLImageElement>) => {
+  const img = event.currentTarget
+  if (img.dataset.fallback === '1') return
+  img.dataset.fallback = '1'
+  img.src = AGENCY_LOGO_FALLBACK
+}
 
 /**
  * شارات سريعة تظهر في المقدمة (الهيرو): شعار ترانسفير ماركت + رابط الملف الرسمي.
@@ -53,12 +66,13 @@ export function OfficialProfileChips({ className }: { className?: string }) {
         title={content.links.ashkananiNote}
         className="glass-panel group inline-flex w-full min-w-0 items-center gap-3 rounded-2xl px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 sm:w-auto"
       >
-        <span className="grid h-9 w-14 shrink-0 place-items-center overflow-hidden rounded-xl border border-primary/35 bg-gradient-to-br from-white via-[#FFFDF6] to-[#F3E7CD] px-1.5 py-1">
+        <span className="grid h-9 w-14 shrink-0 place-items-center overflow-hidden rounded-xl border border-white/12 bg-white/5 p-1.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={content.siteInfo.agencyLogo}
             alt={content.siteInfo.agencyName}
-            className="size-full object-contain"
+            className="max-h-full max-w-full object-contain"
+            onError={handleAgencyLogoError}
           />
         </span>
         <span className="flex min-w-0 flex-1 flex-col text-start">
@@ -140,15 +154,18 @@ export default function OfficialProfileCards({ className }: { className?: string
           <span className="relative flex items-center justify-between gap-3">
             <span
               className={cn(
-                'grid shrink-0 place-items-center overflow-hidden rounded-2xl border p-2',
-                card.logo
-                  ? 'h-12 w-20 border-primary/35 bg-gradient-to-br from-white via-[#FFFDF6] to-[#F3E7CD]'
-                  : 'size-12 border-white/10 bg-white/5'
+                'grid shrink-0 place-items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2',
+                card.logo ? 'h-12 w-20' : 'size-12'
               )}
             >
               {card.logo ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
-                <img src={card.logo} alt={card.label} className="size-full object-contain" />
+                <img
+                  src={card.logo}
+                  alt={card.label}
+                  className="max-h-full max-w-full object-contain"
+                  onError={card.key === 'agency' ? handleAgencyLogoError : undefined}
+                />
               ) : (
                 card.icon
               )}

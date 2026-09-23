@@ -22,7 +22,7 @@ export default function SiteFooter() {
           {/* هوية الوكالة */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <AgencyLogo size="md" className="h-12 sm:h-14" />
+              <AgencyLogo framed size="sm" className="h-12 sm:h-14" />
               <div>
                 <p className="font-serif text-base font-black text-foreground">
                   {content.siteInfo.agencyName}

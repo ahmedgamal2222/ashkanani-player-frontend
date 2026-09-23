@@ -85,8 +85,8 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
   icons: {
-    icon: '/images/logo.png',
-    apple: '/images/logo.png',
+    icon: 'https://ashkananitransfer.com/logo.png',
+    apple: 'https://ashkananitransfer.com/logo.png',
   },
 }
 
