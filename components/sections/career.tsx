@@ -63,7 +63,9 @@ export default function CareerSection() {
                       { label: content.career.appearances, value: entry.appearances },
                       { label: content.career.goals, value: entry.goals },
                       { label: content.career.assists, value: entry.assists },
-                    ].map((stat) => (
+                    ]
+                      .filter((stat) => stat.value > 0)
+                      .map((stat) => (
                       <div
                         key={stat.label}
                         className="min-w-0 rounded-xl border border-white/8 bg-white/4 px-2 py-2 text-center sm:min-w-16 sm:px-3"

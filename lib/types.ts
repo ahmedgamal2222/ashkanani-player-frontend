@@ -67,6 +67,11 @@ export interface SeasonStat {
   season: string
   competitionEn: string
   competitionAr: string
+  /** مرحلة المسيرة: u13 | u15 | u17 | u20 | first_team | national | club */
+  stageKey: string
+  /** ملاحظة المرحلة (تظهر كما أبلغها اللاعب) */
+  noteEn: string
+  noteAr: string
   appearances: number
   starts: number
   minutes: number

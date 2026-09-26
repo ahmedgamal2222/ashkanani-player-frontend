@@ -21,6 +21,7 @@
       "career": "Career",
       "achievements": "Achievements",
       "media": "Media",
+      "style": "Style of Play",
       "matches": "Matches",
       "contact": "Contact",
       "agentContact": "Contact Agency",
@@ -160,11 +161,29 @@
       }
     },
     "stats": {
-      "title": "Season Statistics",
-      "subtitle": "Performance across competitions",
+      "title": "Career Statistics",
+      "subtitle": "Age stages and the figures reported by the player — select a stage to explore it",
       "season": "Season",
-      "allSeasons": "All seasons",
+      "allSeasons": "All stages",
       "competition": "Competition",
+      "stagesLabel": "Age stages",
+      "reportedNote": "As reported by the player",
+      "figuresLabel": "Reported figures",
+      "chooseStage": "Select a stage",
+      "stages": {
+        "u13": "Under-13",
+        "u15": "Under-15",
+        "u17": "Under-17",
+        "u20": "Under-20",
+        "first_team": "First Team",
+        "national": "National Teams"
+      },
+      "highlights": {
+        "internationalApps": "International appearances",
+        "internationalGoals": "International goals",
+        "u17Goals": "Goals in the Under-17 stage",
+        "u20Assists": "Assists in the Under-20 stage"
+      },
       "summary": {
         "appearances": "Appearances",
         "starts": "Starts",
@@ -211,6 +230,44 @@
       "noPhotos": "No photos available yet.",
       "noVideos": "No videos available yet.",
       "videoUnavailable": "Video not available — please upload the file to /public/videos."
+    },
+    "style": {
+      "title": "Style of Play",
+      "subtitle": "An interactive board — pick any phase of the game to explore his role",
+      "hint": "Tap a phase to explore",
+      "tagsLabel": "Related qualities",
+      "phases": [
+        {
+          "icon": "build",
+          "title": "Build-up from Deep",
+          "text": "Collects the ball in front of the defence and between the lines, escapes pressure with his first touch and turns defence into attack with calm, accurate distribution.",
+          "tags": ["Receiving under pressure", "Composure", "Short and long passing"]
+        },
+        {
+          "icon": "circulate",
+          "title": "Ball Circulation",
+          "text": "Keeps the ball moving with one and two-touch play, switches the point of attack and gives his team control of the tempo.",
+          "tags": ["One-touch play", "Switching play", "Tempo control"]
+        },
+        {
+          "icon": "press",
+          "title": "Pressing & Recovery",
+          "text": "Leads the counter-press, closes passing lanes and wins the ball back high — turning lost possession into an immediate attack.",
+          "tags": ["Counter-press", "Interceptions", "Work rate"]
+        },
+        {
+          "icon": "final",
+          "title": "Final Pass & Space",
+          "text": "Arrives in the final third to deliver the decisive pass, attacks the space behind the midfield and links the lines with the strikers.",
+          "tags": ["Key passes", "Late runs into the box", "Vision"]
+        },
+        {
+          "icon": "lead",
+          "title": "Leadership on the Pitch",
+          "text": "Captain of the Kuwait national teams at every age level: organises his teammates, takes responsibility for set pieces and sets the standard in training and matches.",
+          "tags": ["Captaincy", "Communication", "Set pieces"]
+        }
+      ]
     },
     "matches": {
       "title": "Recent Matches",
@@ -294,6 +351,7 @@
       "career": "المسيرة",
       "achievements": "الإنجازات",
       "media": "الوسائط",
+      "style": "أسلوب اللعب",
       "matches": "المباريات",
       "contact": "التواصل",
       "agentContact": "اتصل بالوكالة",
@@ -433,11 +491,29 @@
       }
     },
     "stats": {
-      "title": "إحصائيات المواسم",
-      "subtitle": "الأداء في جميع المسابقات",
+      "title": "الإحصائيات والمراحل",
+      "subtitle": "المراحل السنية والأرقام كما أبلغها اللاعب — اختر أي مرحلة لاستكشافها",
       "season": "الموسم",
-      "allSeasons": "جميع المواسم",
+      "allSeasons": "كل المراحل",
       "competition": "المسابقة",
+      "stagesLabel": "المراحل السنية",
+      "reportedNote": "كما أبلغها اللاعب",
+      "figuresLabel": "الأرقام المُبلَّغ عنها",
+      "chooseStage": "اختر مرحلة",
+      "stages": {
+        "u13": "تحت 13 سنة",
+        "u15": "تحت 15 سنة",
+        "u17": "تحت 17 سنة",
+        "u20": "تحت 20 سنة",
+        "first_team": "الفريق الأول",
+        "national": "المنتخبات الوطنية"
+      },
+      "highlights": {
+        "internationalApps": "مباراة دولية رسمية",
+        "internationalGoals": "هدف دولي",
+        "u17Goals": "هدفًا في مرحلة تحت 17 سنة",
+        "u20Assists": "تمريرة حاسمة في مرحلة تحت 20 سنة"
+      },
       "summary": {
         "appearances": "المباريات",
         "starts": "أساسي",
@@ -484,6 +560,44 @@
       "noPhotos": "لا توجد صور متاحة حتى الآن.",
       "noVideos": "لا توجد فيديوهات متاحة حتى الآن.",
       "videoUnavailable": "الفيديو غير متوفر — يرجى رفع الملف إلى مجلد /public/videos."
+    },
+    "style": {
+      "title": "أسلوب اللعب",
+      "subtitle": "لوحة تفاعلية — اختر أي مرحلة من اللعب لتكتشف دوره فيها",
+      "hint": "اضغط على أي مرحلة للاستكشاف",
+      "tagsLabel": "سمات مرتبطة",
+      "phases": [
+        {
+          "icon": "build",
+          "title": "بناء اللعب من العمق",
+          "text": "يستلم الكرة أمام الدفاع وبين الخطوط، ويخرج من الضغط بلمسته الأولى، ويحوّل الدفاع إلى هجوم بتوزيع هادئ ودقيق.",
+          "tags": ["استلام تحت الضغط", "الهدوء", "التمرير القصير والطويل"]
+        },
+        {
+          "icon": "circulate",
+          "title": "تدوير الكرة",
+          "text": "يُبقي الكرة تتحرك بلمسة ولمستين، وينقل اللعب من جهة إلى أخرى، ويمنح فريقه التحكّم في إيقاع المباراة.",
+          "tags": ["لعب بلمسة واحدة", "نقل اللعب", "التحكّم بالإيقاع"]
+        },
+        {
+          "icon": "press",
+          "title": "الضغط والاستعادة",
+          "text": "يقود الضغط المرتد، ويغلق مسارات التمرير، ويستعيد الكرة عاليًا ليحوّل الفقد إلى هجمة فورية.",
+          "tags": ["الضغط المرتد", "قطع الكرات", "معدل المجهود"]
+        },
+        {
+          "icon": "final",
+          "title": "التمريرة الأخيرة والمساحات",
+          "text": "يصل إلى الثلث الهجومي ليقدّم التمريرة الحاسمة، ويهاجم المساحة خلف الوسط، ويربط الخطوط بالمهاجمين.",
+          "tags": ["التمريرات المفتاحية", "الدخول المتأخر للمنطقة", "الرؤية"]
+        },
+        {
+          "icon": "lead",
+          "title": "القيادة داخل الملعب",
+          "text": "قائد منتخبات الكويت في جميع المراحل السنية: ينظّم زملاءه، ويتحمّل مسؤولية الكرات الثابتة، ويضبط المعايير داخل التدريبات والمباريات.",
+          "tags": ["القيادة", "التواصل", "الكرات الثابتة"]
+        }
+      ]
     },
     "matches": {
       "title": "المباريات الأخيرة",

@@ -1,95 +1,117 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { CalendarDays, Target, Timer } from 'lucide-react'
+import {
+  Award,
+  CalendarDays,
+  Flag,
+  GraduationCap,
+  Handshake,
+  Hash,
+  Sparkles,
+  Trophy,
+} from 'lucide-react'
 
 import { usePlayer } from '@/components/player-provider'
 import SectionHeading from '@/components/section-heading'
+import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { useLanguage } from '@/contexts/language-context'
 import { sectionNumber } from '@/lib/site-sections'
+import type { SeasonStat } from '@/lib/types'
 import { cn } from '@/lib/utils'
 
-interface StatsSectionProps {
-  seasons: string[]
+/** ترتيب ظهور المراحل في اللوحة */
+const STAGE_ORDER: Record<string, number> = {
+  u13: 1,
+  u15: 2,
+  u17: 3,
+  u20: 4,
+  first_team: 5,
+  national: 6,
 }
 
-export default function StatsSection({ seasons }: StatsSectionProps) {
-  const { content, pick } = useLanguage()
-  const { bundle, totals } = usePlayer()
-  const [selectedSeason, setSelectedSeason] = useState<string>('all')
+/** أيقونة لكل مرحلة */
+const STAGE_ICONS: Record<string, typeof Trophy> = {
+  u13: GraduationCap,
+  u15: GraduationCap,
+  u17: Sparkles,
+  u20: Sparkles,
+  first_team: Handshake,
+  national: Flag,
+}
 
-  const seasonStats = useMemo(
+export default function StatsSection() {
+  const { content, pick } = useLanguage()
+  const { bundle } = usePlayer()
+  const [activeKey, setActiveKey] = useState<string>('')
+
+  const stages = useMemo<SeasonStat[]>(
     () =>
-      selectedSeason === 'all'
-        ? bundle.stats
-        : bundle.stats.filter((item) => item.season === selectedSeason),
-    [bundle.stats, selectedSeason]
+      [...bundle.stats].sort(
+        (a, b) => (STAGE_ORDER[a.stageKey] ?? 99) - (STAGE_ORDER[b.stageKey] ?? 99)
+      ),
+    [bundle.stats]
   )
 
-  const summary = useMemo(() => {
-    const initial = {
-      appearances: 0,
-      starts: 0,
-      minutes: 0,
-      goals: 0,
-      assists: 0,
-      yellowCards: 0,
-      redCards: 0,
-      passAccuracy: 0,
-      duelsWonPct: 0,
-      rating: 0,
-      count: 0,
+  const active = stages.find((stage) => stage.stageKey === activeKey) ?? stages[0]
+
+  /** تسميات المراحل (مترجمة) */
+  const stageLabels: Record<string, string> = {
+    u13: content.stats.stages.u13,
+    u15: content.stats.stages.u15,
+    u17: content.stats.stages.u17,
+    u20: content.stats.stages.u20,
+    first_team: content.stats.stages.first_team,
+    national: content.stats.stages.national,
+  }
+
+  const stageLabel = (key: string) => stageLabels[key] ?? key
+
+  /** الأرقام البارزة — تُحسب من المراحل المُبلَّغ عنها فقط */
+  const highlights = useMemo(() => {
+    const totals = (stageKey: string) =>
+      stages
+        .filter((stage) => stage.stageKey === stageKey)
+        .reduce(
+          (accumulator, stage) => ({
+            appearances: accumulator.appearances + stage.appearances,
+            goals: accumulator.goals + stage.goals,
+            assists: accumulator.assists + stage.assists,
+          }),
+          { appearances: 0, goals: 0, assists: 0 }
+        )
+
+    const national = totals('national')
+    const u17 = totals('u17')
+    const u20 = totals('u20')
+
+    return [
+      {
+        icon: Flag,
+        value: national.appearances,
+        label: content.stats.highlights.internationalApps,
+      },
+      { icon: Award, value: national.goals, label: content.stats.highlights.internationalGoals },
+      { icon: Trophy, value: u17.goals, label: content.stats.highlights.u17Goals },
+      { icon: Hash, value: u20.assists, label: content.stats.highlights.u20Assists },
+    ]
+  }, [stages, content.stats.highlights])
+
+  /** أرقام المرحلة المختارة — لا تُعرض القيم الصفرية */
+  const figures = useMemo(() => {
+    if (!active) return []
+    const entries: Array<{ label: string; value: number }> = []
+    if (active.appearances > 0) {
+      entries.push({ label: content.stats.summary.appearances, value: active.appearances })
     }
-
-    const aggregated = seasonStats.reduce(
-      (accumulator, item) => ({
-        appearances: accumulator.appearances + item.appearances,
-        starts: accumulator.starts + item.starts,
-        minutes: accumulator.minutes + item.minutes,
-        goals: accumulator.goals + item.goals,
-        assists: accumulator.assists + item.assists,
-        yellowCards: accumulator.yellowCards + item.yellowCards,
-        redCards: accumulator.redCards + item.redCards,
-        passAccuracy: accumulator.passAccuracy + item.passAccuracy,
-        duelsWonPct: accumulator.duelsWonPct + item.duelsWonPct,
-        rating: accumulator.rating + item.rating,
-        count: accumulator.count + 1,
-      }),
-      initial
-    )
-
-    const divisor = Math.max(1, aggregated.count)
-    return {
-      ...aggregated,
-      passAccuracy: Number((aggregated.passAccuracy / divisor).toFixed(1)),
-      duelsWonPct: Number((aggregated.duelsWonPct / divisor).toFixed(1)),
-      rating: Number((aggregated.rating / divisor).toFixed(2)),
+    if (active.goals > 0) entries.push({ label: content.stats.summary.goals, value: active.goals })
+    if (active.assists > 0) {
+      entries.push({ label: content.stats.summary.assists, value: active.assists })
     }
-  }, [seasonStats])
+    return entries
+  }, [active, content.stats.summary])
 
-  const cards = [
-    { label: content.stats.summary.appearances, value: summary.appearances },
-    { label: content.stats.summary.starts, value: summary.starts },
-    { label: content.stats.summary.minutes, value: summary.minutes },
-    { label: content.stats.summary.goals, value: summary.goals, accent: true },
-    { label: content.stats.summary.assists, value: summary.assists, accent: true },
-    { label: content.stats.summary.passAccuracy, value: `${summary.passAccuracy}%` },
-    { label: content.stats.summary.duelsWon, value: `${summary.duelsWonPct}%` },
-    { label: content.stats.summary.rating, value: summary.rating },
-  ]
-
-  const overview = [
-    {
-      icon: CalendarDays,
-      label: content.stats.summary.appearances,
-      value: `${totals.appearances}`,
-    },
-    { icon: Target, label: content.stats.summary.goals, value: `${totals.goals}` },
-    { icon: Timer, label: content.stats.summary.minutes, value: `${totals.minutes}` },
-  ]
-
-  const seasonOptions = ['all', ...seasons]
 
   return (
     <section id="stats" className="relative py-20 sm:py-24 lg:py-28">
@@ -100,143 +122,132 @@ export default function StatsSection({ seasons }: StatsSectionProps) {
           subtitle={content.stats.subtitle}
         />
 
-        {/* ملخّص المسيرة + اختيار الموسم */}
-        <div className="mt-12 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="grid grid-cols-3 gap-3">
-            {overview.map((item) => {
-              const Icon = item.icon
-              return (
-                <div key={item.label} className="glass-panel min-w-0 rounded-2xl px-3 py-3 text-center sm:px-4">
-                  <Icon className="mx-auto size-4 text-primary" />
-                  <p className="mt-1 font-serif text-lg font-black text-foreground sm:text-xl">
+        {/* الأرقام البارزة المُبلَّغ عنها */}
+        <div className="mt-12 grid grid-cols-2 gap-3 lg:grid-cols-4">
+          {highlights.map((item) => {
+            const Icon = item.icon
+            return (
+              <Card key={item.label} className="text-center hover:-translate-y-1.5">
+                <CardContent className="p-5">
+                  <Icon className="mx-auto size-5 text-primary" />
+                  <p className="text-gold-gradient mt-2 font-serif text-3xl font-black">
                     {item.value}
                   </p>
-                  <p className="text-[9px] leading-tight tracking-[0.1em] text-muted-foreground uppercase sm:text-[10px] sm:tracking-[0.16em]">
+                  <p className="mt-1 text-[10px] leading-tight tracking-[0.12em] text-muted-foreground uppercase sm:text-[11px]">
                     {item.label}
                   </p>
-                </div>
-              )
-            })}
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="me-1 text-[10px] font-semibold tracking-[0.24em] text-muted-foreground uppercase">
-              {content.stats.season}
-            </span>
-            {seasonOptions.map((season) => (
-              <button
-                key={season}
-                type="button"
-                onClick={() => setSelectedSeason(season)}
-                className={cn(
-                  'rounded-full border px-4 py-2 text-xs font-semibold transition-all duration-300',
-                  selectedSeason === season
-                    ? 'border-primary bg-primary text-primary-foreground shadow-[0_10px_30px_-12px_var(--gold)]'
-                    : 'border-white/12 bg-white/4 text-foreground/75 hover:border-primary/50 hover:text-primary'
-                )}
-              >
-                {season === 'all' ? content.stats.allSeasons : season}
-              </button>
-            ))}
-          </div>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
-{/* بطاقات الملخص */}
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
-          {cards.map((card) => (
-            <Card key={card.label} className="text-center">
-              <CardContent className="p-4">
-                <p
-                  className={cn(
-                    'font-serif text-2xl font-black',
-                    card.accent ? 'text-gold-gradient' : 'text-foreground'
-                  )}
-                >
-                  {card.value}
+
+        {/* لوحة المراحل التفاعلية */}
+        <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="space-y-2">
+            <p className="text-[10px] font-semibold tracking-[0.24em] text-muted-foreground uppercase">
+              {content.stats.chooseStage}
+            </p>
+
+            <div className="scroll-x flex gap-2 pb-1 lg:flex-col lg:pb-0">
+              {stages.map((stage) => {
+                const Icon = STAGE_ICONS[stage.stageKey] ?? Trophy
+                const isActive = active?.id === stage.id
+                return (
+                  <button
+                    key={stage.id}
+                    type="button"
+                    onClick={() => setActiveKey(stage.stageKey)}
+                    aria-pressed={isActive}
+                    className={cn(
+                      'flex min-w-[15rem] items-center gap-3 rounded-2xl border p-3 text-start transition-all duration-300 lg:w-full lg:min-w-0',
+                      isActive
+                        ? 'border-primary/60 bg-primary/12 shadow-[0_18px_45px_-24px_var(--gold)]'
+                        : 'border-white/10 bg-white/4 hover:border-primary/40 hover:bg-white/6'
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        'grid size-11 shrink-0 place-items-center rounded-xl border transition-colors',
+                        isActive ? 'border-primary/50 bg-primary/15' : 'border-white/10 bg-white/5'
+                      )}
+                    >
+                      <Icon className="size-5 text-primary" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block truncate font-serif text-sm font-black text-foreground">
+                        {stageLabel(stage.stageKey)}
+                      </span>
+                      <span className="block truncate text-[11px] text-muted-foreground">
+                        {stage.season}
+                      </span>
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+          {active ? (
+            <Card className="overflow-hidden">
+              <CardContent className="space-y-5 p-6 sm:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="grid size-12 place-items-center rounded-2xl border border-primary/30 bg-primary/10">
+                      {(() => {
+                        const Icon = STAGE_ICONS[active.stageKey] ?? Trophy
+                        return <Icon className="size-6 text-primary" />
+                      })()}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="font-serif text-lg font-black text-foreground sm:text-xl">
+                        {stageLabel(active.stageKey)}
+                      </h3>
+                      <p className="text-xs text-muted-foreground">
+                        {pick(active.competitionEn, active.competitionAr)}
+                      </p>
+                    </div>
+                  </div>
+                  <Badge variant="outline">{active.season}</Badge>
+                </div>
+
+                <p className="text-sm leading-8 text-foreground/85 sm:text-[15px] sm:leading-9">
+                  {pick(active.noteEn, active.noteAr)}
                 </p>
-                <p className="mt-1 text-[9px] leading-tight tracking-[0.1em] text-muted-foreground uppercase sm:text-[10px] sm:tracking-[0.14em]">
-                  {card.label}
+                {figures.length > 0 ? (
+                  <div className="space-y-2 border-t border-white/8 pt-5">
+                    <p className="text-[10px] font-semibold tracking-[0.24em] text-muted-foreground uppercase">
+                      {content.stats.figuresLabel}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {figures.map((figure) => (
+                        <span
+                          key={figure.label}
+                          className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/8 px-4 py-2 text-xs font-semibold text-foreground/90"
+                        >
+                          {figure.label}
+                          <span className="font-serif text-base font-black text-primary">
+                            {figure.value}
+                          </span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                <p className="flex items-center gap-2 border-t border-white/8 pt-4 text-[11px] text-muted-foreground">
+                  <CalendarDays className="size-3.5 text-primary" />
+                  {content.stats.reportedNote}
                 </p>
               </CardContent>
             </Card>
-          ))}
+          ) : (
+            <Card>
+              <CardContent className="p-6 text-sm text-muted-foreground sm:p-8">
+                {content.stats.chooseStage}
+              </CardContent>
+            </Card>
+          )}
         </div>
-
-        {/* جدول المسابقات */}
-        <Card className="mt-8 overflow-hidden">
-          <CardContent className="p-0">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/8 px-4 py-4 sm:px-6">
-              <h3 className="font-serif text-sm font-bold sm:text-base">{content.stats.tableCaption}</h3>
-              <span className="text-[11px] text-muted-foreground sm:text-xs">
-                {seasonStats.length} {pick('competitions', 'مسابقات')}
-              </span>
-            </div>
-
-            <div className="scroll-x">
-              <table className="w-full min-w-[46rem] text-sm">
-                <thead>
-                  <tr className="text-[10px] tracking-[0.16em] text-muted-foreground uppercase">
-                    <th className="px-6 py-3 text-start font-semibold">
-                      {content.stats.competition}
-                    </th>
-                    <th className="px-4 py-3 text-center font-semibold">
-                      {content.stats.summary.appearances}
-                    </th>
-                    <th className="px-4 py-3 text-center font-semibold">
-                      {content.stats.summary.goals}
-                    </th>
-                    <th className="px-4 py-3 text-center font-semibold">
-                      {content.stats.summary.assists}
-                    </th>
-                    <th className="px-4 py-3 text-center font-semibold">
-                      {content.stats.summary.minutes}
-                    </th>
-                    <th className="px-4 py-3 text-center font-semibold">
-                      {content.stats.summary.passAccuracy}
-                    </th>
-                    <th className="px-4 py-3 text-center font-semibold">
-                      {content.stats.summary.duelsWon}
-                    </th>
-                    <th className="px-6 py-3 text-center font-semibold">
-                      {content.stats.summary.rating}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {seasonStats.map((row) => (
-                    <tr
-                      key={row.id}
-                      className="border-t border-white/6 transition-colors hover:bg-white/4"
-                    >
-                      <td className="px-6 py-4">
-                        <span className="block font-semibold text-foreground/95">
-                          {pick(row.competitionEn, row.competitionAr)}
-                        </span>
-                        <span className="text-[11px] text-muted-foreground">{row.season}</span>
-                      </td>
-                      <td className="px-4 py-4 text-center font-semibold">{row.appearances}</td>
-                      <td className="px-4 py-4 text-center font-semibold text-primary">{row.goals}</td>
-                      <td className="px-4 py-4 text-center font-semibold text-primary">
-                        {row.assists}
-                      </td>
-                      <td className="px-4 py-4 text-center text-foreground/85">{row.minutes}</td>
-                      <td className="px-4 py-4 text-center text-foreground/85">
-                        {row.passAccuracy}%
-                      </td>
-                      <td className="px-4 py-4 text-center text-foreground/85">
-                        {row.duelsWonPct}%
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        <span className="inline-flex min-w-12 justify-center rounded-full border border-primary/35 bg-primary/10 px-2 py-1 font-serif text-sm font-bold text-primary">
-                          {row.rating.toFixed(1)}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>
   )

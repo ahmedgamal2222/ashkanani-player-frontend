@@ -16,6 +16,8 @@ export type SectionId =
   | 'presence'
   | 'achievements'
   | 'media'
+  | 'style'
+  /** قسم «المباريات» أُلغي (لا مباريات موثّقة) — بقي المعرّف فقط للمكوّن القديم */
   | 'matches'
   | 'contact'
 
@@ -32,7 +34,7 @@ export const SECTION_ORDER: SectionId[] = [
   'presence',
   'achievements',
   'media',
-  'matches',
+  'style',
   'contact',
 ]
 

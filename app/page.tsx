@@ -1,4 +1,4 @@
-import { getPlayerData, getSeasons } from '@/lib/api'
+import { getPlayerData } from '@/lib/api'
 import { isSectionVisible } from '@/lib/site-sections'
 import { PlayerProvider } from '@/components/player-provider'
 import SiteHeader from '@/components/site-header'
@@ -8,18 +8,17 @@ import CareerSection from '@/components/sections/career'
 import ContactSection from '@/components/sections/contact'
 import SiteFooter from '@/components/sections/footer'
 import Hero from '@/components/sections/hero'
-import MatchesSection from '@/components/sections/matches'
 import MediaSection from '@/components/sections/media'
 import PresenceSection from '@/components/sections/presence'
 import ProfileSection from '@/components/sections/profile'
 import StatsSection from '@/components/sections/stats'
+import StyleSection from '@/components/sections/style'
 import TacticalSection from '@/components/sections/tactical'
 
 export const revalidate = 120
 
 export default async function HomePage() {
   const { bundle, source } = await getPlayerData()
-  const seasons = await getSeasons()
 
   const schema = {
     '@context': 'https://schema.org',
@@ -53,12 +52,12 @@ export default async function HomePage() {
         {/* سمات اللاعب مخفية مؤقتًا — لإعادة إظهارها أزل 'attributes' من HIDDEN_SECTIONS في lib/site-sections.ts */}
         {isSectionVisible('attributes') ? <AttributesSection /> : null}
         {isSectionVisible('tactical') ? <TacticalSection /> : null}
-        <StatsSection seasons={seasons} />
+        <StatsSection />
         <CareerSection />
         {isSectionVisible('presence') ? <PresenceSection /> : null}
         <AchievementsSection />
         <MediaSection />
-        <MatchesSection />
+        {isSectionVisible('style') ? <StyleSection /> : null}
         <ContactSection />
       </main>
       <SiteFooter />
