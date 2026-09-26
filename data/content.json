@@ -161,15 +161,13 @@
       }
     },
     "stats": {
-      "title": "Career Statistics",
-      "subtitle": "Age stages and the figures reported by the player — select a stage to explore it",
+      "title": "Statistics & Stages",
+      "subtitle": "The player's record across youth stages and the national teams",
       "season": "Season",
       "allSeasons": "All stages",
       "competition": "Competition",
-      "stagesLabel": "Age stages",
-      "reportedNote": "As reported by the player",
-      "figuresLabel": "Reported figures",
-      "chooseStage": "Select a stage",
+      "stage": "Stage",
+      "stagesLabel": "Career Stages",
       "stages": {
         "u13": "Under-13",
         "u15": "Under-15",
@@ -233,9 +231,8 @@
     },
     "style": {
       "title": "Style of Play",
-      "subtitle": "An interactive board — pick any phase of the game to explore his role",
-      "hint": "Tap a phase to explore",
-      "tagsLabel": "Related qualities",
+      "subtitle": "A tactical reading of his roles on the pitch",
+      "tagsLabel": "Performance traits",
       "phases": [
         {
           "icon": "build",
@@ -492,14 +489,12 @@
     },
     "stats": {
       "title": "الإحصائيات والمراحل",
-      "subtitle": "المراحل السنية والأرقام كما أبلغها اللاعب — اختر أي مرحلة لاستكشافها",
+      "subtitle": "سجلّ اللاعب عبر المراحل السنية والمنتخبات الوطنية",
       "season": "الموسم",
       "allSeasons": "كل المراحل",
       "competition": "المسابقة",
+      "stage": "المرحلة",
       "stagesLabel": "المراحل السنية",
-      "reportedNote": "كما أبلغها اللاعب",
-      "figuresLabel": "الأرقام المُبلَّغ عنها",
-      "chooseStage": "اختر مرحلة",
       "stages": {
         "u13": "تحت 13 سنة",
         "u15": "تحت 15 سنة",
@@ -563,9 +558,8 @@
     },
     "style": {
       "title": "أسلوب اللعب",
-      "subtitle": "لوحة تفاعلية — اختر أي مرحلة من اللعب لتكتشف دوره فيها",
-      "hint": "اضغط على أي مرحلة للاستكشاف",
-      "tagsLabel": "سمات مرتبطة",
+      "subtitle": "قراءة تكتيكية في أدواره داخل الملعب",
+      "tagsLabel": "سمات الأداء",
       "phases": [
         {
           "icon": "build",

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Crown, Layers, Repeat, ShieldCheck, Sparkles, Zap } from 'lucide-react'
+import { Crown, Layers, Repeat, ShieldCheck, Target } from 'lucide-react'
 
 import SectionHeading from '@/components/section-heading'
 import { Card, CardContent } from '@/components/ui/card'
@@ -10,11 +10,11 @@ import { sectionNumber } from '@/lib/site-sections'
 import { cn } from '@/lib/utils'
 
 /** أيقونة لكل مرحلة من مراحل اللعب (المفاتيح تأتي من data/content.json) */
-const PHASE_ICONS: Record<string, typeof Sparkles> = {
+const PHASE_ICONS: Record<string, typeof Layers> = {
   build: Layers,
   circulate: Repeat,
   press: ShieldCheck,
-  final: Zap,
+  final: Target,
   lead: Crown,
 }
 
@@ -49,7 +49,7 @@ export default function StyleSection() {
   const active = phases[activeIndex] ?? phases[0]
   if (!active) return null
 
-  const ActiveIcon = PHASE_ICONS[active.icon] ?? Sparkles
+  const ActiveIcon = PHASE_ICONS[active.icon] ?? Layers
 
   return (
     <section id="style" className="relative bg-ink/40 py-20 sm:py-24 lg:py-28">
@@ -64,7 +64,7 @@ export default function StyleSection() {
           {/* مراحل اللعب — أزرار تفاعلية */}
           <div className="scroll-x flex gap-2 pb-1 lg:flex-col lg:gap-3 lg:pb-0">
             {phases.map((phase, index) => {
-              const Icon = PHASE_ICONS[phase.icon] ?? Sparkles
+              const Icon = PHASE_ICONS[phase.icon] ?? Layers
               const isActive = index === activeIndex
               return (
                 <button
@@ -130,7 +130,7 @@ export default function StyleSection() {
                       key={tag}
                       className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/8 px-3 py-1.5 text-[11px] font-semibold text-foreground/85"
                     >
-                      <Sparkles className="size-3 text-primary" />
+                      <span className="size-1.5 rounded-full bg-primary" />
                       {tag}
                     </span>
                   ))}
@@ -140,23 +140,20 @@ export default function StyleSection() {
           </Card>
         </div>
 
-        {/* المؤشرات + تلميح التفاعل */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-[11px] text-muted-foreground">{content.style.hint}</p>
-          <div className="flex items-center gap-2">
-            {phases.map((phase, index) => (
-              <button
-                key={phase.title}
-                type="button"
-                aria-label={phase.title}
-                onClick={() => selectPhase(index)}
-                className={cn(
-                  'h-1.5 rounded-full transition-all duration-300',
-                  index === activeIndex ? 'w-8 bg-primary' : 'w-3 bg-white/15 hover:bg-primary/50'
-                )}
-              />
-            ))}
-          </div>
+        {/* مؤشرات التنقل بين المراحل */}
+        <div className="mt-6 flex items-center justify-center gap-2">
+          {phases.map((phase, index) => (
+            <button
+              key={phase.title}
+              type="button"
+              aria-label={phase.title}
+              onClick={() => selectPhase(index)}
+              className={cn(
+                'h-1.5 rounded-full transition-all duration-300',
+                index === activeIndex ? 'w-10 bg-primary' : 'w-3 bg-white/15 hover:bg-primary/50'
+              )}
+            />
+          ))}
         </div>
       </div>
     </section>

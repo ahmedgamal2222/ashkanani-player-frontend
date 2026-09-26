@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { ChevronDown, Play, ShieldCheck, Sparkles } from 'lucide-react'
+import { ChevronDown, Play, ShieldCheck } from 'lucide-react'
 
 import AgencyLogo from '@/components/agency-logo'
 import { OfficialProfileChips } from '@/components/player-links'
@@ -81,7 +81,7 @@ export default function Hero() {
 
           <div className="mb-6 flex flex-wrap items-center gap-2">
             <Badge variant="solid">
-              <Sparkles className="size-3" />
+              <ShieldCheck className="size-3" />
               {content.hero.eyebrow}
             </Badge>
             <Badge variant="outline">{pick(player.statusEn, player.statusAr)}</Badge>
