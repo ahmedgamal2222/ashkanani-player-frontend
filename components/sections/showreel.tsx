@@ -1,41 +1,35 @@
 'use client'
 
-import { useCallback, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Clapperboard, ExternalLink, Film, Play, Sparkles } from 'lucide-react'
 
 import SectionHeading from '@/components/section-heading'
 import { Badge } from '@/components/ui/badge'
 import { useLanguage } from '@/contexts/language-context'
 import { useInView } from '@/hooks/use-in-view'
+import { getYouTubeEmbedUrl } from '@/lib/video'
 import { sectionNumber } from '@/lib/site-sections'
 import { cn } from '@/lib/utils'
 import { SHOWREEL } from '@/lib/videos'
 
+/** رابط تضمين يوتيوب الجاهز — يُبنى مرة واحدة عند التحميل (الفيلم مستضاف على يوتيوب) */
+const EMBED_URL = getYouTubeEmbedUrl(SHOWREEL.url, true)
+
 /**
  * قسم «أبرز اللقطات»: فيلم اللاعب داخل إطار سينمائي بهوية ذهبية.
  *
- * - الفيديو لا يُحمَّل مسبقًا إطلاقًا (`preload="none"`) — يبدأ التنزيل فقط بعد ضغط
- *   الزائر على زر التشغيل، مع مشغّل HTML5 كامل (تشغيل/إيقاف/شاشة كاملة).
+ * - الفيلم مستضاف على يوتيوب ولا يُركَّب إطار التضمين (`EMBED_URL`) إطلاقًا قبل ضغط
+ *   الزائر على زر التشغيل، ثم يعمل داخل الصفحة بمشغّل يوتيوب الكامل (تشغيل/إيقاف/ملء الشاشة).
  * - الحركات تتبع نفس نظام الموقع (`useInView` + `animate-pulse-gold`) وتتوقف تلقائيًا
  *   لمن يفضّل تقليل الحركة عبر قاعدة `prefers-reduced-motion` في `globals.css`.
  */
 export default function ShowreelSection() {
   const { content } = useLanguage()
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.2 })
-  const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
 
-  /** يبدأ الفيلم من داخل الإطار نفسه (بدل فتح نافذة جديدة) */
-  const startPlayback = useCallback(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    setPlaying(true)
-    const attempt = video.play()
-    if (attempt && typeof attempt.catch === 'function') {
-      attempt.catch(() => setPlaying(false))
-    }
-  }, [])
+  /** لا يُركَّب إطار يوتيوب ولا يُحمَّل منه شيء قبل ضغط الزائر على زر التشغيل */
+  const showPlayer = playing && EMBED_URL !== null
 
   return (
     <section id="showreel" className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
@@ -60,24 +54,31 @@ export default function ShowreelSection() {
           )}
         >
           <div className="gold-ring group relative overflow-hidden rounded-[2rem] border border-primary/25 bg-ink/70">
-            <video
-              ref={videoRef}
-              src={SHOWREEL.src}
-              poster={SHOWREEL.poster}
-              preload="none"
-              playsInline
-              controls={playing}
-              onPlay={() => setPlaying(true)}
-              onPause={() => setPlaying(false)}
-              onEnded={() => setPlaying(false)}
-              className="aspect-video w-full bg-ink object-cover"
-            />
+            {showPlayer ? (
+              <iframe
+                src={EMBED_URL ?? undefined}
+                title={content.showreel.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="aspect-video w-full border-0 bg-ink"
+              />
+            ) : (
+              /* غلاف الفيلم — لا يُحمَّل أي شيء من يوتيوب قبل ضغط الزائر */
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={SHOWREEL.poster}
+                alt=""
+                aria-hidden
+                className="aspect-video w-full bg-ink object-cover"
+              />
+            )}
 
             {/* الغلاف السينمائي — يظهر حتى يضغط الزائر زر التشغيل */}
-            {!playing ? (
+            {!showPlayer ? (
               <button
                 type="button"
-                onClick={startPlayback}
+                onClick={() => setPlaying(true)}
                 aria-label={content.showreel.play}
                 className="absolute inset-0 flex flex-col items-center justify-center gap-4 overflow-hidden px-6 text-center"
               >
@@ -114,7 +115,7 @@ export default function ShowreelSection() {
               </span>
 
               <a
-                href={SHOWREEL.src}
+                href={SHOWREEL.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/30 px-3.5 py-1.5 text-[11px] font-semibold text-primary transition-colors hover:bg-primary/10 sm:text-xs"

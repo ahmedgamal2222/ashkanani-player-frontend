@@ -49,6 +49,7 @@ npm run dev                    # http://localhost:3000
 | `public/favicon.svg` | أيقونة الموقع — حاليًا تُستخدم أيقونة الوكالة الرسمية `https://ashkananitransfer.com/logo.png` (في `app/layout.tsx`) |
 | `public/videos/ahmedhussin1.mp4` | الفيديو التعريفي للاعب (مهارات) |
 | رابط يوتيوب | فيديو المنتخب — بطولة غرب آسيا للشباب (يُضمَّن تلقائيًا في المعرض) |
+| رابط يوتيوب (فيلم أبرز اللقطات) | https://www.youtube.com/watch?v=8XS6uN7JzHY — يُضمَّن في قسم `#showreel` عبر `lib/videos.ts → SHOWREEL` (بدل ملف 188MiB محلي) |
 
 بعد إضافة الصور إما:
 1. **تستبدل** الملفات بنفس الأسماء (بدون تعديل أي كود)، أو

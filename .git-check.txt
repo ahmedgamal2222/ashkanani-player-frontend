@@ -1,0 +1,26 @@
+﻿?? .git-check.txt
+---BRANCH---
+* main 5b5ba57 [origin/main] fix(layout): items-start on two-column grids + rebalance presence cards
+---LOG---
+5b5ba57 fix(layout): items-start on two-column grids + rebalance presence cards
+96836fe new updatess
+3449d48 new updates
+040a666 new update
+63264bc Initial upload of Ashkanani frontendsdsssssSSS
+---LFS---
+c95f167aa2 * public/videos/WhatsApp Video 2026-09-28 at 7.41.23 AM.mp4
+e7f59260bd * public/videos/ahmedhussin1.mp4
+c95f167aa2 * public/videos/hero-film.mp4
+256c725f67 * public/videos/khourshid-showreel.mp4
+256c725f67 * public/videos/╪«┘ê╪▒╪┤┘è╪»╪»╪»12(1).mp4
+---TRACKED---
+public/videos/README.md
+public/videos/WhatsApp Video 2026-09-28 at 7.41.23 AM.mp4
+public/videos/ahmedhussin1.mp4
+public/videos/hero-film.mp4
+public/videos/khourshid-showreel.mp4
+"public/videos/\330\256\331\210\330\261\330\264\331\212\330\257\330\257\330\25712(1).mp4"
+---REMOTE---
+origin	https://github.com/ahmedgamal2222/ashkanani-agency-cv-frontend.git (fetch)
+origin	https://github.com/ahmedgamal2222/ashkanani-agency-cv-frontend.git (push)
+---WORKTREES---
