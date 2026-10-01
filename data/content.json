@@ -15,6 +15,7 @@
     },
     "navigation": {
       "home": "Home",
+      "showreel": "Showreel",
       "profile": "Profile",
       "attributes": "Attributes",
       "stats": "Statistics",
@@ -61,8 +62,8 @@
       "verified": "Verified",
       "agency": "Agency Website",
       "agencyNote": "News, transfers and the agency's full player portfolio.",
-      "instagram": "Agency Instagram",
-      "instagramNote": "Latest updates and behind-the-scenes content.",
+      "instagram": "Player Instagram",
+      "instagramNote": "Ahmed Hussein Khoursheed's official account — matchdays, training and daily updates.",
       "whatsapp": "WhatsApp",
       "whatsappNote": "Direct line to the agency for official enquiries."
     },
@@ -141,7 +142,7 @@
         "position": "Position",
         "secondaryPosition": "Secondary Position",
         "jerseyNumber": "Jersey Number",
-        "federation": "Federation",
+        "federation": "Youth Club",
         "club": "Current Club",
         "nationalTeam": "National Team",
         "previousClubs": "Previous Clubs"
@@ -228,6 +229,16 @@
       "noPhotos": "No photos available yet.",
       "noVideos": "No videos available yet.",
       "videoUnavailable": "Video not available — please upload the file to /public/videos."
+    },
+    "showreel": {
+      "title": "Highlights & Skills",
+      "subtitle": "Match moments and the full skill set in one film",
+      "badge": "Featured film",
+      "overlayTitle": "Watch the full film",
+      "overlaySubtitle": "Press play — the film runs right here on the page",
+      "play": "Play the film",
+      "openInNewTab": "Open in a new tab",
+      "note": "Nothing is downloaded until you press play."
     },
     "style": {
       "title": "Style of Play",
@@ -342,6 +353,7 @@
     },
     "navigation": {
       "home": "الرئيسية",
+      "showreel": "أبرز اللقطات",
       "profile": "الملف الشخصي",
       "attributes": "السمات",
       "stats": "الإحصائيات",
@@ -388,8 +400,8 @@
       "verified": "موثّق",
       "agency": "موقع الوكالة",
       "agencyNote": "الأخبار والانتقالات وقائمة لاعبي الوكالة كاملة.",
-      "instagram": "إنستغرام الوكالة",
-      "instagramNote": "أحدث التحديثات ولقطات من الكواليس.",
+      "instagram": "إنستغرام اللاعب",
+      "instagramNote": "الحساب الرسمي لأحمد حسين خورشيد — المباريات والتدريبات والتحديثات اليومية.",
       "whatsapp": "واتساب",
       "whatsappNote": "خط مباشر مع الوكالة للاستفسارات الرسمية."
     },
@@ -468,7 +480,7 @@
         "position": "المركز",
         "secondaryPosition": "المركز الثاني",
         "jerseyNumber": "رقم القميص",
-        "federation": "الاتحاد",
+        "federation": "نادي النشأة",
         "club": "النادي الحالي",
         "nationalTeam": "المنتخب الوطني",
         "previousClubs": "الأندية السابقة"
@@ -555,6 +567,16 @@
       "noPhotos": "لا توجد صور متاحة حتى الآن.",
       "noVideos": "لا توجد فيديوهات متاحة حتى الآن.",
       "videoUnavailable": "الفيديو غير متوفر — يرجى رفع الملف إلى مجلد /public/videos."
+    },
+    "showreel": {
+      "title": "أبرز اللقطات والمهارات",
+      "subtitle": "لحظات من المباريات ومهارات اللاعب كاملة في فيلم واحد",
+      "badge": "فيلم مميّز",
+      "overlayTitle": "شاهد الفيلم كاملًا",
+      "overlaySubtitle": "اضغط للتشغيل — يعمل الفيلم داخل الصفحة مباشرة",
+      "play": "تشغيل الفيلم",
+      "openInNewTab": "فتح في نافذة جديدة",
+      "note": "لا يبدأ التحميل إلا بعد الضغط على زر التشغيل."
     },
     "style": {
       "title": "أسلوب اللعب",

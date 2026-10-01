@@ -8,10 +8,31 @@ import SectionHeading from '@/components/section-heading'
 import { useLanguage } from '@/contexts/language-context'
 import { formatMonth } from '@/lib/format'
 import { sectionNumber } from '@/lib/site-sections'
+import type { MediaItem } from '@/lib/types'
 import { getYouTubeEmbedUrl } from '@/lib/video'
 import { cn } from '@/lib/utils'
 
 type Filter = 'all' | 'photo' | 'video'
+
+/** صورة الغلاف المعروضة للعنصر (الفيديو يعتمد على صورته المصغّرة إن وُجدت). */
+function coverOf(item: MediaItem): string {
+  const raw = item.type === 'video' ? item.thumbnailUrl || item.url : item.url
+  return raw.trim().toLowerCase()
+}
+
+/**
+ * إزالة تكرار الأغلفة داخل المعرض: لا يظهر أكثر من عنصر واحد بنفس صورة الغلاف،
+ * فلا يتكرر غلاف الفيديو مرتين في قسم الفيديوهات (ولا يشغل غلافَ صورةٍ أخرى).
+ */
+function dedupeCovers(items: MediaItem[]): MediaItem[] {
+  const seen = new Set<string>()
+  return items.filter((item) => {
+    const cover = coverOf(item)
+    if (seen.has(cover)) return false
+    seen.add(cover)
+    return true
+  })
+}
 
 export default function MediaSection() {
   const { content, pick, locale } = useLanguage()
@@ -20,10 +41,19 @@ export default function MediaSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   const items = useMemo(() => {
-    if (filter === 'photo') return photos
-    if (filter === 'video') return videos
-    return [...photos, ...videos]
+    if (filter === 'photo') return dedupeCovers(photos)
+    if (filter === 'video') return dedupeCovers(videos)
+    return dedupeCovers([...photos, ...videos])
   }, [filter, photos, videos])
+
+  const counts = useMemo<Record<Filter, number>>(
+    () => ({
+      all: dedupeCovers([...photos, ...videos]).length,
+      photo: dedupeCovers(photos).length,
+      video: dedupeCovers(videos).length,
+    }),
+    [photos, videos]
+  )
 
   const close = useCallback(() => setActiveIndex(null), [])
 
@@ -61,9 +91,9 @@ export default function MediaSection() {
   const activeEmbedUrl = active ? getYouTubeEmbedUrl(active.url) : null
 
   const tabs: Array<{ key: Filter; label: string; count: number }> = [
-    { key: 'all', label: content.media.all, count: photos.length + videos.length },
-    { key: 'photo', label: content.media.photos, count: photos.length },
-    { key: 'video', label: content.media.videos, count: videos.length },
+    { key: 'all', label: content.media.all, count: counts.all },
+    { key: 'photo', label: content.media.photos, count: counts.photo },
+    { key: 'video', label: content.media.videos, count: counts.video },
   ]
 
   return (

@@ -13,6 +13,6 @@
   </g>
   <circle cx="640" cy="310" r="120" fill="#e3c264" opacity="0.14"/>
   <path d="M607 250l86 60-86 60z" fill="url(#v1g)"/>
-  <text x="640" y="600" font-family="Georgia, serif" font-size="42" font-weight="700" letter-spacing="4" text-anchor="middle" fill="url(#v1g)">SEASON HIGHLIGHTS</text>
-  <text x="640" y="650" font-family="Arial, sans-serif" font-size="20" letter-spacing="5" text-anchor="middle" fill="#c9ccdd" opacity="0.8">أبرز لقطات الموسم 2024 / 2025</text>
+  <text x="640" y="600" font-family="Georgia, serif" font-size="42" font-weight="700" letter-spacing="4" text-anchor="middle" fill="url(#v1g)">HIGHLIGHTS &amp; SKILLS</text>
+  <text x="640" y="650" font-family="Arial, sans-serif" font-size="20" letter-spacing="5" text-anchor="middle" fill="#c9ccdd" opacity="0.8">أبرز اللقطات والمهارات</text>
 </svg>

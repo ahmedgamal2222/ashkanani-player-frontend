@@ -8,6 +8,7 @@
 import contentData from '@/data/content.json'
 
 export type SectionId =
+  | 'showreel'
   | 'profile'
   | 'attributes'
   | 'tactical'
@@ -26,6 +27,7 @@ type NavKey = keyof typeof contentData.en.navigation
 
 /** ترتيب الأقسام كما تظهر في الصفحة الرئيسية */
 export const SECTION_ORDER: SectionId[] = [
+  'showreel',
   'profile',
   'attributes',
   'tactical',

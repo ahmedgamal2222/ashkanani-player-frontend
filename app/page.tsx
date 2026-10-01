@@ -11,6 +11,7 @@ import Hero from '@/components/sections/hero'
 import MediaSection from '@/components/sections/media'
 import PresenceSection from '@/components/sections/presence'
 import ProfileSection from '@/components/sections/profile'
+import ShowreelSection from '@/components/sections/showreel'
 import StatsSection from '@/components/sections/stats'
 import StyleSection from '@/components/sections/style'
 import TacticalSection from '@/components/sections/tactical'
@@ -48,6 +49,7 @@ export default async function HomePage() {
       <SiteHeader />
       <main className="relative overflow-hidden">
         <Hero />
+        <ShowreelSection />
         <ProfileSection />
         {/* سمات اللاعب مخفية مؤقتًا — لإعادة إظهارها أزل 'attributes' من HIDDEN_SECTIONS في lib/site-sections.ts */}
         {isSectionVisible('attributes') ? <AttributesSection /> : null}

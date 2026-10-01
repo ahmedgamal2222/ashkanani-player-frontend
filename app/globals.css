@@ -83,6 +83,7 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-gold: pulseGold 2.4s ease-in-out infinite;
   --animate-marquee: marquee 26s linear infinite;
+  --animate-hero-zoom: heroZoom 28s ease-in-out infinite alternate;
   --animate-pitch-pulse: pitchPulse 2.6s ease-in-out infinite;
   --animate-dash-flow: dashFlow 4s linear infinite;
 }
@@ -228,6 +229,16 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* تكبير بطيء للفيديو الافتتاحي في الهيرو (إحساس سينمائي هادئ) */
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.09);
   }
 }
 

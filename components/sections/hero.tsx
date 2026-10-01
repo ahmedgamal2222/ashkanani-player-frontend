@@ -10,6 +10,8 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/language-context'
 import { formatMarketValue } from '@/lib/format'
+import { cn } from '@/lib/utils'
+import { HERO_FILM } from '@/lib/videos'
 
 export default function Hero() {
   const { content, pick, locale } = useLanguage()
@@ -28,14 +30,32 @@ export default function Hero() {
     { label: content.quickStats.marketValue, value: formatMarketValue(player.marketValueUsd, locale) },
   ]
 
+  /**
+   * شعارات بطاقة اللاعب بالترتيب المعتمد: النادي العربي (صورة الفريق) • نادي السالمية • منتخب الكويت الأولمبي
+   * `photo: true` تعني أن الملف صورة (تُقصّ لتملأ الإطار) وليست شعارًا شفافًا.
+   */
+  const playerBadges = [
+    {
+      src: player.federationLogo,
+      label: pick(player.federationEn, player.federationAr),
+      photo: true,
+    },
+    { src: player.clubLogo, label: pick(player.clubEn, player.clubAr), photo: false },
+    {
+      src: player.nationalTeamLogo,
+      label: pick(player.nationalTeamEn, player.nationalTeamAr),
+      photo: false,
+    },
+  ]
+
   return (
     <section
       id="home"
       style={{ minHeight: '100svh' }}
       className="relative isolate min-h-screen w-full max-w-full overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16"
     >
-      {/* الخلفية */}
-      <div className="absolute inset-0 -z-10">
+      {/* الخلفية: صورة الهيرو + الفيديو الافتتاحي (صامت • يتكرر • بحركة تكبير بطيئة) */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={player.heroImageUrl || content.siteInfo.heroImage}
@@ -43,7 +63,18 @@ export default function Hero() {
           aria-hidden
           className="size-full object-cover object-center opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/92 to-ink" />
+        <video
+          src={HERO_FILM.src}
+          muted
+          autoPlay
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden
+          tabIndex={-1}
+          className="absolute inset-0 size-full animate-hero-zoom object-cover object-center opacity-45 motion-reduce:hidden"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/90 to-ink" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,var(--gold)_0%,transparent_38%)] opacity-[0.13]" />
       </div>
 
@@ -55,15 +86,23 @@ export default function Hero() {
         {player.jerseyNumber}
       </span>
 
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-8">
-        {/* المحتوى النصي */}
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-16 lg:gap-y-12 lg:px-8">
+        {/* شريط الهوية: هوية الوكالة على اليسار • هوية اللاعب (الاسم والشارات) على اليمين — جنبًا إلى جنب */}
         <div
-          className={`w-full min-w-0 transition-all duration-1000 ${
+          className={cn(
+            'glass-panel gold-ring relative grid gap-6 overflow-hidden rounded-[1.75rem] p-5 sm:p-6 lg:col-span-2 lg:grid-cols-2 lg:items-center lg:gap-12 lg:p-8',
+            'transition-all duration-1000',
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}
+          )}
         >
-          {/* هوية الوكالة — الشعار بألوانه الأصلية في المقدمة */}
-          <div className="mb-7 flex flex-col items-start gap-4 sm:mb-8 sm:flex-row sm:items-center sm:gap-6">
+          {/* القاطع الذهبي في منتصف الشريط (يظهر على الشاشات الكبيرة) */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-y-8 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/40 to-transparent lg:block"
+          />
+
+          {/* هوية الوكالة — الجهة اليسرى */}
+          <div className="flex min-w-0 flex-col items-start gap-4 text-start sm:flex-row sm:items-center sm:gap-6 rtl:items-end rtl:text-end rtl:sm:flex-row-reverse lg:rtl:order-2">
             <AgencyLogo size="xl" className="h-16 sm:h-20 lg:h-24" />
             <span className="flex min-w-0 flex-col">
               <span className="font-serif text-lg font-black text-foreground sm:text-2xl">
@@ -74,51 +113,60 @@ export default function Hero() {
               </span>
               <span
                 aria-hidden
-                className="mt-3 h-px w-32 bg-gradient-to-r from-primary via-primary/40 to-transparent sm:w-44"
+                className="mt-3 h-px w-32 bg-gradient-to-r from-primary via-primary/40 to-transparent sm:w-44 rtl:bg-gradient-to-l"
               />
             </span>
           </div>
 
-          <div className="mb-6 flex flex-wrap items-center gap-2">
-            <Badge variant="solid">
-              <ShieldCheck className="size-3" />
-              {content.hero.eyebrow}
-            </Badge>
-            <Badge variant="outline">{pick(player.statusEn, player.statusAr)}</Badge>
-            {source === 'api' ? (
-              <Badge variant="muted" title={content.common.liveData}>
+          {/* هوية اللاعب — الجهة اليمنى */}
+          <div className="min-w-0 items-start text-start ltr:items-end ltr:text-end lg:rtl:order-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="solid">
                 <ShieldCheck className="size-3" />
-                {pick('Verified by agency', 'موثّق من الوكالة')}
+                {content.hero.eyebrow}
               </Badge>
-            ) : null}
+              <Badge variant="outline">{pick(player.statusEn, player.statusAr)}</Badge>
+              {source === 'api' ? (
+                <Badge variant="muted" title={content.common.liveData}>
+                  <ShieldCheck className="size-3" />
+                  {pick('Verified by agency', 'موثّق من الوكالة')}
+                </Badge>
+              ) : null}
+            </div>
+
+            <h1 className="mt-4 font-serif text-[clamp(1.8rem,7vw,4.6rem)] leading-[1.12] font-black tracking-tight [text-wrap:balance]">
+              <span className="block text-foreground">
+                {pick(player.firstNameEn, player.firstNameAr)}
+              </span>
+              <span className="block w-fit px-0.5 pb-1 text-gold-gradient">
+                {pick(player.lastNameEn, player.lastNameAr)}
+              </span>
+            </h1>
+
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-semibold tracking-[0.2em] text-primary/90 uppercase sm:text-sm">
+              <span>{pick(player.positionEn, player.positionAr)}</span>
+              <span className="h-1 w-1 rounded-full bg-primary/60" />
+              <span>{pick(player.secondaryPositionEn, player.secondaryPositionAr)}</span>
+            </div>
           </div>
-
-          <h1 className="font-serif text-[clamp(1.8rem,7.5vw,5.5rem)] leading-[1.15] font-black tracking-tight [text-wrap:balance]">
-            <span className="block text-foreground">
-              {pick(player.firstNameEn, player.firstNameAr)}
-            </span>
-            <span className="block w-fit px-0.5 pb-1 text-gold-gradient">
-              {pick(player.lastNameEn, player.lastNameAr)}
-            </span>
-          </h1>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm font-semibold tracking-[0.2em] text-primary/90 uppercase sm:text-base">
-            <span>{pick(player.positionEn, player.positionAr)}</span>
-            <span className="h-1 w-1 rounded-full bg-primary/60" />
-            <span>{pick(player.secondaryPositionEn, player.secondaryPositionAr)}</span>
-          </div>
-
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-foreground/70 sm:text-base">
+        </div>
+        {/* المحتوى النصي */}
+        <div
+          className={`w-full min-w-0 transition-all duration-1000 ${
+            mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+        >
+          <p className="max-w-xl text-sm leading-relaxed text-foreground/70 sm:text-base">
             {content.hero.tagline}
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9">
+          <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8">
             <Button asChild size="lg">
               <a href="#contact">{content.hero.ctaPrimary}</a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="#media" className="gap-2">
-                <Play className="size-4" />
+              <a href="#showreel" className="gap-2">
+                <Play className="size-4 rtl:-scale-x-100" />
                 {content.hero.ctaSecondary}
               </a>
             </Button>
@@ -185,31 +233,33 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* الشعارات: الاتحاد / النادي / المنتخب */}
+              {/* النادي العربي • نادي السالمية • منتخب الكويت الأولمبي */}
               <div className="mt-2.5 grid grid-cols-3 gap-2 sm:mt-3 sm:gap-3">
-                {[
-                  { src: player.federationLogo, label: pick(player.federationEn, player.federationAr) },
-                  { src: player.clubLogo, label: pick(player.clubEn, player.clubAr) },
-                  {
-                    src: player.nationalTeamLogo,
-                    label: pick(player.nationalTeamEn, player.nationalTeamAr),
-                  },
-                ].map((logo, index) => (
+                {playerBadges.map((badge) => (
                   <div
-                    key={index}
-                    title={logo.label}
-                    className="grid aspect-square place-items-center rounded-xl border border-white/8 bg-white/4 p-2"
+                    key={badge.label}
+                    title={badge.label}
+                    className="overflow-hidden rounded-xl border border-white/8 bg-white/4 transition-colors duration-300 hover:border-primary/40"
                   >
-                    {logo.src ? (
-                      /* eslint-disable-next-line @next/next/no-img-element */
-                      <img
-                        src={logo.src}
-                        alt={logo.label}
-                        className="max-h-full max-w-full object-contain"
-                      />
-                    ) : (
-                      <span className="text-center text-[9px] text-muted-foreground">{logo.label}</span>
-                    )}
+                    <div className="relative grid aspect-square place-items-center p-2">
+                      {badge.src ? (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img
+                          src={badge.src}
+                          alt={badge.label}
+                          className={cn(
+                            'max-h-full max-w-full object-contain',
+                            badge.photo && 'absolute inset-0 size-full object-cover'
+                          )}
+                        />
+                      ) : null}
+                      {badge.photo && badge.src ? (
+                        <span className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/15 to-transparent" />
+                      ) : null}
+                    </div>
+                    <span className="block truncate border-t border-white/8 bg-ink/45 px-1.5 py-1 text-center text-[9px] font-semibold text-foreground/75">
+                      {badge.label}
+                    </span>
                   </div>
                 ))}
               </div>

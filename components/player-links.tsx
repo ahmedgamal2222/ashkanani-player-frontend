@@ -36,9 +36,34 @@ export function OfficialProfileChips({ className }: { className?: string }) {
   const { bundle } = usePlayer()
 
   const url = bundle.player.transfermarktUrl || ASHKANANI_CV_URL
+  const instagramUrl = bundle.player.instagramUrl
 
   return (
     <div className={cn('flex w-full flex-wrap items-center gap-3', className)}>
+      {/* الحساب الرسمي للاعب على إنستغرام */}
+      {instagramUrl ? (
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={content.links.instagramNote}
+          className="glass-panel group inline-flex w-full min-w-0 items-center gap-3 rounded-2xl px-4 py-2.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 sm:w-auto"
+        >
+          <span className="grid size-9 shrink-0 place-items-center rounded-xl border border-primary/30 bg-primary/10">
+            <Instagram className="size-4 text-primary" />
+          </span>
+          <span className="flex min-w-0 flex-1 flex-col text-start">
+            <span className="truncate text-[10px] font-semibold tracking-[0.2em] text-primary/90 uppercase">
+              {content.links.instagram}
+            </span>
+            <span className="truncate text-xs font-semibold text-foreground/85">
+              {linkHost(instagramUrl)}
+            </span>
+          </span>
+          <ExternalLink className="size-4 shrink-0 text-primary transition-transform duration-300 group-hover:translate-x-0.5" />
+        </a>
+      ) : null}
+
       <a
         href={url}
         target="_blank"
