@@ -14,6 +14,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useLanguage } from '@/contexts/language-context'
 import { submitInquiry } from '@/lib/api'
+import { formatPhone } from '@/lib/format'
 import { sectionNumber } from '@/lib/site-sections'
 
 const formSchema = z.object({
@@ -170,7 +171,7 @@ export default function ContactSection() {
                       rel="noopener noreferrer"
                       className="font-semibold text-foreground/90 hover:text-primary"
                     >
-                      {player.whatsappNumber ?? '—'}
+                      {formatPhone(player.whatsappNumber)}
                     </a>
                   </li>
                   <li className="flex items-center gap-3">

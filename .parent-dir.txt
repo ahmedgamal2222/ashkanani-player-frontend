@@ -1,0 +1,16 @@
+﻿
+Mode   Name      
+----   ----      
+d----- backend   
+d----- frontend  
+-a---- .gitignore
+-a---- README.md 
+
+
+---BACKEND SEED---
+
+FullName                                                          
+--------                                                          
+C:\Users\gemya\Downloads\New folder (2)\v2\v2\arid-cps\ashkanan...
+
+

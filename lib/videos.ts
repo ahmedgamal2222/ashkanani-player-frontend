@@ -30,6 +30,6 @@ export const HERO_FILM = {
 export const SHOWREEL = {
   /** رابط المشاهدة على يوتيوب — يُستخدم للتضمين وزر «فتح في نافذة جديدة» */
   url: 'https://www.youtube.com/watch?v=8XS6uN7JzHY',
-  /** صورة الغلاف (SVG بهوية الموقع) تظهر قبل التشغيل */
-  poster: '/images/video-thumb-1.svg',
+  /** غلاف الفيلم — لقطة حقيقية للاعب (اقتطاع سينمائي 16:9) تظهر قبل التشغيل */
+  poster: '/images/showreel-cover.jpg',
 } as const

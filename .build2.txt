@@ -1,0 +1,63 @@
+﻿
+> ashkanani-player-frontend@1.0.0 build
+> next build
+
+   Γû▓ Next.js 15.5.25
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+node.exe : read ECONNRESET
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo          : NotSpecified: (read ECONNRESET:Stri 
+   ng) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Retrying 1/3...
+read ECONNRESET
+
+Retrying 1/3...
+read ECONNRESET
+
+Retrying 1/3...
+ Γ£ô Compiled successfully in 5.7min
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/7) ...
+   Generating static pages (1/7) 
+   Generating static pages (3/7) 
+   Generating static pages (5/7) 
+ Γ£ô Generating static pages (7/7)
+   Finalizing page optimization ...
+   Collecting build traces ...
+   Exporting (0/2) ...
+ Γ£ô Exporting (2/2)
+
+Route (app)                                 Size  First Load JS  Revalidate  Expire
+Γöî Γùï /                                     151 kB         271 kB          2m      1y
+Γö£ Γùï /_not-found                            134 B         103 kB
+Γö£ Γùï /api/inquiries                         134 B         103 kB
+Γö£ Γùï /robots.txt                            134 B         103 kB
+Γöö Γùï /sitemap.xml                           134 B         103 kB
++ First Load JS shared by all             102 kB
+  Γö£ chunks/255-9ad37a48e5c4abdf.js       46.2 kB
+  Γö£ chunks/4bd1b696-409494caf8c83275.js  54.2 kB
+  Γöö other shared chunks (total)          2.05 kB
+
+
+Γùï  (Static)  prerendered as static content
+
+
+Name                                         Length
+----                                         ------
+ahmedhussin1.mp4                            9034110
+hero-film.mp4                               4614402
+README.md                                      2578
+WhatsApp Video 2026-09-28 at 7.41.23 AM.mp4 4614402
+
+

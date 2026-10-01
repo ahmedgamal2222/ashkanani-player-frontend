@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ChevronDown, Play, ShieldCheck } from 'lucide-react'
 
 import AgencyLogo from '@/components/agency-logo'
@@ -17,8 +17,33 @@ export default function Hero() {
   const { content, pick, locale } = useLanguage()
   const { bundle, source } = usePlayer()
   const [mounted, setMounted] = useState(false)
+  const filmRef = useRef<HTMLVideoElement>(null)
+  const [filmPlaying, setFilmPlaying] = useState(false)
 
   useEffect(() => setMounted(true), [])
+
+  /**
+   * تشغيل الفيلم الافتتاحي تلقائيًا فور فتح الصفحة: محاولة مباشرة عند التركيب،
+   * وإذا منع المتصفح التشغيل التلقائي (مثل وضع الطاقة المنخفضة على الجوال) يُعاد
+   * التشغيل عند أول تفاعل من الزائر (لمسة • ضغطة • مفتاح • تمرير) ثم تُزال المستمعات.
+   */
+  useEffect(() => {
+    const video = filmRef.current
+    if (!video) return
+
+    const unlockEvents: Array<keyof WindowEventMap> = ['pointerdown', 'touchstart', 'keydown', 'scroll']
+
+    const unlock = () => {
+      void video.play().catch(() => {})
+      unlockEvents.forEach((eventName) => window.removeEventListener(eventName, unlock))
+    }
+
+    void video.play().catch(() => {
+      unlockEvents.forEach((eventName) => window.addEventListener(eventName, unlock, { passive: true }))
+    })
+
+    return () => unlockEvents.forEach((eventName) => window.removeEventListener(eventName, unlock))
+  }, [])
 
   const player = bundle.player
 
@@ -31,14 +56,16 @@ export default function Hero() {
   ]
 
   /**
-   * شعارات بطاقة اللاعب بالترتيب المعتمد: النادي العربي (صورة الفريق) • نادي السالمية • منتخب الكويت الأولمبي
-   * `photo: true` تعني أن الملف صورة (تُقصّ لتملأ الإطار) وليست شعارًا شفافًا.
+   * شعارات بطاقة اللاعب بالترتيب المعتمد: النادي العربي • نادي السالمية • منتخب الكويت الأولمبي
+   * `photo: true` تعني أن الملف صورة (تُقصّ لتملأ الإطار)، و`light: true` تعني أن الشعار
+   * بخلفية بيضاء (مثل شعار النادي العربي) فيُعرض فوق لوحة بيضاء أنيقة.
    */
   const playerBadges = [
     {
       src: player.federationLogo,
       label: pick(player.federationEn, player.federationAr),
-      photo: true,
+      photo: false,
+      light: true,
     },
     { src: player.clubLogo, label: pick(player.clubEn, player.clubAr), photo: false },
     {
@@ -54,7 +81,7 @@ export default function Hero() {
       style={{ minHeight: '100svh' }}
       className="relative isolate min-h-screen w-full max-w-full overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16"
     >
-      {/* الخلفية: صورة الهيرو + الفيديو الافتتاحي (صامت • يتكرر • بحركة تكبير بطيئة) */}
+      {/* الخلفية: صورة الهيرو + الفيلم الافتتاحي (يشتغل تلقائيًا وصامتًا فور التحميل • يتكرر • بحركة تكبير بطيئة • يتلاشى للداخل عند بدء التشغيل) */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -64,15 +91,20 @@ export default function Hero() {
           className="size-full object-cover object-center opacity-45"
         />
         <video
+          ref={filmRef}
           src={HERO_FILM.src}
           muted
           autoPlay
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
+          onPlaying={() => setFilmPlaying(true)}
           aria-hidden
           tabIndex={-1}
-          className="absolute inset-0 size-full animate-hero-zoom object-cover object-center opacity-45 motion-reduce:hidden"
+          className={cn(
+            'absolute inset-0 size-full animate-hero-zoom object-cover object-center transition-opacity duration-1000 motion-reduce:hidden',
+            filmPlaying ? 'opacity-45' : 'opacity-0'
+          )}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/90 to-ink" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,var(--gold)_0%,transparent_38%)] opacity-[0.13]" />
@@ -241,7 +273,12 @@ export default function Hero() {
                     title={badge.label}
                     className="overflow-hidden rounded-xl border border-white/8 bg-white/4 transition-colors duration-300 hover:border-primary/40"
                   >
-                    <div className="relative grid aspect-square place-items-center p-2">
+                    <div
+                      className={cn(
+                        'relative grid aspect-square place-items-center',
+                        badge.light ? 'bg-white p-1.5' : 'p-2'
+                      )}
+                    >
                       {badge.src ? (
                         /* eslint-disable-next-line @next/next/no-img-element */
                         <img

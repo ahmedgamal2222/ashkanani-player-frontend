@@ -34,7 +34,7 @@ const player: PlayerBundle['player'] = {
   addressAr: 'الكويت',
   phone: null,
   email: null,
-  whatsappNumber: '96500000000',
+  whatsappNumber: '96597131223',
   instagramUrl: 'https://www.instagram.com/ahk.8_',
   transfermarktUrl: 'https://www.transfermarkt.com/ahmed-awadh/transfers/spieler/1115547/transfer_id/6434546',
   photoUrl: '/images/ahmedhussin4.jpg',
@@ -46,7 +46,7 @@ const player: PlayerBundle['player'] = {
   // حقول federation* : النادي الأول في بطاقة اللاعب (يظهر أولًا بجانب نادي السالمية والمنتخب)
   federationEn: 'Al-Arabi SC',
   federationAr: 'النادي العربي',
-  federationLogo: '/images/alarbiteam.jpg',
+  federationLogo: '/images/arabi-club-logo.png',
   clubEn: 'Salmiya SC',
   clubAr: 'نادي السالمية',
   clubLogo:
@@ -108,7 +108,7 @@ const stats: PlayerBundle['stats'] = [
 
 const career: PlayerBundle['career'] = [
   { id: 1, clubEn: 'Salmiya SC', clubAr: 'نادي السالمية', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/j94fkz5qTn8imlOdS7El8udjbnS47W7y46o9V8w8.png', leagueEn: 'Kuwaiti Premier League — First Team', leagueAr: 'الدوري الكويتي الممتاز — الفريق الأول', seasonFrom: '2026/2027', seasonTo: '2027/2028', isCurrent: 1, appearances: 0, goals: 0, assists: 0, sortOrder: 1 },
-  { id: 2, clubEn: 'Al-Arabi SC', clubAr: 'النادي العربي', clubLogo: 'https://upload.wikimedia.org/wikipedia/ar/thumb/a/a2/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%A7%D9%84%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A_%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%D9%8A.svg/960px-%D8%B4%D8%B9%D8%A7%D8%B1_%D8%A7%D9%84%D9%86%D8%A7%D8%AF%D9%8A_%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A_%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA%D9%8A.svg.png', leagueEn: 'Kuwaiti Premier League — Youth Stages (U-13 → U-20) to First Team', leagueAr: 'الدوري الكويتي الممتاز — المراحل السنية (تحت 13 → تحت 20) إلى الفريق الأول', seasonFrom: '2013/2014', seasonTo: '2025/2026', isCurrent: 0, appearances: 0, goals: 24, assists: 18, sortOrder: 2 },
+  { id: 2, clubEn: 'Al-Arabi SC', clubAr: 'النادي العربي', clubLogo: '/images/arabi-club-logo.png', leagueEn: 'Kuwaiti Premier League — Youth Stages (U-13 → U-20) to First Team', leagueAr: 'الدوري الكويتي الممتاز — المراحل السنية (تحت 13 → تحت 20) إلى الفريق الأول', seasonFrom: '2013/2014', seasonTo: '2025/2026', isCurrent: 0, appearances: 0, goals: 24, assists: 18, sortOrder: 2 },
   { id: 3, clubEn: 'Kuwait National Teams', clubAr: 'منتخبات الكويت — جميع المراحل السنية', clubLogo: 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png', leagueEn: 'International — U-17, U-20 & Olympic Team', leagueAr: 'مباريات دولية — الناشئين والشباب والأولمبي', seasonFrom: '2021/2022', seasonTo: null, isCurrent: 1, appearances: 14, goals: 4, assists: 0, sortOrder: 3 },
 ]
 
@@ -137,13 +137,13 @@ const media: PlayerBundle['media'] = [
   { id: 6, type: 'photo', titleEn: 'Champion — Early Years', titleAr: 'بطلاً في سنوات البدايات', descriptionEn: 'Young champion with the trophy in the 2018/2019 season.', descriptionAr: 'بطلاً في سن مبكرة مع الكأس موسم 2018/2019.', url: '/images/ahmedhussin5.jpg', thumbnailUrl: '/images/ahmedhussin5.jpg', category: 'portrait', takenOn: '2019-05', featured: 0, sortOrder: 6 },
   { id: 7, type: 'photo', titleEn: 'Rising Talent Poster', titleAr: 'بوستر بدايات الموهبة', descriptionEn: 'Early design poster for the young player.', descriptionAr: 'بوستر تصميمي في بدايات اللاعب.', url: '/images/ahmedhussin6.jpg', thumbnailUrl: '/images/ahmedhussin6.jpg', category: 'portrait', takenOn: '2020-03', featured: 0, sortOrder: 7 },
   { id: 8, type: 'photo', titleEn: 'With the Agent — Early Days', titleAr: 'مع الوكيل في البدايات', descriptionEn: 'Meeting with the agent in the early years of his career.', descriptionAr: 'لقاء مع الوكيل في بدايات المسيرة.', url: '/images/ahmedhussin7.jpg', thumbnailUrl: '/images/ahmedhussin7.jpg', category: 'club', takenOn: '2020-06', featured: 0, sortOrder: 8 },
-  { id: 9, type: 'video', titleEn: 'Player Intro & Skills', titleAr: 'فيديو تعريفي ومهارات اللاعب', descriptionEn: 'Official intro video of the player and his skills.', descriptionAr: 'فيديو تعريفي رسمي باللاعب ومهاراته.', url: '/videos/ahmedhussin1.mp4', thumbnailUrl: '/images/video-thumb-3.svg', category: 'highlights', takenOn: '2026-08', featured: 1, sortOrder: 9 },
+  { id: 9, type: 'video', titleEn: 'Player Intro & Skills', titleAr: 'فيديو تعريفي ومهارات اللاعب', descriptionEn: 'Official intro video of the player and his skills.', descriptionAr: 'فيديو تعريفي رسمي باللاعب ومهاراته.', url: '/videos/ahmedhussin1.mp4', thumbnailUrl: '/images/cover-intro.jpg', category: 'highlights', takenOn: '2026-08', featured: 1, sortOrder: 9 },
   // صور النادي العربي (حيث بدأ اللاعب مسيرته من عمر 8 سنوات)
   { id: 10, type: 'photo', titleEn: 'With Al-Arabi SC — Youth Squad', titleAr: 'مع النادي العربي — فريق الشباب', descriptionEn: 'Squad photo with the Al-Arabi SC youth team.', descriptionAr: 'صورة جماعية مع فريق النادي العربي.', url: '/images/alarbiteam.jpg', thumbnailUrl: '/images/alarbiteam.jpg', category: 'club', takenOn: '2025-06', featured: 1, sortOrder: 11 },
   { id: 11, type: 'photo', titleEn: 'Training with Al-Arabi SC', titleAr: 'في تدريبات النادي العربي', descriptionEn: 'The player on the ball during a training session with Al-Arabi SC.', descriptionAr: 'اللاعب على الكرة في حصة تدريبية مع النادي العربي.', url: '/images/ahmed10.jpg', thumbnailUrl: '/images/ahmed10.jpg', category: 'training', takenOn: '2025-05', featured: 1, sortOrder: 12 },
   { id: 12, type: 'photo', titleEn: 'Al-Arabi SC — Portrait', titleAr: 'النادي العربي — بورتريه', descriptionEn: 'Portrait of the player in the Al-Arabi SC kit.', descriptionAr: 'صورة شخصية للاعب بلبس النادي العربي.', url: '/images/ahmed14.jpg', thumbnailUrl: '/images/ahmed14.jpg', category: 'portrait', takenOn: '2025-05', featured: 0, sortOrder: 13 },
   { id: 13, type: 'photo', titleEn: 'Al-Arabi SC — On the Grounds', titleAr: 'النادي العربي — بلبس الفريق', descriptionEn: 'The player in the Al-Arabi SC kit walking off the pitch.', descriptionAr: 'اللاعب بلبس النادي العربي خارج الملعب.', url: '/images/ahmed15.jpg', thumbnailUrl: '/images/ahmed15.jpg', category: 'club', takenOn: '2025-05', featured: 0, sortOrder: 14 },
-  { id: 14, type: 'video', titleEn: 'With the National Team — West Asia Youth Championship', titleAr: 'مع المنتخب — بطولة غرب آسيا للشباب', descriptionEn: 'Player footage with the Kuwait National Team in the West Asia Youth Championship.', descriptionAr: 'لقطات للاعب مع منتخب الكويت في بطولة غرب آسيا للشباب.', url: 'https://www.youtube.com/watch?v=N9LMTyeTJrQ', thumbnailUrl: '/images/video-thumb-2.svg', category: 'national', takenOn: '2025-01', featured: 1, sortOrder: 15 },
+  { id: 14, type: 'video', titleEn: 'With the National Team — West Asia Youth Championship', titleAr: 'مع المنتخب — بطولة غرب آسيا للشباب', descriptionEn: 'Player footage with the Kuwait National Team in the West Asia Youth Championship.', descriptionAr: 'لقطات للاعب مع منتخب الكويت في بطولة غرب آسيا للشباب.', url: 'https://www.youtube.com/watch?v=N9LMTyeTJrQ', thumbnailUrl: '/images/cover-national.jpg', category: 'national', takenOn: '2025-01', featured: 1, sortOrder: 15 },
 ]
 
 // سكشن «المباريات الأخيرة» أُلغي (لا توجد مباريات موثّقة بعد) — واستُبدل بقسم «أسلوب اللعب» التفاعلي.

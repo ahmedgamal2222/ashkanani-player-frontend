@@ -61,3 +61,16 @@ export function initials(name: string): string {
     .map((part) => part.charAt(0))
     .join('')
 }
+
+/**
+ * عرض رقم دولي مقروء للعرض فقط: 96597131223 → +965 9713 1223
+ * (روابط wa.me تبقى بالأرقام المجردة كما هي).
+ */
+export function formatPhone(value: string | null | undefined): string {
+  const digits = (value ?? '').replace(/\D/g, '')
+  if (!digits) return '—'
+  if (digits.length === 11 && digits.startsWith('965')) {
+    return `+965 ${digits.slice(3, 7)} ${digits.slice(7)}`
+  }
+  return `+${digits}`
+}

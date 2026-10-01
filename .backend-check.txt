@@ -1,0 +1,20 @@
+﻿
+FullName                                                          
+--------                                                          
+C:\Users\gemya\Downloads\New folder (2)\v2\v2\arid-cps\ashkanan...
+
+
+
+---WHATSAPP---
+15: phone, email, whatsapp_number, instagram_url, transfermarkt_url,
+---VIDEO THUMBS---
+201: (1, 'video', 'Player Intro & Skills', 'فيديو تعريفي ومهارات اللاعب', 'Official intro video of the player and his skills.', 'فيديو تعريفي رسمي باللاعب ومهاراته.'
+206: (1, 'video', 'With the National Team — West Asia Youth Championship', 'مع المنتخب — بطولة غرب آسيا للشباب', 'Player footage with the Kuwait National Team in the
+17: federation_en, federation_ar, federation_logo, club_en, club_ar, club_logo,
+18: national_team_en, national_team_ar, national_team_logo, is_active, is_featured
+33: -- حقول federation_* : تُمثّل النادي الأول في بطاقة اللاعب (يظهر أولًا بجانب نادي السالمية والمنتخب)
+37: 'https://api.ashkananitransfer.com/storage/clubs/logos/j94fkz5qTn8imlOdS7El8udjbnS47W7y46o9V8w8.png',
+38: 'Kuwait Olympic Team', 'منتخب الكويت الأولمبي', 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png',
+113: (player_id, club_en, club_ar, club_logo, league_en, league_ar, season_from, season_to,
+116: 'https://api.ashkananitransfer.com/storage/clubs/logos/j94fkz5qTn8imlOdS7El8udjbnS47W7y46o9V8w8.png',
+123: 'https://api.ashkananitransfer.com/storage/clubs/logos/Y7K4Eh3L6W9HzrMrg9IAiepd58ICEsdfgpZqIbxZ.png',

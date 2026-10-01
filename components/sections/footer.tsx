@@ -5,6 +5,7 @@ import { ArrowUp, Instagram, Mail, MapPin, Phone } from 'lucide-react'
 import AgencyLogo from '@/components/agency-logo'
 import { usePlayer } from '@/components/player-provider'
 import { useLanguage } from '@/contexts/language-context'
+import { formatPhone } from '@/lib/format'
 import { NAV_ITEMS } from '@/lib/site-sections'
 
 export default function SiteFooter() {
@@ -96,7 +97,7 @@ export default function SiteFooter() {
               <li className="flex items-center gap-2">
                 <Phone className="size-4 text-primary" />
                 <a href={`https://wa.me/${phone ?? ''}`} className="hover:text-primary">
-                  {phone ?? '—'}
+                  {formatPhone(phone)}
                 </a>
               </li>
               <li className="flex items-center gap-2">

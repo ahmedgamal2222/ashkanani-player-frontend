@@ -1,0 +1,11 @@
+﻿?? .backend-check.txt
+?? .build2.txt
+?? .gitstatus.txt
+?? .images-list.txt
+?? .logo-info.txt
+?? .parent-dir.txt
+?? public/images/arabi-club-logo.png
+---LFS---
+c95f167aa2 * public/videos/WhatsApp Video 2026-09-28 at 7.41.23 AM.mp4
+e7f59260bd * public/videos/ahmedhussin1.mp4
+c95f167aa2 * public/videos/hero-film.mp4

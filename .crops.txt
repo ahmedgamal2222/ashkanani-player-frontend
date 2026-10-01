@@ -1,0 +1,15 @@
+﻿intro source: 1206x1491
+
+Name              Length
+----              ------
+.crop-intro-a.jpg 134615
+.crop-intro-b.jpg 103820
+
+
+
+Name               Length
+----               ------
+cover-national.jpg 113983
+showreel-cover.jpg 149989
+
+

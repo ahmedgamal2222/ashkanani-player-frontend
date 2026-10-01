@@ -1,0 +1,21 @@
+﻿21ed34d fix(layout): items-start on two-column grids + rebalance presence cardss
+5b5ba57 fix(layout): items-start on two-column grids + rebalance presence cards
+96836fe new updatess
+3449d48 new updates
+---STATUS-SB---
+## main...origin/main
+?? .backend-check.txt
+?? .build2.txt
+?? .dims.txt
+?? .gitlog.txt
+?? .gitstatus.txt
+?? .images-list.txt
+?? .logo-info.txt
+?? .parent-dir.txt
+?? public/images/arabi-club-logo.png
+---TRACKED-IMAGE-OF-INTEREST---
+
+public/images/WhatsApp Image 2026-09-17 at 7.31.20 PM.jpeg
+public/images/update.jpg
+
+
