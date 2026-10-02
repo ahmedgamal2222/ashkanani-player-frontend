@@ -29,7 +29,7 @@ const player: PlayerBundle['player'] = {
   gender: 'Male',
   nationalityEn: 'Kuwaiti',
   nationalityAr: 'كويتي',
-  marketValueUsd: 500000,
+  marketValueUsd: 100000,
   addressEn: 'Kuwait',
   addressAr: 'الكويت',
   phone: null,
