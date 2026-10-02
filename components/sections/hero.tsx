@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ChevronDown, Play, ShieldCheck } from 'lucide-react'
 
 import AgencyLogo from '@/components/agency-logo'
@@ -11,39 +11,13 @@ import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/language-context'
 import { formatMarketValue } from '@/lib/format'
 import { cn } from '@/lib/utils'
-import { HERO_FILM } from '@/lib/videos'
 
 export default function Hero() {
   const { content, pick, locale } = useLanguage()
   const { bundle, source } = usePlayer()
   const [mounted, setMounted] = useState(false)
-  const filmRef = useRef<HTMLVideoElement>(null)
-  const [filmPlaying, setFilmPlaying] = useState(false)
 
   useEffect(() => setMounted(true), [])
-
-  /**
-   * تشغيل الفيلم الافتتاحي تلقائيًا فور فتح الصفحة: محاولة مباشرة عند التركيب،
-   * وإذا منع المتصفح التشغيل التلقائي (مثل وضع الطاقة المنخفضة على الجوال) يُعاد
-   * التشغيل عند أول تفاعل من الزائر (لمسة • ضغطة • مفتاح • تمرير) ثم تُزال المستمعات.
-   */
-  useEffect(() => {
-    const video = filmRef.current
-    if (!video) return
-
-    const unlockEvents: Array<keyof WindowEventMap> = ['pointerdown', 'touchstart', 'keydown', 'scroll']
-
-    const unlock = () => {
-      void video.play().catch(() => {})
-      unlockEvents.forEach((eventName) => window.removeEventListener(eventName, unlock))
-    }
-
-    void video.play().catch(() => {
-      unlockEvents.forEach((eventName) => window.addEventListener(eventName, unlock, { passive: true }))
-    })
-
-    return () => unlockEvents.forEach((eventName) => window.removeEventListener(eventName, unlock))
-  }, [])
 
   const player = bundle.player
 
@@ -58,7 +32,7 @@ export default function Hero() {
   /**
    * شعارات بطاقة اللاعب بالترتيب المعتمد: النادي العربي • نادي السالمية • منتخب الكويت الأولمبي
    * `photo: true` تعني أن الملف صورة (تُقصّ لتملأ الإطار)، و`light: true` تعني أن الشعار
-   * بخلفية بيضاء (مثل شعار النادي العربي) فيُعرض فوق لوحة بيضاء أنيقة.
+   * بخلفية بيضاء (شعار النادي العربي وشعار نادي السالمية) فيُعرض فوق لوحة بيضاء أنيقة.
    */
   const playerBadges = [
     {
@@ -67,7 +41,8 @@ export default function Hero() {
       photo: false,
       light: true,
     },
-    { src: player.clubLogo, label: pick(player.clubEn, player.clubAr), photo: false },
+    /* شعار نادي السالمية الرسمي (ملف محلي 303×365 بخلفية بيضاء) */
+    { src: player.clubLogo, label: pick(player.clubEn, player.clubAr), photo: false, light: true },
     {
       src: player.nationalTeamLogo,
       label: pick(player.nationalTeamEn, player.nationalTeamAr),
@@ -81,7 +56,7 @@ export default function Hero() {
       style={{ minHeight: '100svh' }}
       className="relative isolate min-h-screen w-full max-w-full overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16"
     >
-      {/* الخلفية: صورة الهيرو + الفيلم الافتتاحي (يشتغل تلقائيًا وصامتًا فور التحميل • يتكرر • بحركة تكبير بطيئة • يتلاشى للداخل عند بدء التشغيل) */}
+      {/* الخلفية: صورة الهيرو فقط بلا فيديو — مع تدرجات الهوية والوهج الذهبي */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -89,22 +64,6 @@ export default function Hero() {
           alt=""
           aria-hidden
           className="size-full object-cover object-center opacity-45"
-        />
-        <video
-          ref={filmRef}
-          src={HERO_FILM.src}
-          muted
-          autoPlay
-          loop
-          playsInline
-          preload="auto"
-          onPlaying={() => setFilmPlaying(true)}
-          aria-hidden
-          tabIndex={-1}
-          className={cn(
-            'absolute inset-0 size-full animate-hero-zoom object-cover object-center transition-opacity duration-1000 motion-reduce:hidden',
-            filmPlaying ? 'opacity-45' : 'opacity-0'
-          )}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/90 to-ink" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,var(--gold)_0%,transparent_38%)] opacity-[0.13]" />
@@ -119,40 +78,36 @@ export default function Hero() {
       </span>
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-16 lg:gap-y-12 lg:px-8">
-        {/* شريط الهوية: هوية الوكالة على اليسار • هوية اللاعب (الاسم والشارات) على اليمين — جنبًا إلى جنب */}
+        {/* شريط الهوية: شعار أشكناني وبجواره «وكالة أشكناني للاعبين» جنبًا إلى جنب، وأسفلهما اسم اللاعب */}
         <div
           className={cn(
-            'glass-panel gold-ring relative grid gap-6 overflow-hidden rounded-[1.75rem] p-5 sm:p-6 lg:col-span-2 lg:grid-cols-2 lg:items-center lg:gap-12 lg:p-8',
+            'glass-panel gold-ring relative flex flex-col items-center gap-5 overflow-hidden rounded-[1.75rem] p-5 sm:gap-6 sm:p-6 lg:col-span-2 lg:p-8',
             'transition-all duration-1000',
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           )}
         >
-          {/* القاطع الذهبي في منتصف الشريط (يظهر على الشاشات الكبيرة) */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-y-8 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-primary/40 to-transparent lg:block"
-          />
-
-          {/* هوية الوكالة — الجهة اليسرى */}
-          <div className="flex min-w-0 flex-col items-start gap-4 text-start sm:flex-row sm:items-center sm:gap-6 rtl:items-end rtl:text-end rtl:sm:flex-row-reverse lg:rtl:order-2">
-            <AgencyLogo size="xl" className="h-16 sm:h-20 lg:h-24" />
-            <span className="flex min-w-0 flex-col">
+          {/* هوية الوكالة: الشعار وبجواره اسم الوكالة (وكالة اللاعبين) */}
+          <div className="flex min-w-0 items-center gap-4 sm:gap-5">
+            <AgencyLogo size="xl" className="h-14 sm:h-16 lg:h-20" />
+            <span className="flex min-w-0 flex-col items-start text-start rtl:items-end rtl:text-end">
               <span className="font-serif text-lg font-black text-foreground sm:text-2xl">
                 {content.siteInfo.agencyName}
               </span>
               <span className="mt-1.5 text-[10px] font-semibold tracking-[0.24em] text-primary/90 uppercase sm:text-[11px]">
                 {content.siteInfo.agencyTagline}
               </span>
-              <span
-                aria-hidden
-                className="mt-3 h-px w-32 bg-gradient-to-r from-primary via-primary/40 to-transparent sm:w-44 rtl:bg-gradient-to-l"
-              />
             </span>
           </div>
 
-          {/* هوية اللاعب — الجهة اليمنى */}
-          <div className="min-w-0 items-start text-start ltr:items-end ltr:text-end lg:rtl:order-1">
-            <div className="flex flex-wrap items-center gap-2">
+          {/* فاصل ذهبي أفقي أنيق بين هوية الوكالة واسم اللاعب */}
+          <span
+            aria-hidden
+            className="h-px w-40 bg-gradient-to-r from-transparent via-primary/50 to-transparent sm:w-72"
+          />
+
+          {/* اسم اللاعب — أسفل شعار الوكالة وبشكل بارز */}
+          <div className="flex min-w-0 flex-col items-center gap-2 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-2">
               <Badge variant="solid">
                 <ShieldCheck className="size-3" />
                 {content.hero.eyebrow}
@@ -166,22 +121,64 @@ export default function Hero() {
               ) : null}
             </div>
 
-            <h1 className="mt-4 font-serif text-[clamp(1.8rem,7vw,4.6rem)] leading-[1.12] font-black tracking-tight [text-wrap:balance]">
+            <h1 className="mt-2 font-serif text-[clamp(1.9rem,7.5vw,4.7rem)] leading-[1.12] font-black tracking-tight [text-wrap:balance]">
               <span className="block text-foreground">
                 {pick(player.firstNameEn, player.firstNameAr)}
               </span>
-              <span className="block w-fit px-0.5 pb-1 text-gold-gradient">
+              <span className="mx-auto block w-fit px-0.5 pb-1 text-gold-gradient">
                 {pick(player.lastNameEn, player.lastNameAr)}
               </span>
             </h1>
 
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-semibold tracking-[0.2em] text-primary/90 uppercase sm:text-sm">
+            <div className="mt-2 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold tracking-[0.2em] text-primary/90 uppercase sm:text-sm">
               <span>{pick(player.positionEn, player.positionAr)}</span>
               <span className="h-1 w-1 rounded-full bg-primary/60" />
               <span>{pick(player.secondaryPositionEn, player.secondaryPositionAr)}</span>
             </div>
           </div>
         </div>
+
+        {/* إعلان رسمي: صفقة نادي السالمية — قادمًا من النادي العربي 2026 */}
+        <a
+          href="#career"
+          className={cn(
+            'glass-panel gold-ring group relative flex flex-col items-center gap-4 overflow-hidden rounded-[1.5rem] border border-primary/25 p-4 transition-all duration-1000 hover:border-primary/50 sm:flex-row sm:gap-5 sm:p-5 lg:col-span-2',
+            mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          )}
+        >
+          {/* الصورة المُعلَن عنها: اللاعب بلبس نادي السالمية */}
+          <span className="relative h-24 w-20 shrink-0 overflow-hidden rounded-xl border border-primary/30 bg-ink/60 sm:h-28 sm:w-24">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/ahmedhussin1.jpg"
+              alt={pick('The player in the Salmiya SC kit', 'اللاعب بلبس نادي السالمية')}
+              className="size-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105"
+            />
+            <span className="absolute inset-x-1 bottom-1 rounded-md bg-ink/75 px-1 py-0.5 text-center text-[8px] font-semibold text-primary/95">
+              {pick('Salmiya SC kit', 'بلبس نادي السالمية')}
+            </span>
+          </span>
+
+          <span className="flex min-w-0 flex-col items-center gap-1.5 text-center sm:items-start sm:text-start rtl:sm:items-end rtl:sm:text-end">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/10 px-2.5 py-1 text-[10px] font-bold tracking-[0.18em] text-primary uppercase">
+              <span aria-hidden className="animate-pulse-gold size-1.5 rounded-full bg-primary" />
+              {pick('Official announcement', 'إعلان رسمي')}
+              <span className="text-foreground/70">2026</span>
+            </span>
+            <span className="font-serif text-base font-black text-foreground sm:text-lg lg:text-xl">
+              {pick(
+                'Salmiya SC signing — arriving from Al-Arabi SC in 2026',
+                'صفقة نادي السالمية — قادمًا من النادي العربي 2026'
+              )}
+            </span>
+            <span className="text-xs leading-relaxed text-foreground/70 sm:text-[13px]">
+              {pick(
+                'Two-season professional contract (2026/2027 – 2027/2028) with the Salmiya SC first team.',
+                'عقد احترافي لموسمين (2026/2027 – 2027/2028) مع الفريق الأول لنادي السالمية.'
+              )}
+            </span>
+          </span>
+        </a>
         {/* المحتوى النصي */}
         <div
           className={`w-full min-w-0 transition-all duration-1000 ${

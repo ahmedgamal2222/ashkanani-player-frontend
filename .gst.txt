@@ -1,0 +1,3 @@
+﻿?? .gst.txt
+?? .imgs.txt
+?? public/images/ahmedcaptin.jpeg

@@ -1,0 +1,21 @@
+﻿ahmed10.jpg = 1158 x 1600
+ahmed14.jpg = 957 x 957
+ahmed15.jpg = 962 x 943
+ahmedcaptin.jpeg = 1206 x 725
+ahmedhussin1.jpg = 1206 x 1494
+ahmedhussin2.jpg = 1206 x 1346
+ahmedhussin4.jpg = 868 x 1370
+
+>       "agencyName": "Ashkanani Players Agency",
+>       "agencyTagline": "Official Player Representation • 
+Kuwait",
+        "agencyLogo": "/images/logo.png",
+>       "eyebrow": "Kuwait Olympic Team • Salmiya SC",
+        "firstName": "Ahmed",
+>       "agencyName": "وكالة أشكناني للاعبين",
+>       "agencyTagline": "تمثيل رسمي للاعبين • الكويت",
+        "agencyLogo": "/images/logo.png",
+>       "eyebrow": "منتخب الكويت الأولمبي • نادي السالمية",
+        "firstName": "أحمد",
+
+

@@ -1,0 +1,2 @@
+﻿club: 200 image/png
+national: 200 image/png

@@ -43,7 +43,7 @@ npm run dev                    # http://localhost:3000
 | `public/images/ahmedhussin5.jpg` | صورة من سنوات البدايات (مع الكأس) |
 | `public/images/ahmedhussin7.jpg` | صورة مع الوكيل في البدايات |
 | `public/images/ahmedhussin8.jpg` | قائمة المنتخب الأولمبي |
-| `public/images/club-salmiya.svg` | شعار نادي السالمية — حاليًا يُستخدم رابط الشعار الرسمي من `api.ashkananitransfer.com` |
+| `public/images/club-salmiya.svg` | ملف SVG قديم غير مُستخدم — الشعار المعتمد الآن `public/images/salmiya-club-logo.png` |
 | `public/images/national-team-kuwait.svg` | ملف قديم غير مُستخدم — شعار المنتخب الحالي هو شعار الاتحاد الرسمي من `api.ashkananitransfer.com` |
 | `public/images/federation-kfa.svg` | شعار الاتحاد الكويتي لكرة القدم — حاليًا يُستخدم رابط الشعار الرسمي من `api.ashkananitransfer.com` |
 | `public/favicon.svg` | أيقونة الموقع — حاليًا تُستخدم أيقونة الوكالة الرسمية `https://ashkananitransfer.com/logo.png` (في `app/layout.tsx`) |
