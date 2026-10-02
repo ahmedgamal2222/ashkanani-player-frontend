@@ -149,17 +149,7 @@
   color: transparent;
 }
 
-@utility glass-panel {
-  background: linear-gradient(160deg, oklch(1 0 0 / 0.06), oklch(1 0 0 / 0.015));
-  backdrop-filter: blur(14px);
-  border: 1px solid oklch(1 0 0 / 0.08);
-}
 
-@utility gold-ring {
-  box-shadow:
-    0 0 0 1px oklch(0.79 0.13 85 / 0.35),
-    0 18px 60px -20px oklch(0.79 0.13 85 / 0.35);
-}
 
 /* تمرير أفقي رقيق بشريط ذهبي واضح (جداول الجوال) */
 @utility scroll-x {
