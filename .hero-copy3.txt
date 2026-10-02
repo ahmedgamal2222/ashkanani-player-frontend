@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { ChevronDown, Play, ShieldCheck } from 'lucide-react'
@@ -78,66 +78,63 @@ export default function Hero() {
       </span>
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-16 lg:gap-y-12 lg:px-8">
-        {/* اسم اللاعب قصاد هوية الوكالة (الشعار + الاسم + التاجلاين) في صف أفقي واحد على sm فصاعدًا،
-            ويبقى التخطيط عموديًا مرتبًا على الشاشات الصغيرة جدًا */}
+        {/* اسم اللاعب في الأعلى، وأسفله شريط الهوية: شعار أشكناني وبجواره «وكالة أشكناني للاعبين» جنبًا إلى جنب */}
         <div
           className={cn(
-            'glass-panel gold-ring relative overflow-hidden rounded-[1.75rem] p-5 sm:p-6 lg:col-span-2 lg:p-8',
+            'glass-panel gold-ring relative flex flex-col items-center gap-5 overflow-hidden rounded-[1.75rem] p-5 sm:gap-6 sm:p-6 lg:col-span-2 lg:p-8',
             'transition-all duration-1000',
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           )}
         >
-          <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-center sm:gap-7 lg:gap-12">
-            {/* اسم اللاعب */}
-            <div className="flex min-w-0 flex-1 flex-col items-center gap-2 text-center">
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                <Badge variant="solid">
+          {/* اسم اللاعب — في الأعلى وبشكل بارز */}
+          <div className="flex min-w-0 flex-col items-center gap-2 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <Badge variant="solid">
+                <ShieldCheck className="size-3" />
+                {content.hero.eyebrow}
+              </Badge>
+              <Badge variant="outline">{pick(player.statusEn, player.statusAr)}</Badge>
+              {source === 'api' ? (
+                <Badge variant="muted" title={content.common.liveData}>
                   <ShieldCheck className="size-3" />
-                  {content.hero.eyebrow}
+                  {pick('Verified by agency', 'موثّق من الوكالة')}
                 </Badge>
-                <Badge variant="outline">{pick(player.statusEn, player.statusAr)}</Badge>
-                {source === 'api' ? (
-                  <Badge variant="muted" title={content.common.liveData}>
-                    <ShieldCheck className="size-3" />
-                    {pick('Verified by agency', 'موثّق من الوكالة')}
-                  </Badge>
-                ) : null}
-              </div>
-
-              <h1 className="mt-2 font-serif text-[clamp(1.9rem,6.5vw,4.3rem)] leading-[1.12] font-black tracking-tight [text-wrap:balance]">
-                <span className="block text-foreground">
-                  {pick(player.firstNameEn, player.firstNameAr)}
-                </span>
-                <span className="mx-auto block w-fit px-0.5 pb-1 text-gold-gradient">
-                  {pick(player.lastNameEn, player.lastNameAr)}
-                </span>
-              </h1>
-
-              <div className="mt-2 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold tracking-[0.2em] text-primary/90 uppercase sm:text-sm">
-                <span>{pick(player.positionEn, player.positionAr)}</span>
-                <span className="h-1 w-1 rounded-full bg-primary/60" />
-                <span>{pick(player.secondaryPositionEn, player.secondaryPositionAr)}</span>
-              </div>
+              ) : null}
             </div>
 
-            {/* فاصل ذهبي: أفقي على الموبايل، عمودي من sm فصاعدًا بين اسم اللاعب وهوية الوكالة */}
-            <span
-              aria-hidden
-              className="h-px w-40 shrink-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent sm:h-20 sm:w-px sm:bg-gradient-to-b sm:from-transparent sm:via-primary/50 sm:to-transparent lg:h-24"
-            />
-
-            {/* هوية الوكالة: الشعار وبجواره اسم الوكالة والتاجلاين — قصاد اسم اللاعب */}
-            <div className="flex min-w-0 flex-1 items-center justify-center gap-4 sm:gap-5">
-              <AgencyLogo size="xl" className="h-14 sm:h-16 lg:h-20" />
-              <span className="flex min-w-0 flex-col items-start text-start rtl:items-end rtl:text-end">
-                <span className="font-serif text-lg font-black text-foreground sm:text-2xl">
-                  {content.siteInfo.agencyName}
-                </span>
-                <span className="mt-1.5 text-[10px] font-semibold tracking-[0.24em] text-primary/90 uppercase sm:text-[11px]">
-                  {content.siteInfo.agencyTagline}
-                </span>
+            <h1 className="mt-2 font-serif text-[clamp(1.9rem,7.5vw,4.7rem)] leading-[1.12] font-black tracking-tight [text-wrap:balance]">
+              <span className="block text-foreground">
+                {pick(player.firstNameEn, player.firstNameAr)}
               </span>
+              <span className="mx-auto block w-fit px-0.5 pb-1 text-gold-gradient">
+                {pick(player.lastNameEn, player.lastNameAr)}
+              </span>
+            </h1>
+
+            <div className="mt-2 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold tracking-[0.2em] text-primary/90 uppercase sm:text-sm">
+              <span>{pick(player.positionEn, player.positionAr)}</span>
+              <span className="h-1 w-1 rounded-full bg-primary/60" />
+              <span>{pick(player.secondaryPositionEn, player.secondaryPositionAr)}</span>
             </div>
+          </div>
+
+          {/* فاصل ذهبي أفقي أنيق بين اسم اللاعب وهوية الوكالة */}
+          <span
+            aria-hidden
+            className="h-px w-40 bg-gradient-to-r from-transparent via-primary/50 to-transparent sm:w-72"
+          />
+
+          {/* هوية الوكالة: الشعار وبجواره اسم الوكالة (وكالة اللاعبين) — أسفل اسم اللاعب */}
+          <div className="flex min-w-0 items-center gap-4 sm:gap-5">
+            <AgencyLogo size="xl" className="h-14 sm:h-16 lg:h-20" />
+            <span className="flex min-w-0 flex-col items-start text-start rtl:items-end rtl:text-end">
+              <span className="font-serif text-lg font-black text-foreground sm:text-2xl">
+                {content.siteInfo.agencyName}
+              </span>
+              <span className="mt-1.5 text-[10px] font-semibold tracking-[0.24em] text-primary/90 uppercase sm:text-[11px]">
+                {content.siteInfo.agencyTagline}
+              </span>
+            </span>
           </div>
         </div>
 

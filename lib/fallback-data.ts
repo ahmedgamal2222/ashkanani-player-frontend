@@ -38,7 +38,8 @@ const player: PlayerBundle['player'] = {
   instagramUrl: 'https://www.instagram.com/ahk.8_',
   transfermarktUrl: 'https://www.transfermarkt.com/ahmed-awadh/transfers/spieler/1115547/transfer_id/6434546',
   photoUrl: '/images/ahmedhussin4.jpg',
-  heroImageUrl: '/images/ahmedhussin6.jpg',
+  // خلفية الهيرو: صورة حقيقية احترافية للاعب بلبس منتخب الكويت (بدل بوستر تصميمي بشعارات رعاة)
+  heroImageUrl: '/images/ahmedhussin4.jpg',
   bioEn:
     'Ahmed Hussein Khoursheed is a Kuwaiti central midfielder born in 2005 who joined Al-Arabi SC at the age of eight and progressed through every youth stage: named Best Player of the Season at Under-13 (2005/2006 generation), he played the Under-13 Cup and the Under-15 League, then the Under-17 League where he scored around 20 goals and finished runner-up in every competition, before recording about 18 assists and 4 goals at the Under-20 stage. He made his first-team debut at 17, represented Kuwait at every age level (Under-17, Under-20 and the Olympic Team) and captained the 2005 and 2006 national teams at all stages, with around 14 official international appearances (excluding friendlies and camps), 4 international goals and more than 15 Man-of-the-Match awards. He then signed a two-season contract (2026/2027 – 2027/2028) with Salmiya SC to play for the first team, and represents the Kuwait Olympic Team. A modern midfielder who is equally comfortable on both feet, he links defence and attack through fast ball circulation, intelligent positioning and aggressive pressing. With a low centre of gravity he excels in tight spaces, covers large distances across the pitch and takes responsibility in build-up play and set pieces. Signed as a professional player and officially represented by Ashkanani Players Agency in Kuwait.',
   bioAr:
