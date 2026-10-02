@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useState } from 'react'
 import { ChevronDown, Play, ShieldCheck } from 'lucide-react'
@@ -78,7 +78,7 @@ export default function Hero() {
       </span>
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-16 lg:gap-y-12 lg:px-8">
-        {/* اسم اللاعب في الأعلى، وأسفله شريط الهوية: شعار أشكناني وبجواره «وكالة أشكناني للاعبين» جنبًا إلى جنب */}
+        {/* شريط الهوية: شعار أشكناني وبجواره «وكالة أشكناني للاعبين» جنبًا إلى جنب، وأسفلهما اسم اللاعب */}
         <div
           className={cn(
             'glass-panel gold-ring relative flex flex-col items-center gap-5 overflow-hidden rounded-[1.75rem] p-5 sm:gap-6 sm:p-6 lg:col-span-2 lg:p-8',
@@ -86,7 +86,26 @@ export default function Hero() {
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           )}
         >
-          {/* اسم اللاعب — في الأعلى وبشكل بارز */}
+          {/* هوية الوكالة: الشعار وبجواره اسم الوكالة (وكالة اللاعبين) */}
+          <div className="flex min-w-0 items-center gap-4 sm:gap-5">
+            <AgencyLogo size="xl" className="h-14 sm:h-16 lg:h-20" />
+            <span className="flex min-w-0 flex-col items-start text-start rtl:items-end rtl:text-end">
+              <span className="font-serif text-lg font-black text-foreground sm:text-2xl">
+                {content.siteInfo.agencyName}
+              </span>
+              <span className="mt-1.5 text-[10px] font-semibold tracking-[0.24em] text-primary/90 uppercase sm:text-[11px]">
+                {content.siteInfo.agencyTagline}
+              </span>
+            </span>
+          </div>
+
+          {/* فاصل ذهبي أفقي أنيق بين هوية الوكالة واسم اللاعب */}
+          <span
+            aria-hidden
+            className="h-px w-40 bg-gradient-to-r from-transparent via-primary/50 to-transparent sm:w-72"
+          />
+
+          {/* اسم اللاعب — أسفل شعار الوكالة وبشكل بارز */}
           <div className="flex min-w-0 flex-col items-center gap-2 text-center">
             <div className="flex flex-wrap items-center justify-center gap-2">
               <Badge variant="solid">
@@ -117,27 +136,49 @@ export default function Hero() {
               <span>{pick(player.secondaryPositionEn, player.secondaryPositionAr)}</span>
             </div>
           </div>
-
-          {/* فاصل ذهبي أفقي أنيق بين اسم اللاعب وهوية الوكالة */}
-          <span
-            aria-hidden
-            className="h-px w-40 bg-gradient-to-r from-transparent via-primary/50 to-transparent sm:w-72"
-          />
-
-          {/* هوية الوكالة: الشعار وبجواره اسم الوكالة (وكالة اللاعبين) — أسفل اسم اللاعب */}
-          <div className="flex min-w-0 items-center gap-4 sm:gap-5">
-            <AgencyLogo size="xl" className="h-14 sm:h-16 lg:h-20" />
-            <span className="flex min-w-0 flex-col items-start text-start rtl:items-end rtl:text-end">
-              <span className="font-serif text-lg font-black text-foreground sm:text-2xl">
-                {content.siteInfo.agencyName}
-              </span>
-              <span className="mt-1.5 text-[10px] font-semibold tracking-[0.24em] text-primary/90 uppercase sm:text-[11px]">
-                {content.siteInfo.agencyTagline}
-              </span>
-            </span>
-          </div>
         </div>
 
+        {/* إعلان رسمي: صفقة نادي السالمية — قادمًا من النادي العربي 2026 */}
+        <a
+          href="#career"
+          className={cn(
+            'glass-panel gold-ring group relative flex flex-col items-center gap-4 overflow-hidden rounded-[1.5rem] border border-primary/25 p-4 transition-all duration-1000 hover:border-primary/50 sm:flex-row sm:gap-5 sm:p-5 lg:col-span-2',
+            mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          )}
+        >
+          {/* الصورة المُعلَن عنها: اللاعب بلبس نادي السالمية */}
+          <span className="relative h-24 w-20 shrink-0 overflow-hidden rounded-xl border border-primary/30 bg-ink/60 sm:h-28 sm:w-24">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/ahmedhussin1.jpg"
+              alt={pick('The player in the Salmiya SC kit', 'اللاعب بلبس نادي السالمية')}
+              className="size-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105"
+            />
+            <span className="absolute inset-x-1 bottom-1 rounded-md bg-ink/75 px-1 py-0.5 text-center text-[8px] font-semibold text-primary/95">
+              {pick('Salmiya SC kit', 'بلبس نادي السالمية')}
+            </span>
+          </span>
+
+          <span className="flex min-w-0 flex-col items-center gap-1.5 text-center sm:items-start sm:text-start rtl:sm:items-end rtl:sm:text-end">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/10 px-2.5 py-1 text-[10px] font-bold tracking-[0.18em] text-primary uppercase">
+              <span aria-hidden className="animate-pulse-gold size-1.5 rounded-full bg-primary" />
+              {pick('Official announcement', 'إعلان رسمي')}
+              <span className="text-foreground/70">2026</span>
+            </span>
+            <span className="font-serif text-base font-black text-foreground sm:text-lg lg:text-xl">
+              {pick(
+                'Salmiya SC signing — arriving from Al-Arabi SC in 2026',
+                'صفقة نادي السالمية — قادمًا من النادي العربي 2026'
+              )}
+            </span>
+            <span className="text-xs leading-relaxed text-foreground/70 sm:text-[13px]">
+              {pick(
+                'Two-season professional contract (2026/2027 – 2027/2028) with the Salmiya SC first team.',
+                'عقد احترافي لموسمين (2026/2027 – 2027/2028) مع الفريق الأول لنادي السالمية.'
+              )}
+            </span>
+          </span>
+        </a>
         {/* المحتوى النصي */}
         <div
           className={`w-full min-w-0 transition-all duration-1000 ${
